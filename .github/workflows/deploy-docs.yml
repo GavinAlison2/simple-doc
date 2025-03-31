@@ -24,7 +24,7 @@ jobs: # 工作流的步骤
       - name: Setup Node.js # 安装 Node.js
         uses: actions/setup-node@v4 # 使用的动作
         with: # 输入参数
-          node-version: 22 #   Node.js 版本
+          node-version: 20 #   Node.js 版本
           cache: npm # 缓存 npm 依赖
 
       - name: Install Deps # 安装依赖
