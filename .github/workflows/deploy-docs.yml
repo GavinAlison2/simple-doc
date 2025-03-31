@@ -33,8 +33,8 @@ jobs: # 工作流的步骤
       - name: Build Docs # 构建文档
         env: # 环境变量
           NODE_OPTIONS: --max_old_space_size=8192 # 增加内存限制
-        run: |- # 多行命令
-          npm run docs:build # 运行 npm run docs:build 命令
+        run: |- # 多行命令 # 运行 npm run docs:build 命令
+          npm run docs:build 
           > docs/.vuepress/dist/.nojekyll # 创建 .nojekyll 文件，用于阻止 GitHub Pages 忽略掉 docs/.vuepress/dist/ 目录下的文件
 
       - name: Deploy Docs # 部署文档
