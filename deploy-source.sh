@@ -18,7 +18,7 @@ git add -A
 git rm -r --cached node_modules
 git rm -r --cached docs/.vuepress/dist
 
-git commit -m 'deploy'
+git commit -m 'deploy-2'
 
 git remote add origin git@github.com:GavinAlison2/simple-doc.git
 git branch -M master
