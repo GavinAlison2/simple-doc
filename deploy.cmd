@@ -3,9 +3,10 @@
 @REM # set -e
 CHCP 65001
 
-npm run docs:build
+@REM npm run docs:build
 
-cd public
+@echo on
+cd docs/.vuepress/dist
 
 git init .
 
@@ -13,11 +14,15 @@ git add .
 
 git commit -m 'deploy'
 
-git remote add origin git@github.com:GavinAlison2/GavinAlison2.github.io.git  
+@REM git remote add origin git@github.com:GavinAlison2/GavinAlison2.github.io.git  
 
+@REM git branch -M master
+
+@REM git push -f -u git@github.com:GavinAlison2/GavinAlison2.github.io.git master:main  
+
+git remote add origin git@github.com:GavinAlison2/simple-doc.git
 git branch -M master
-
-git push -f git@github.com:GavinAlison2/GavinAlison2.github.io.git master:main  
+git push  -u origin master
 
 cd ../
 
