@@ -2,32 +2,26 @@
 home: true
 title: Home
 heroImage: /images/logo.png
+heroHeight: '92px'
 actions:
-  - text: Get Started
+  - text: 快速开始
     link: /get-started.html
     type: primary
-
-  - text: Introduction
-    link: https://vuejs.press/guide/introduction.html
-    type: secondary
-
+    
 features:
-  - title: Simplicity First
-    details: Minimal setup with markdown-centered project structure helps you focus on writing.
-  - title: Vue-Powered
-    details: Enjoy the dev experience of Vue, use Vue components in markdown, and develop custom themes with Vue.
-  - title: Performant
-    details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
-  - title: Themes
-    details: Providing a default theme out of the box. You can also choose a community theme or create your own one.
-  - title: Plugins
-    details: Flexible plugin API, allowing plugins to provide lots of plug-and-play features for your site.
-  - title: Bundlers
-    details: Default bundler is Vite, while Webpack is also supported. Choose the one you like!
+  - title: 数据开发岗位
+    details: 数据开发职位的笔记，包括SQL, ETL, 数据仓库, 数据分析, 数据可视化等 知识点整理
+  - title: Java
+    details: Java语言的笔记，知识点整理, Python, Go, Spring, Spring Boot, Spring Cloud, Spring Data JPA, Spring Security, Spring Cloud Alibaba等 知识点整理
+  - title: 前端
+    details: 前端技术栈的笔记, Vue, React, Node.js, VuePress, ES6, TypeScript等 知识点整理
+  - title: 大数据技术
+    details: 大数据技术栈的笔记，Hadoop, Spark, Kafka, Flink等 知识点整理
+  - title: 项目笔记
+    details: 项目经验的笔记，包括架构设计, 设计模式, 性能优化, 安全防护, 微服务等 知识点整理
+  - title: 持续更新中
+    details: 持续更新中...
 
-footer: MIT Licensed | Copyright © 2018-present VuePress Community
+footer: MIT Licensed | Copyright © 2016-present My Blog Community
 ---
 
-This is the content of home page. Check [Home Page Docs][default-theme-home] for more details.
-
-[default-theme-home]: https://vuejs.press/reference/default-theme/frontmatter.html#home-page

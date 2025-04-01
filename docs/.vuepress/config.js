@@ -11,7 +11,7 @@ export default defineUserConfig({
 
   theme: defaultTheme({
     logo: '/images/logo.png',
-    heroImage: '/images/logo.png',  
+    
     navbar: [
       { text: '首页', link: '/' },
       {
@@ -26,8 +26,10 @@ export default defineUserConfig({
           { text: 'Flutter', link: '/pages/folder1/test1.md' },
         ]
       },
-      { text: '功能演示', link: '/pages/folder1/test3.md' },
-      { text: 'Github', link: 'https://github.com/GavinAlison2' },
+      { text: '测试', link: '/pages/folder1/test3.md' },
+      { text: 'GitHub', 
+        faIcon: 'fab fa-github',
+        link: 'https://github.com/GavinAlison2' },
     ],
     // 侧边栏数组
     // 所有页面会使用相同的侧边栏
@@ -43,6 +45,15 @@ export default defineUserConfig({
       //   }
       // ],
       // 这里的链接应该是相对于 docs 文件夹的路径
+      '/get-started' : [
+        {
+          text: '开始',
+          collapsible: false,
+          children: [
+            '/get-started',
+          ]
+        }
+      ],
       '/guide/vue/': [
         {
           text: 'Vue 学习1',
