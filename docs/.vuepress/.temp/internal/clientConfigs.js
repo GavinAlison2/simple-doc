@@ -1,5 +1,5 @@
 import * as clientConfig0 from 'D:/workspace/front/es6_tee/vuepress-starter/node_modules/@vuepress/plugin-active-header-links/lib/client/config.js'
-import * as clientConfig1 from 'D:/workspace/front/es6_tee/vuepress-starter/node_modules/@vuepress/plugin-back-to-top/lib/client/config.js'
+import * as clientConfig1 from 'D:/workspace/front/es6_tee/vuepress-starter/node_modules/@vuepress/theme-default/node_modules/@vuepress/plugin-back-to-top/lib/client/config.js'
 import * as clientConfig2 from 'D:/workspace/front/es6_tee/vuepress-starter/node_modules/@vuepress/plugin-copy-code/lib/client/config.js'
 import * as clientConfig3 from 'D:/workspace/front/es6_tee/vuepress-starter/node_modules/@vuepress/plugin-markdown-hint/lib/client/config.js'
 import * as clientConfig4 from 'D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/git/config.js'

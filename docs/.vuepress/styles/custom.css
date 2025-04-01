@@ -1,0 +1,4 @@
+.vp-hero-image {
+    width: 100px !important; /* 设置图片宽度 */
+    height: 200px !important; /* 保持图片的原始宽高比 */
+  }
