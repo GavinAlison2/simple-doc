@@ -19,10 +19,11 @@ export const routes = Object.fromEntries([
   ["/pages/folder2/test4.html", { loader: () => import(/* webpackChunkName: "pages_folder2_test4.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/pages/folder2/test4.html.js"), meta: {"title":""} }],
   ["/pages/folder1/test1.html", { loader: () => import(/* webpackChunkName: "pages_folder1_test1.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/pages/folder1/test1.html.js"), meta: {"title":""} }],
   ["/pages/folder1/test3.html", { loader: () => import(/* webpackChunkName: "pages_folder1_test3.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/pages/folder1/test3.html.js"), meta: {"title":""} }],
-  ["/pages/vuepress/vuepress-install.html", { loader: () => import(/* webpackChunkName: "pages_vuepress_vuepress-install.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/pages/vuepress/vuepress-install.html.js"), meta: {"title":"VuePress 安装"} }],
   ["/guide/project/document/env.html", { loader: () => import(/* webpackChunkName: "guide_project_document_env.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/guide/project/document/env.html.js"), meta: {"title":""} }],
   ["/guide/project/document/intro.html", { loader: () => import(/* webpackChunkName: "guide_project_document_intro.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/guide/project/document/intro.html.js"), meta: {"title":""} }],
+  ["/pages/vuepress/vuepress-install.html", { loader: () => import(/* webpackChunkName: "pages_vuepress_vuepress-install.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/pages/vuepress/vuepress-install.html.js"), meta: {"title":"VuePress 安装"} }],
   ["/404.html", { loader: () => import(/* webpackChunkName: "404.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/404.html.js"), meta: {"title":""} }],
+  ["/guide/linux/", { loader: () => import(/* webpackChunkName: "guide_linux_index.html" */"D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/guide/linux/index.html.js"), meta: {"title":"环境搭建"} }],
 ]);
 
 if (import.meta.webpackHot) {

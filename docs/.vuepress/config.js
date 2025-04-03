@@ -6,10 +6,12 @@ export default defineUserConfig({
   lang: 'zh-CN',
   base: '/simple-doc',
 
-  title: 'Once Blog',
-  description: 'My blog',
-  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
+  title: 'Blog',
+  description: '个人博客',
+  // 这里的路径是基础路径，相对于 docs 文件夹的路径
+  head: [['link', { rel: 'icon', href: '/simple-doc/images/favicon.ico' }]],
   theme: defaultTheme({
+    // 这里的路径是相对于base的docs路径
     logo: '/images/logo.png',
     navbar: [
       { text: '首页', link: '/' },
