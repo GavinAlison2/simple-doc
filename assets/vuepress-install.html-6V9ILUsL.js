@@ -1,4 +1,4 @@
-import{_ as n,c as a,d as e,o as i}from"./app-csaFMrPn.js";const l="/simple-doc/assets/github-pages-CnaJ0gja.png",p="/simple-doc/assets/actions-CkbYltt_.png",t={};function c(d,s){return i(),a("div",null,s[0]||(s[0]=[e(`<h1 id="vuepress-安装" tabindex="-1"><a class="header-anchor" href="#vuepress-安装"><span>VuePress 安装</span></a></h1><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code><span class="line"><span class="token function">npm</span> init vuepress vuepress-starter</span>
+import{_ as n,c as a,d as e,o as i}from"./app-mj3TT_Zg.js";const l="/simple-doc/assets/github-pages-CnaJ0gja.png",p="/simple-doc/assets/actions-CkbYltt_.png",t={};function c(d,s){return i(),a("div",null,s[0]||(s[0]=[e(`<h1 id="vuepress-安装" tabindex="-1"><a class="header-anchor" href="#vuepress-安装"><span>VuePress 安装</span></a></h1><div class="language-bash line-numbers-mode" data-highlighter="prismjs" data-ext="sh"><pre><code><span class="line"><span class="token function">npm</span> init vuepress vuepress-starter</span>
 <span class="line"></span>
 <span class="line"><span class="token function">git</span>  init</span>
 <span class="line"></span>
