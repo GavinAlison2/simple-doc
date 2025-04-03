@@ -8,10 +8,9 @@ export default defineUserConfig({
 
   title: 'Once Blog',
   description: 'My blog',
-
+  head: [['link', { rel: 'icon', href: '/images/favicon.ico' }]],
   theme: defaultTheme({
     logo: '/images/logo.png',
-    
     navbar: [
       { text: '首页', link: '/' },
       {
