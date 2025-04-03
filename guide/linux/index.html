@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="generator" content="VuePress 2.0.0-rc.20" />
+    <style>
+      :root {
+        --vp-c-bg: #fff;
+      }
+
+      [data-theme='dark'] {
+        --vp-c-bg: #1b1b1f;
+      }
+
+      html,
+      body {
+        background-color: var(--vp-c-bg);
+      }
+    </style>
+    <script>
+      const useChoice = localStorage.getItem('vuepress-color-scheme')
+      const systemStatus =
+        'matchMedia' in window
+          ? window.matchMedia('(prefers-color-scheme: dark)').matches
+          : false
+
+      if (useChoice === 'light') {
+        document.documentElement.dataset.theme = 'light'
+      } else if (useChoice === 'dark' || systemStatus) {
+        document.documentElement.dataset.theme = 'dark'
+      }
+    </script>
+    <link rel="icon" href="/simple-doc/images/favicon.ico"><title>环境搭建 | Blog</title><meta name="description" content="个人博客">
+    <link rel="preload" href="/simple-doc/assets/style-B3-VMakp.css" as="style"><link rel="stylesheet" href="/simple-doc/assets/style-B3-VMakp.css">
+    <link rel="modulepreload" href="/simple-doc/assets/app-D80rLUNu.js"><link rel="modulepreload" href="/simple-doc/assets/index.html-CiJglRPm.js">
+    <link rel="prefetch" href="/simple-doc/assets/index.html-B9LnfwYO.js" as="script"><link rel="prefetch" href="/simple-doc/assets/bak-README.html-B0SSZBal.js" as="script"><link rel="prefetch" href="/simple-doc/assets/get-started.html-S1HCq6Qc.js" as="script"><link rel="prefetch" href="/simple-doc/assets/ray.html-C1JbBeM_.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test1.html-D_bUqG_Z.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test3.html-4T0Ghl-Z.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test4.html-B7K2hxvG.js" as="script"><link rel="prefetch" href="/simple-doc/assets/vuepress-install.html-C7dHykvh.js" as="script"><link rel="prefetch" href="/simple-doc/assets/1-数据仓库工具箱-笔记.html-_XItplb9.js" as="script"><link rel="prefetch" href="/simple-doc/assets/2-数据产品经理的工作笔记.html-56ExNV7Y.js" as="script"><link rel="prefetch" href="/simple-doc/assets/index.html-Cbvw9jqJ.js" as="script"><link rel="prefetch" href="/simple-doc/assets/产品经理岗位分析.html-DzoGzvB3.js" as="script"><link rel="prefetch" href="/simple-doc/assets/后端开发.html-CUZAx-ji.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test1.html-DJH7Kf4C.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test2.html-CtaFeW-n.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test3.html-U92hI5li.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test1.html-eVDdNKkx.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test2.html-DA61HSpx.js" as="script"><link rel="prefetch" href="/simple-doc/assets/test3.html-bqrRMIXb.js" as="script"><link rel="prefetch" href="/simple-doc/assets/env.html-D_TJCG-q.js" as="script"><link rel="prefetch" href="/simple-doc/assets/intro.html-DWbGhL6n.js" as="script"><link rel="prefetch" href="/simple-doc/assets/404.html-BXmyLey3.js" as="script">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="vp-theme-container no-sidebar external-link-icon" vp-container><!--[--><header class="vp-navbar" vp-navbar><div class="vp-toggle-sidebar-button" title="toggle sidebar" aria-expanded="false" role="button" tabindex="0"><div class="icon" aria-hidden="true"><span></span><span></span><span></span></div></div><span><a class="route-link" href="/simple-doc/"><img class="vp-site-logo" src="/simple-doc/images/logo.png" alt="Blog"><span class="vp-site-name vp-hide-mobile" aria-hidden="true">Blog</span></a></span><div class="vp-navbar-items-wrapper" style=""><!--[--><!--]--><nav class="vp-navbar-items vp-hide-mobile" aria-label="site navigation"><!--[--><div class="vp-navbar-item"><a class="route-link auto-link" href="/simple-doc/" aria-label="首页"><!--[--><!--[--><!--]--><!--]-->首页<!--[--><!--[--><!--]--><!--]--></a></div><div class="vp-navbar-item"><div class="vp-navbar-dropdown-wrapper"><button class="vp-navbar-dropdown-title" type="button" aria-label="前端"><span class="title">前端</span><span class="arrow down"></span></button><button class="vp-navbar-dropdown-title-mobile" type="button" aria-label="前端"><span class="title">前端</span><span class="right arrow"></span></button><ul style="display:none;" class="vp-navbar-dropdown"><!--[--><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/guide/vue/test1.html" aria-label="Vue"><!--[--><!--[--><!--]--><!--]-->Vue<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="TypeScript"><!--[--><!--[--><!--]--><!--]-->TypeScript<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="React"><!--[--><!--[--><!--]--><!--]-->React<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Angular"><!--[--><!--[--><!--]--><!--]-->Angular<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Node.js"><!--[--><!--[--><!--]--><!--]-->Node.js<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="小程序"><!--[--><!--[--><!--]--><!--]-->小程序<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Flutter"><!--[--><!--[--><!--]--><!--]-->Flutter<!--[--><!--[--><!--]--><!--]--></a></li><!--]--></ul></div></div><div class="vp-navbar-item"><div class="vp-navbar-dropdown-wrapper"><button class="vp-navbar-dropdown-title" type="button" aria-label="数据开发"><span class="title">数据开发</span><span class="arrow down"></span></button><button class="vp-navbar-dropdown-title-mobile" type="button" aria-label="数据开发"><span class="title">数据开发</span><span class="right arrow"></span></button><ul style="display:none;" class="vp-navbar-dropdown"><!--[--><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/guide/datawarehouse/" aria-label="数据产品"><!--[--><!--[--><!--]--><!--]-->数据产品<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="数据技术"><!--[--><!--[--><!--]--><!--]-->数据技术<!--[--><!--[--><!--]--><!--]--></a></li><!--]--></ul></div></div><div class="vp-navbar-item"><a class="auto-link external-link" href="https://github.com/GavinAlison2" aria-label="GitHub" rel="noopener noreferrer" target="_blank"><!--[--><!--[--><!--]--><!--]-->GitHub<!--[--><!--[--><!--]--><!--]--></a></div><!--]--></nav><!--[--><!--]--><button type="button" class="vp-toggle-color-mode-button" title="toggle color mode"><svg class="light-icon" viewbox="0 0 32 32" style=""><path d="M16 12.005a4 4 0 1 1-4 4a4.005 4.005 0 0 1 4-4m0-2a6 6 0 1 0 6 6a6 6 0 0 0-6-6z" fill="currentColor"></path><path d="M5.394 6.813l1.414-1.415l3.506 3.506L8.9 10.318z" fill="currentColor"></path><path d="M2 15.005h5v2H2z" fill="currentColor"></path><path d="M5.394 25.197L8.9 21.691l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 25.005h2v5h-2z" fill="currentColor"></path><path d="M21.687 23.106l1.414-1.415l3.506 3.506l-1.414 1.414z" fill="currentColor"></path><path d="M25 15.005h5v2h-5z" fill="currentColor"></path><path d="M21.687 8.904l3.506-3.506l1.414 1.415l-3.506 3.505z" fill="currentColor"></path><path d="M15 2.005h2v5h-2z" fill="currentColor"></path></svg><svg class="dark-icon" viewbox="0 0 32 32" style="display:none;"><path d="M13.502 5.414a15.075 15.075 0 0 0 11.594 18.194a11.113 11.113 0 0 1-7.975 3.39c-.138 0-.278.005-.418 0a11.094 11.094 0 0 1-3.2-21.584M14.98 3a1.002 1.002 0 0 0-.175.016a13.096 13.096 0 0 0 1.825 25.981c.164.006.328 0 .49 0a13.072 13.072 0 0 0 10.703-5.555a1.01 1.01 0 0 0-.783-1.565A13.08 13.08 0 0 1 15.89 4.38A1.015 1.015 0 0 0 14.98 3z" fill="currentColor"></path></svg></button><!----></div></header><!--]--><div class="vp-sidebar-mask"></div><!--[--><aside class="vp-sidebar" vp-sidebar><nav class="vp-navbar-items" aria-label="site navigation"><!--[--><div class="vp-navbar-item"><a class="route-link auto-link" href="/simple-doc/" aria-label="首页"><!--[--><!--[--><!--]--><!--]-->首页<!--[--><!--[--><!--]--><!--]--></a></div><div class="vp-navbar-item"><div class="vp-navbar-dropdown-wrapper"><button class="vp-navbar-dropdown-title" type="button" aria-label="前端"><span class="title">前端</span><span class="arrow down"></span></button><button class="vp-navbar-dropdown-title-mobile" type="button" aria-label="前端"><span class="title">前端</span><span class="right arrow"></span></button><ul style="display:none;" class="vp-navbar-dropdown"><!--[--><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/guide/vue/test1.html" aria-label="Vue"><!--[--><!--[--><!--]--><!--]-->Vue<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="TypeScript"><!--[--><!--[--><!--]--><!--]-->TypeScript<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="React"><!--[--><!--[--><!--]--><!--]-->React<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Angular"><!--[--><!--[--><!--]--><!--]-->Angular<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Node.js"><!--[--><!--[--><!--]--><!--]-->Node.js<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="小程序"><!--[--><!--[--><!--]--><!--]-->小程序<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="Flutter"><!--[--><!--[--><!--]--><!--]-->Flutter<!--[--><!--[--><!--]--><!--]--></a></li><!--]--></ul></div></div><div class="vp-navbar-item"><div class="vp-navbar-dropdown-wrapper"><button class="vp-navbar-dropdown-title" type="button" aria-label="数据开发"><span class="title">数据开发</span><span class="arrow down"></span></button><button class="vp-navbar-dropdown-title-mobile" type="button" aria-label="数据开发"><span class="title">数据开发</span><span class="right arrow"></span></button><ul style="display:none;" class="vp-navbar-dropdown"><!--[--><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/guide/datawarehouse/" aria-label="数据产品"><!--[--><!--[--><!--]--><!--]-->数据产品<!--[--><!--[--><!--]--><!--]--></a></li><li class="vp-navbar-dropdown-item"><a class="route-link auto-link" href="/simple-doc/pages/folder1/test1.html" aria-label="数据技术"><!--[--><!--[--><!--]--><!--]-->数据技术<!--[--><!--[--><!--]--><!--]--></a></li><!--]--></ul></div></div><div class="vp-navbar-item"><a class="auto-link external-link" href="https://github.com/GavinAlison2" aria-label="GitHub" rel="noopener noreferrer" target="_blank"><!--[--><!--[--><!--]--><!--]-->GitHub<!--[--><!--[--><!--]--><!--]--></a></div><!--]--></nav><!--[--><!--]--><!----><!--[--><!--]--></aside><!--]--><!--[--><main class="vp-page"><!--[--><!--]--><div vp-content><!--[--><!--]--><div><h1 id="环境搭建" tabindex="-1"><a class="header-anchor" href="#环境搭建"><span>环境搭建</span></a></h1><h2 id="安装系统" tabindex="-1"><a class="header-anchor" href="#安装系统"><span>安装系统</span></a></h2><ol><li>安装centos7系统</li><li>配置好网络</li><li>配置yum源</li><li>安装git</li><li>安装node.js, python, docker 等软件</li></ol><p>其中对应的脚本文件如下：</p><p>1-modify_font.sh</p><div class="language-modify_font.sh line-numbers-mode" data-highlighter="prismjs" data-ext="modify_font.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">cat &gt; /etc/init.d/set_font.sh &lt;&lt;EOF</span>
+<span class="line">#!/bin/bash</span>
+<span class="line">setfont sun12x22.psfu.gz</span>
+<span class="line">EOF</span>
+<span class="line">chmod +x /etc/init.d/set_font.sh</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>2-modify_yum_repo.sh</p><div class="language-modify_yum_repo.sh line-numbers-mode" data-highlighter="prismjs" data-ext="modify_yum_repo.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span>
+<span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</span>
+<span class="line">curl -o /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo</span>
+<span class="line">cd /etc/yum.repos.d</span>
+<span class="line">sed -i &#39;s/http/https/g&#39; *.repo</span>
+<span class="line"></span>
+<span class="line">yum clean all</span>
+<span class="line">yum makecache </span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3-add_dns.sh</p><div class="language-add_dns.sh line-numbers-mode" data-highlighter="prismjs" data-ext="add_dns.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">cat &gt;&gt; /etc/resolv.conf &lt;&lt; &quot;EOF&quot;</span>
+<span class="line">nameserver 8.8.8.8</span>
+<span class="line">nameserver 8.8.4.4</span>
+<span class="line">nameserver 114.114.114.114</span>
+<span class="line">EOF</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>4-install_git.sh</p><div class="language-install_base.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_base.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">yum -y install net-tools  wget </span>
+<span class="line">yum -y install tree nmap dos2unix lrzsz nc lsof wget tcpdump htop iftop iotop sysstat nethogs </span>
+<span class="line">yum -y install psmisc net-tools bash-completion vim-enhanced </span>
+<span class="line">yum -y install epel-release</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>5-install_py3.sh</p><div class="language-install_py3.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_py3.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">cd /root</span>
+<span class="line"># wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz</span>
+<span class="line">wget https://mirrors.huaweicloud.com/python/3.11.0/Python-3.11.0.tgz</span>
+<span class="line">tar -xzf Python-3.11.0.tgz</span>
+<span class="line">yum -y install gcc zlib zlib-devel libffi libffi-devel</span>
+<span class="line">yum -y install readline-devel</span>
+<span class="line">yum -y install openssl-devel openssl11 openssl11-devel</span>
+<span class="line">export CFLAGS=$(pkg-config --cflags openssl11)</span>
+<span class="line">export LDFLAGS=$(pkg-config --libs openssl11)</span>
+<span class="line">cd /root/Python-3.11.0</span>
+<span class="line">./configure --prefix=/usr/python --with-ssl</span>
+<span class="line">make</span>
+<span class="line">make install</span>
+<span class="line">ln -s /usr/python/bin/python3 /usr/bin/python3</span>
+<span class="line">ln -s /usr/python/bin/pip3 /usr/bin/pip3</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">cd /usr/bin</span>
+<span class="line">rm -rf /usr/bin/python</span>
+<span class="line">rm -rf /usr/bin/pip</span>
+<span class="line">ln -s /usr/bin/python3 /usr/bin/python</span>
+<span class="line">ln -s /usr/bin/pip3 /usr/bin/pip</span>
+<span class="line"></span>
+<span class="line">sed -i &#39;s/python$/python2/g&#39; /usr/bin/yum</span>
+<span class="line">sed -i &#39;s/python$/python2/g&#39; /usr/libexec/urlgrabber-ext-down</span>
+<span class="line"></span>
+<span class="line">/usr/python/bin/python3.11 -m pip install --upgrade pip</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>6-install_git_mvn.sh</p><div class="language-install_git_mvn.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_git_mvn.sh"><pre><code><span class="line"></span>
+<span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">yum -y install git</span>
+<span class="line"></span>
+<span class="line">yum -y remove java-1.8.*</span>
+<span class="line">yum -y install java-1.8.0-openjdk-devel</span>
+<span class="line"></span>
+<span class="line">cd /opt/</span>
+<span class="line">wget https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.tar.gz</span>
+<span class="line">tar -zxvf apache-maven-3.9.9-bin.tar.gz</span>
+<span class="line">mv apache-maven-3.9.9 maven</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>7-add_path.sh</p><div class="language-add_path.sh line-numbers-mode" data-highlighter="prismjs" data-ext="add_path.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">mkdir ~/.m2</span>
+<span class="line">cp /opt/maven/conf/settings.xml ~/.m2/</span>
+<span class="line">cat &gt;&gt; /etc/profile &lt;&lt; &quot;EOD&quot;</span>
+<span class="line">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk</span>
+<span class="line">export MAVEN_HOME=/opt/maven</span>
+<span class="line">export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin</span>
+<span class="line"></span>
+<span class="line">EOD</span>
+<span class="line">source /etc/profile</span>
+<span class="line">java -version</span>
+<span class="line">mvn -v</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>8-mvn_setting_mirror.sh</p><div class="language-mvn_setting_mirror.sh line-numbers-mode" data-highlighter="prismjs" data-ext="mvn_setting_mirror.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line"># 定义 settings.xml 文件路径</span>
+<span class="line">SETTINGS_XML=~/.m2/settings.xml</span>
+<span class="line"># 检查 settings.xml 文件是否存在，如果不存在则创建</span>
+<span class="line">if [[ ! -f &quot;$SETTINGS_XML&quot; ]]; then</span>
+<span class="line">  echo &quot;$SETTINGS_XML&quot;</span>
+<span class="line">  mkdir -p ~/.m2</span>
+<span class="line">  touch $SETTINGS_XML</span>
+<span class="line">  echo &quot;&lt;settings xmlns=\&quot;http://maven.apache.org/SETTINGS/1.0.0\&quot; xmlns:xsi=\&quot;http://www.w3.org/2001/XMLSchema-instance\&quot; xsi:schemaLocation=\&quot;http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd\&quot;&gt;&quot; &gt;&gt; &quot;$SETTINGS_XML&quot;</span>
+<span class="line">  echo &quot;&lt;/settings&gt;&quot; &gt;&gt; &quot;$SETTINGS_XML&quot;</span>
+<span class="line">fi</span>
+<span class="line"></span>
+<span class="line"># 检查是否已经存在 &lt;mirrors&gt; 标签，如果不存在则添加</span>
+<span class="line">if ! grep -q &quot;&lt;mirrors&gt;&quot; &quot;$SETTINGS_XML&quot;; then</span>
+<span class="line">  sed -i &#39;/&lt;\/settings&gt;/i &lt;mirrors&gt;\n&lt;\/mirrors&gt;&#39; &quot;$SETTINGS_XML&quot;</span>
+<span class="line">fi</span>
+<span class="line"></span>
+<span class="line"># 检查是否已经存在阿里云镜像配置，如果不存在则添加</span>
+<span class="line">if ! grep -q &quot;aliyunmaven&quot; &quot;$SETTINGS_XML&quot;; then</span>
+<span class="line">  sed -i &#39;/&lt;\/mirrors&gt;/i &lt;mirror&gt;\n  &lt;id&gt;aliyunmaven&lt;/id&gt;\n  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;\n  &lt;name&gt;aliyun maven&lt;/name&gt;\n  &lt;url&gt;https:\/\/maven.aliyun.com\/repository\/public&lt;\/url&gt;\n&lt;\/mirror&gt;&#39; &quot;$SETTINGS_XML&quot;</span>
+<span class="line">fi</span>
+<span class="line"></span>
+<span class="line">echo &quot;Mirror configuration added to $SETTINGS_XML&quot;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>9-install_docker.sh</p><div class="language-install_docker.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_docker.sh"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">curl -sfL https://get.rainbond.com/install_docker | bash</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">cat &lt;&lt;&quot;EOF&quot; &gt; /etc/docker/daemon.json</span>
+<span class="line">{</span>
+<span class="line">  &quot;registry-mirrors&quot;: [</span>
+<span class="line">    &quot;https://docker.hpcloud.cloud&quot;,</span>
+<span class="line">    &quot;https://docker.m.daocloud.io&quot;,</span>
+<span class="line">    &quot;https://docker.unsee.tech&quot;,</span>
+<span class="line">    &quot;https://docker.1panel.live&quot;,</span>
+<span class="line">    &quot;http://mirrors.ustc.edu.cn&quot;,</span>
+<span class="line">    &quot;https://docker.chenby.cn&quot;,</span>
+<span class="line">    &quot;http://mirror.azure.cn&quot;,</span>
+<span class="line">    &quot;https://dockerpull.org&quot;,</span>
+<span class="line">    &quot;https://dockerhub.icu&quot;,</span>
+<span class="line">    &quot;https://hub.rat.dev&quot;</span>
+<span class="line">  ],</span>
+<span class="line">  &quot;hosts&quot;:[</span>
+<span class="line">    &quot;unix:///var/run/docker.sock&quot;,</span>
+<span class="line">    &quot;tcp://0.0.0.0:2375&quot;</span>
+<span class="line">  ],</span>
+<span class="line">  &quot;max-concurrent-downloads&quot;: 10,</span>
+<span class="line">  &quot;max-concurrent-uploads&quot;: 10,</span>
+<span class="line">  &quot;log-driver&quot;: &quot;json-file&quot;,</span>
+<span class="line">  &quot;log-level&quot;: &quot;warn&quot;,</span>
+<span class="line">  &quot;log-opts&quot;: {</span>
+<span class="line">    &quot;max-size&quot;: &quot;10m&quot;,</span>
+<span class="line">    &quot;max-file&quot;: &quot;3&quot;</span>
+<span class="line">    },</span>
+<span class="line">  &quot;data-root&quot;: &quot;/var/lib/docker&quot;</span>
+<span class="line">}</span>
+<span class="line"></span>
+<span class="line">EOF</span>
+<span class="line"></span>
+<span class="line">systemctl daemon-reload</span>
+<span class="line"></span>
+<span class="line">systemctl restart docker.service</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">docker --version</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>10-install_docker_compose.sh</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">mkdir -p  /opt/self_compose</span>
+<span class="line">cd  /opt/self_compose</span>
+<span class="line">git clone https://gitee.com/huangdi_495/work_tools.git</span>
+<span class="line">cd work_tools</span>
+<span class="line">mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose</span>
+<span class="line">chmod +x /usr/local/bin/docker-compose</span>
+<span class="line"></span>
+<span class="line">ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose</span>
+<span class="line"></span>
+<span class="line">docker-compose --version</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>11-disable_firewall.sh</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line">#停止firewall  </span>
+<span class="line">systemctl stop firewalld.service  </span>
+<span class="line">#禁止firewall开机启动  </span>
+<span class="line">systemctl disable firewalld.service   </span>
+<span class="line"></span>
+<span class="line"># 查看防火墙状态</span>
+<span class="line">systemctl status firewalld.service</span>
+<span class="line"></span>
+<span class="line"># 查看防火墙状态： </span>
+<span class="line">service iptables status</span>
+<span class="line"></span>
+<span class="line"># 关闭防火墙： </span>
+<span class="line">service iptables stop</span>
+<span class="line"># 永久关闭防火墙</span>
+<span class="line">chkconfig iptables off</span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line">sed -i &#39;s&#39;/SELINUX=enforcing/SELINUX=disabled/g&#39; /etc/selinux/config</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>12_clear_unzip.sh</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">#!/bin/bash</span>
+<span class="line"></span>
+<span class="line">rm -rf Python-3.11.0</span>
+<span class="line">rm -rf Python-3.11.0.tgz</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div><!--[--><!--]--></div><footer class="vp-page-meta"><!----><div class="vp-meta-item git-info"><div class="vp-meta-item last-updated"><span class="meta-item-label">最近更新：: </span><time class="meta-item-info" datetime="2025-04-03T08:32:52.000Z" data-allow-mismatch>2025/4/3 08:32</time></div><div class="vp-meta-item contributors"><span class="meta-item-label">Contributors: </span><span class="meta-item-info"><!--[--><!--[--><span class="contributor" title="email: 921757697@qq.com">alice</span><!----><!--]--><!--]--></span></div></div></footer><!----><!--[--><!--]--></main><!--]--></div><!--[--><!----><!--]--><!--]--></div>
+    <script type="module" src="/simple-doc/assets/app-D80rLUNu.js" defer></script>
+  </body>
+</html>
