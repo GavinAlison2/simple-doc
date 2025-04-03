@@ -7,7 +7,7 @@ export default defineUserConfig({
   base: '/simple-doc',
 
   title: 'Once Blog',
-  description: 'My first blog',
+  description: 'My blog',
 
   theme: defaultTheme({
     logo: '/images/logo.png',
@@ -26,7 +26,12 @@ export default defineUserConfig({
           { text: 'Flutter', link: '/pages/folder1/test1.md' },
         ]
       },
-      { text: '测试', link: '/pages/folder1/test3.md' },
+      { text: '数据开发',
+        children: [
+          { text: '数据产品', link: '/guide/datawarehouse/index.md' },
+          { text: '数据技术', link: '/pages/folder1/test1.md' },
+        ]
+      },
       { text: 'GitHub', 
         faIcon: 'fab fa-github',
         link: 'https://github.com/GavinAlison2' },
@@ -53,6 +58,16 @@ export default defineUserConfig({
             '/get-started',
           ]
         }
+      ],
+      '/guide/datawarehouse/':[
+        {
+          text: '数据产品',
+          collapsible: false,
+          children: [
+            '/index.md',
+            '/2-数据产品经理的工作笔记.md',
+          ]
+        },
       ],
       '/guide/vue/': [
         {
@@ -89,5 +104,20 @@ export default defineUserConfig({
   bundler: viteBundler(),
   stylesheets: [
     '.vuepress/styles/custom.css'
-  ]
+  ],
+  plugins: [
+    [
+      'vuepress-auto-sidebar',
+      {
+        // 配置选项，根据需要调整
+        sort: {
+          // 排序方式
+          method: 'asc', // 升序排列
+        },
+        collapsable: true, // 是否可折叠
+        titleMode: 'title', // 标题模式，'title' 或 'filename' 或 'path'
+        sidebarDepth: 2, // 侧边栏深度
+      },
+    ],
+  ],
 });

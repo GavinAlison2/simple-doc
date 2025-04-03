@@ -7,6 +7,9 @@ actions:
   - text: 快速开始
     link: /get-started.html
     type: primary
+  - text: 数据开发
+    link: /guide/datawarehouse/index.html
+    type: secondary
     
 features:
   - title: 数据开发岗位
