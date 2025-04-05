@@ -11,8 +11,9 @@ actions:
     link: /guide/datawarehouse/index.html
     type: secondary
     
+
 features:
-  - title: 数据开发岗位
+  - title: 数据开发岗位 
     details: 数据开发职位的笔记，包括SQL, ETL, 数据仓库, 数据分析, 数据可视化等 知识点整理
   - title: Java
     details: Java语言的笔记，知识点整理, Python, Go, Spring, Spring Boot, Spring Cloud, Spring Data JPA, Spring Security, Spring Cloud Alibaba等 知识点整理
@@ -27,4 +28,3 @@ features:
 
 footer: MIT Licensed | Copyright © 2016-present My Blog Community
 ---
-
