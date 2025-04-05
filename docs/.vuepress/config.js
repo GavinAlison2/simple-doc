@@ -65,8 +65,10 @@ export default defineUserConfig({
           text: '数据产品',
           collapsible: false,
           children: [
-            '/index.md',
-            '/2-数据产品经理的工作笔记.md',
+            'index.md',
+            '1-数据仓库工具箱-笔记.md',
+            '2-数据产品经理的工作笔记.md',
+            '3-数据产品经理实战笔记.md',
           ]
         },
       ],

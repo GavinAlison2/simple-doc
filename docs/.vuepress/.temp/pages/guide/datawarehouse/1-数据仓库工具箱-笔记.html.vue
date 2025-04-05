@@ -2,8 +2,8 @@
 <blockquote>
 <p>一些名词， 工具， 原理， 架构， 设计模式， 最佳实践等的笔记。</p>
 </blockquote>
-<h2 id="名词" tabindex="-1"><a class="header-anchor" href="#名词"><span>名词</span></a></h2>
-<h3 id="数据仓库、商业智能及维度建模初步" tabindex="-1"><a class="header-anchor" href="#数据仓库、商业智能及维度建模初步"><span>数据仓库、商业智能及维度建模初步</span></a></h3>
+<p>名词</p>
+<h3 id="_1-数据仓库、商业智能及维度建模初步" tabindex="-1"><a class="header-anchor" href="#_1-数据仓库、商业智能及维度建模初步"><span>1. 数据仓库、商业智能及维度建模初步</span></a></h3>
 <ul>
 <li>信息对于系统有两个作用：</li>
 </ul>
@@ -33,18 +33,18 @@
 称为提高决策指定能力的权威和可行的基础<br>
 成功的标志是业务群体接收DW/BI系统（愿意用和相信其价值）</p>
 </blockquote>
-<h4 id="_1-3-维度建模简介" tabindex="-1"><a class="header-anchor" href="#_1-3-维度建模简介"><span>1.3 维度建模简介</span></a></h4>
+<h3 id="_2-维度建模简介" tabindex="-1"><a class="header-anchor" href="#_2-维度建模简介"><span>2. 维度建模简介</span></a></h3>
 <p>维度建模可以满足：</p>
 <ul>
 <li>以商业用户可以理解的方式发布数据</li>
 <li>提供高效的查询性能</li>
 </ul>
-<h5 id="_1-3-1-星型模式与olap多维数据库" tabindex="-1"><a class="header-anchor" href="#_1-3-1-星型模式与olap多维数据库"><span>1.3.1 星型模式与OLAP多维数据库</span></a></h5>
+<h4 id="_2-1-星型模式与olap多维数据库" tabindex="-1"><a class="header-anchor" href="#_2-1-星型模式与olap多维数据库"><span>2.1 星型模式与OLAP多维数据库</span></a></h4>
 <ul>
 <li>星型模型（传统数据库）</li>
 <li>OLAP（hive）是多维建模的两种实现方式</li>
 </ul>
-<h5 id="_1-3-2-用于量度的事实表" tabindex="-1"><a class="header-anchor" href="#_1-3-2-用于量度的事实表"><span>1.3.2 用于量度的事实表</span></a></h5>
+<h4 id="_2-2-用于量度的事实表" tabindex="-1"><a class="header-anchor" href="#_2-2-用于量度的事实表"><span>2.2 用于量度的事实表</span></a></h4>
 <p>事实表中每一行对应一个量度事件。每行中的数据是一个特定级别的细节数据，称为粒度。</p>
 <p>维度建模的核心是事实表中的所有量度行（每个指标）必须是同一粒度</p>
 <p>比如销售事实中的细节数据：美元销售额，事实表中数据最好是可加的，最好不要存放文本数据，文本数据应该放在维度表中</p>
@@ -59,7 +59,7 @@
 <p>一般事实表包含两个甚至更多的的外键，这些外键与维度表主键关联。</p>
 <p>事实表的主键通常是外键组合在一起的组合主键，表示多个维度的集合</p>
 <p>对应操作型数据库，事实表就是，操作型数据库中的关系表，比如学生选课表（仅仅多了对这个事实的数值属性比如各种成绩等）</p>
-<h5 id="_1-3-3-用于描述环境的维度表" tabindex="-1"><a class="header-anchor" href="#_1-3-3-用于描述环境的维度表"><span>1.3.3 用于描述环境的维度表</span></a></h5>
+<h4 id="_2-3-用于描述环境的维度表" tabindex="-1"><a class="header-anchor" href="#_2-3-用于描述环境的维度表"><span>2.3 用于描述环境的维度表</span></a></h4>
 <p>维度表包含与业务过程量度时间有关的文本环境，用于描述与“谁、什么、哪里、合适、如何、何时、为什么”有关的事件。</p>
 <p>维度表通常有很多列，50~100个都很正常。</p>
 <p>维度表趋向于包含较少的行，但是可能存在多列。</p>
@@ -72,14 +72,14 @@
 </ul>
 <p>维度表不需要满足3NF，维度表通常数据量很小，因此不需要满足3NF</p>
 <p>对应操作型数据库，维度表就是：操作型数据库中的实体，比如学生标表、课程表</p>
-<h5 id="_1-3-4-星型模式中的维度与事实的连接" tabindex="-1"><a class="header-anchor" href="#_1-3-4-星型模式中的维度与事实的连接"><span>1.3.4 星型模式中的维度与事实的连接</span></a></h5>
+<h4 id="_2-4-星型模式中的维度与事实的连接" tabindex="-1"><a class="header-anchor" href="#_2-4-星型模式中的维度与事实的连接"><span>2.4 星型模式中的维度与事实的连接</span></a></h4>
 <p>事实表存储：数值量度、多个维度外键（量度），围绕的是多个参考的维度表（环境）。</p>
-<h3 id="_1-4-kimball-的-dw-bi-架构" tabindex="-1"><a class="header-anchor" href="#_1-4-kimball-的-dw-bi-架构"><span>1.4 Kimball 的 DW/BI 架构</span></a></h3>
+<h3 id="_3-kimball-的-dw-bi-架构" tabindex="-1"><a class="header-anchor" href="#_3-kimball-的-dw-bi-架构"><span>3 Kimball 的 DW/BI 架构</span></a></h3>
 <p>共有四个组成部分：源操作系统、ETL系统、数据展示和商业智能应用</p>
-<p>1.4.1 源操作系统</p>
+<h4 id="_3-1-源操作系统" tabindex="-1"><a class="header-anchor" href="#_3-1-源操作系统"><span>3.1 源操作系统</span></a></h4>
 <p>行为日志
 业务数据库</p>
-<p>1.4.2 获取-转换-加载（ETL）系统</p>
+<h4 id="_3-2-获取-转换-加载-etl-系统" tabindex="-1"><a class="header-anchor" href="#_3-2-获取-转换-加载-etl-系统"><span>3.2 获取-转换-加载（ETL）系统</span></a></h4>
 <p>清洗数据
 数据合并
 复制数据</p>
@@ -89,21 +89,21 @@
 <li>拆分组合列</li>
 <li>反范式化（争议、本书支持）</li>
 </ul>
-<p>1.4.3 用于支持商业智能决策的展现区</p>
+<h4 id="_3-3-用于支持商业智能决策的展现区" tabindex="-1"><a class="header-anchor" href="#_3-3-用于支持商业智能决策的展现区"><span>3.3 用于支持商业智能决策的展现区</span></a></h4>
 <ul>
 <li>采用维度模型来展现。</li>
 <li>要包含最细粒度的数据。</li>
 <li>使用公共的、一致性的维度建立维度结构</li>
 <li>遵循总线结构</li>
 </ul>
-<p>1.4.4 商业智能应用</p>
+<h4 id="_3-4-商业智能应用" tabindex="-1"><a class="header-anchor" href="#_3-4-商业智能应用"><span>3.4 商业智能应用</span></a></h4>
 <p>查询工具、看板、可视化、推荐等</p>
-<p>1.5 其他 DW/BI架构</p>
-<p>1.5.1 独立数据集市架构</p>
+<h3 id="_4-其他-dw-bi架构" tabindex="-1"><a class="header-anchor" href="#_4-其他-dw-bi架构"><span>4 其他 DW/BI架构</span></a></h3>
+<h4 id="_4-1-独立数据集市架构" tabindex="-1"><a class="header-anchor" href="#_4-1-独立数据集市架构"><span>4.1 独立数据集市架构</span></a></h4>
 <p>按部门独立建设：相当于每个部门都有自己的上面的一套</p>
-<p>1.5.2 辐射状企业信息工厂Inmon架构</p>
+<h4 id="_4-2-辐射状企业信息工厂inmon架构" tabindex="-1"><a class="header-anchor" href="#_4-2-辐射状企业信息工厂inmon架构"><span>4.2 辐射状企业信息工厂Inmon架构</span></a></h4>
 <p>BI应用之前按照部门汇总，其他都是通用的。</p>
-<p>1.6 维度建模神话</p>
+<h4 id="_4-3-维度建模神话" tabindex="-1"><a class="header-anchor" href="#_4-3-维度建模神话"><span>4.3 维度建模神话</span></a></h4>
 <ul>
 <li>维度模型仅包含汇总数据（事实应该包含细节数据）</li>
 <li>维度模型是部门级别而不是企业级别（事实应该是按照业务过程组织而不是部门）</li>
@@ -111,11 +111,11 @@
 <li>尾部模型仅能用于预测（实际上应该以度量过程为中心）</li>
 <li>维度模型不能被集成</li>
 </ul>
-<p>1.7 考虑使用维度模型的更多理由</p>
+<h3 id="_5-考虑使用维度模型的更多理由" tabindex="-1"><a class="header-anchor" href="#_5-考虑使用维度模型的更多理由"><span>5. 考虑使用维度模型的更多理由</span></a></h3>
 <ul>
 <li>敏捷性考虑</li>
 </ul>
-<p>1.8 本章小结</p>
+<h3 id="_6-本章小结" tabindex="-1"><a class="header-anchor" href="#_6-本章小结"><span>6. 本章小结</span></a></h3>
 <ul>
 <li>维度建模基本概念</li>
 <li>Kimball DW/BI模型与其他模型比较</li>

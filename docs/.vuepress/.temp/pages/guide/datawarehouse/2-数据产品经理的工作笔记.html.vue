@@ -17,22 +17,22 @@
 ● 技术型数据产品经理，从平台数据技术转型
 ● 产品型数据产品经理，从其他类型的产品经理转型
 数据产品经理的技能</p>
-<p><img src="/images/dw/1.png" alt="1"></p>
+<p><img src="@source/.vuepress/public/images/dw/1.png" alt="1"></p>
 <p>数据产品经理的技能雷达图
-<img src="/images/dw/2.png" alt="2">
+<img src="@source/.vuepress/public/images/dw/2.png" alt="2">
 <em>数据产品经理技能树</em></p>
 <h2 id="第2章-数据产品经理和其他角色的关系" tabindex="-1"><a class="header-anchor" href="#第2章-数据产品经理和其他角色的关系"><span>第2章 数据产品经理和其他角色的关系</span></a></h2>
-<p><img src="/images/dw/3.png" alt="3">
-<img src="/images/dw/4.png" alt="4"></p>
+<p><img src="@source/.vuepress/public/images/dw/3.png" alt="3">
+<img src="@source/.vuepress/public/images/dw/4.png" alt="4"></p>
 <h2 id="第3章-需求沟通过程" tabindex="-1"><a class="header-anchor" href="#第3章-需求沟通过程"><span>第3章 需求沟通过程</span></a></h2>
-<p><img src="/images/dw/5.png" alt="5">
+<p><img src="@source/.vuepress/public/images/dw/5.png" alt="5">
 数据需求</p>
-<p><img src="/images/dw/6.png" alt="6">
+<p><img src="@source/.vuepress/public/images/dw/6.png" alt="6">
 不同需求类型对应的实现方式
-<img src="/images/dw/7.png" alt="7">
-<img src="/images/dw/8.png" alt="8"></p>
+<img src="@source/.vuepress/public/images/dw/7.png" alt="7">
+<img src="@source/.vuepress/public/images/dw/8.png" alt="8"></p>
 <p>需求沟通前的准备
-<img src="/images/dw/9.png" alt="9"></p>
+<img src="@source/.vuepress/public/images/dw/9.png" alt="9"></p>
 <p>需求沟通记录</p>
 <h2 id="第4章-指标体系搭建" tabindex="-1"><a class="header-anchor" href="#第4章-指标体系搭建"><span>第4章 指标体系搭建</span></a></h2>
 <p>从作用上讲，指标体系为公司战略和业务运营提供的是一种【方向感】：有指向、有诊断。
@@ -46,7 +46,7 @@
 案例：某媒体网站的指标体系搭建<br>
 首先，确立描述的目标：①用户规模；②内容质量；③广告效果。<br>
 然后，为每个目标选取核心指标。以用户规模为例，可以使用独立访客量（UV）。但是由于业务处于上升期，目标是“扩大用户规模”，新增访客量也是核心指标。描述访客的“质量”可以使用访问深度指标来描述，比如人均播放量、人均阅读量、人均互动量、平均访问时长等。描述新增访客的质量，除了访问深度，还要有“留存率”指标。新增访客量×留存率，才是比较真实的规模增长。
-<img src="/images/dw/10.png" alt="10"></li>
+<img src="@source/.vuepress/public/images/dw/10.png" alt="10"></li>
 </ol>
 <p>选好了指标，这些指标需要选取哪些维度来建立监控，是由业务模型中的【关键要素】决定的。例如，某家网站是分城市运营的，那么城市就一定是一个关键维度；站外流量的引流，是根据不同渠道引入的，那么流量来源站就是独立访客量和新增访客量的关键维度；如果我们投放了SEM，那么搜索关键字也是一个关键维度。在内容生产上，如果是按照内容类型运营的，那么内容的分类就是一个关键维度；如果我们要运营PGC的内容作者，那么内容生产相关的指标就要拆分到作者维度。
 指标体系存在4个阶段。</p>
@@ -58,24 +58,24 @@
 从第1阶段到第2阶段，要不停细化指标体系，并建立相应的监控。<br>
 从第2阶段到第3阶段，要在做波动归因的同时，详细记录每一个波动是什么因素带来的，每一个业务动作是基于什么样的数据表现。<br>
 从第3阶段到第4阶段，重点是发现业务决策的内在规律。<br>
-<img src="/images/dw/11.png" alt="11"></li>
+<img src="@source/.vuepress/public/images/dw/11.png" alt="11"></li>
 </ol>
 <p>前两个阶段服务的是指标体系本身的迭代，后两个阶段服务的是策略迭代。通过对指标的监控和策略的沉淀辅助运营，是数据的辅助决策阶段。最终可以把决策过程系统化、自动化，是数据体系的一个目标。</p>
 <h2 id="第5章-excel是最完美的数据产品" tabindex="-1"><a class="header-anchor" href="#第5章-excel是最完美的数据产品"><span>第5章 Excel是最完美的数据产品</span></a></h2>
-<p><img src="/images/dw/12.png" alt="12">
-<img src="/images/dw/13.png" alt="13"></p>
+<p><img src="@source/.vuepress/public/images/dw/12.png" alt="12">
+<img src="@source/.vuepress/public/images/dw/13.png" alt="13"></p>
 <p>如果你需要对海量数据进行查询、计算、预处理，就用Hive；如果你要在本地处理较大量数据，就用SPSS或者R；如果你需要建立复杂的模型，就用SAS、R、Python、MATLAB等；如果你要处理大量文本，就用Python和PHP；但是，如果你需要一个完整的、本地的微型“数据产品”，Excel再完美不过，这是其他任何一个产品都做不到的，至少做不到这么好。<br>
 可以从以下两个方面总结出Excel最适合做什么。<br>
 （1）从需求实现的角度：Excel适合实现数据量较小的报表、数据分析、可视化需求。其中，“数据量较小”可以粗略地定义为，完整制作后的文件大小在2MB以下，1MB左右最好，目的是便于发送邮件。另外，在技术资源紧张，提供给需求方的通用工具准备不足时，或者在需求频繁调整的阶段，Excel可以作为一种相对简单的临时实现方法出现来“填缝”，可以在一定程度上减少占用大量开发资源实现临时数据需求的尴尬情况发生。<br>
 （2）从产品思维的角度：Excel可以在本地模拟出从数据采集到数据仓库报表，再到数据可视化的全过程。</p>
-<p><img src="/images/dw/14.png" alt="14">
-<img src="/images/dw/15.png" alt="重点函数"></p>
+<p><img src="@source/.vuepress/public/images/dw/14.png" alt="14">
+<img src="@source/.vuepress/public/images/dw/15.png" alt="重点函数"></p>
 <p>用Excel实现一个迷你可视化产品的过程，对于刚刚上手的新人来说，是非常好的训练工具。在一些特殊场景下（如数据量不大、业务模型不稳定、开发资源紧缺等），这个方法也可以作为一个省钱、省资源的“草根版”的可视化产品方案。</p>
 <h2 id="第6章-不同的工具解决不同的问题" tabindex="-1"><a class="header-anchor" href="#第6章-不同的工具解决不同的问题"><span>第6章 不同的工具解决不同的问题</span></a></h2>
-<p><img src="/images/dw/16.png" alt="16"></p>
+<p><img src="@source/.vuepress/public/images/dw/16.png" alt="16"></p>
 <h2 id="第7章-数据应用和第三方平台" tabindex="-1"><a class="header-anchor" href="#第7章-数据应用和第三方平台"><span>第7章 数据应用和第三方平台</span></a></h2>
 <p>DMP的全称是Data Management Platform（数据管理平台）。
-<img src="/images/dw/17.png" alt="17"></p>
+<img src="@source/.vuepress/public/images/dw/17.png" alt="17"></p>
 <h2 id="第8章-必须理解的统计学知识" tabindex="-1"><a class="header-anchor" href="#第8章-必须理解的统计学知识"><span>第8章 必须理解的统计学知识</span></a></h2>
 <p>贝叶斯法则：它描述的是“事件A以事件B为条件发生的概率”和“事件B以事件A为条件发生的概率”之间的关系。<br>
 贝叶斯法则还可以表述为：后验概率=标准相似度×先验概率。<br>
@@ -134,7 +134,7 @@ MapReduce的本质是一种编程模型，或者说是一种计算方法。作�
 <li>电商网站会有“订单”主题，资讯类网站会有“内容”主题，平台会有“商家”主题，等等。</li>
 </ul>
 <h2 id="第10章-不得不说的-坑-和红线" tabindex="-1"><a class="header-anchor" href="#第10章-不得不说的-坑-和红线"><span>第10章 不得不说的“坑”和红线</span></a></h2>
-<p><img src="/images/dw/18.png" alt="18"></p>
+<p><img src="@source/.vuepress/public/images/dw/18.png" alt="18"></p>
 </div></template>
 
 
