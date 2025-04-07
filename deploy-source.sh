@@ -20,7 +20,7 @@ git rm -r --cached docs/.vuepress/dist
 
 git commit -m 'deploy'
 
-git pull 
+git pull origin master --allow-unrelated-histories
 git remote add origin git@github.com:GavinAlison2/simple-doc.git
 git branch -M master
 # git push  -f origin master:gh-pages
