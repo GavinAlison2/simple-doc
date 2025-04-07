@@ -28,7 +28,10 @@ mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup
 curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
 curl -o /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo
 cd /etc/yum.repos.d
+
+sed -i 's/$releasever/7.9.2009/g' CentOs-Base.repo
 sed -i 's/http/https/g' *.repo
+sed -i 's/httpss/https/g' *.repo
 
 yum clean all
 yum makecache 
@@ -53,6 +56,7 @@ yum -y install net-tools  wget
 yum -y install tree nmap dos2unix lrzsz nc lsof wget tcpdump htop iftop iotop sysstat nethogs 
 yum -y install psmisc net-tools bash-completion vim-enhanced 
 yum -y install epel-release
+yum -y groupinstall "Development Tools" 
 
 ```
 5-install_py3.sh
@@ -117,6 +121,16 @@ export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
 
 EOD
 source /etc/profile
+
+cat >> /root/.bash_profile << "EOD"
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+export MAVEN_HOME=/opt/maven
+export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin
+
+EOD
+
+source /root/.bash_profile
+
 java -version
 mvn -v
 
@@ -154,6 +168,7 @@ echo "Mirror configuration added to $SETTINGS_XML"
 ```install_docker.sh
 #!/bin/bash
 
+yum -y install iptables
 curl -sfL https://get.rainbond.com/install_docker | bash
 
 
@@ -245,6 +260,12 @@ sed -i 's'/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 #!/bin/bash
 
+cd /root
 rm -rf Python-3.11.0
 rm -rf Python-3.11.0.tgz
+
+cd /opt
+rm -rf apache-maven*
+rm -rf docker
+rm -rf self_compose
 ```

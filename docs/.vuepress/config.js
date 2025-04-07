@@ -30,12 +30,40 @@ export default defineUserConfig({
       { text: '数据开发',
         children: [
           { text: '数据产品', link: '/guide/datawarehouse/index.md' },
-          { text: '数据技术', link: '/pages/folder1/test1.md' },
+          { text: 'hadoop', 
+            collapsable:true,
+            link: '/guide/etl/hadoop-readme.md',
+            children: [
+              {text: 'hdfs', link: '/guide/etl/1-hadoop-hdfs.md'},
+              {text: 'yarn', link:'/guide/etl/2-hadoop-yarn.md'},
+            ]
+          },
         ]
       },
-      { text: 'GitHub', 
+      {
+        text: '数据库',
+        children: [
+          { text: 'MySQL', link: '/guide/mysql/index.md' },
+          { text: 'Redis', link: '/pages/folder1/test1.md' },
+        ]
+      },
+      {
+        text: '后端',
+        children: [
+          { text: 'Java', link: '/pages/folder1/test1.md' },
+          { text: 'Python', link: '/pages/folder1/test1.md' },
+          { text: 'Golang', link: '/pages/folder1/test1.md' },
+          { text: 'C++', link: '/pages/folder1/test1.md' },
+          { text: 'C#', link: '/pages/folder1/test1.md' },
+          { text: 'PHP', link: '/pages/folder1/test1.md' },
+          { text: 'Ruby', link: '/pages/folder1/test1.md' },
+        ]
+      },
+      { 
+        text: 'GitHub', 
         faIcon: 'fab fa-github',
-        link: 'https://github.com/GavinAlison2' },
+        link: 'https://github.com/GavinAlison2' 
+      },
     ],
     // 侧边栏数组
     // 所有页面会使用相同的侧边栏
@@ -72,6 +100,19 @@ export default defineUserConfig({
           ]
         },
       ],
+      '/guide/etl/':[{ 
+        text: '大数据技术',
+        collapsable: false,
+        children: [
+          // {text: 'hadoop', link: 'hadoop-readme.md'},
+          { text: 'hadoop',
+            collapsible:false,
+            children: [
+            '1-hadoop-hdfs.md',
+            '2-hadoop-yarn.md',
+          ]}
+        ]
+      }],
       '/guide/vue/': [
         {
           text: 'Vue 学习1',

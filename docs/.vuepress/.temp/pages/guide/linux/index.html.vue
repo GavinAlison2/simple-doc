@@ -24,12 +24,15 @@
 <span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo</span>
 <span class="line">curl -o /etc/yum.repos.d/epel.repo https://mirrors.aliyun.com/repo/epel-7.repo</span>
 <span class="line">cd /etc/yum.repos.d</span>
+<span class="line"></span>
+<span class="line">sed -i 's/$releasever/7.9.2009/g' CentOs-Base.repo</span>
 <span class="line">sed -i 's/http/https/g' *.repo</span>
+<span class="line">sed -i 's/httpss/https/g' *.repo</span>
 <span class="line"></span>
 <span class="line">yum clean all</span>
 <span class="line">yum makecache </span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3-add_dns.sh</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>3-add_dns.sh</p>
 <div class="language-add_dns.sh line-numbers-mode" data-highlighter="prismjs" data-ext="add_dns.sh"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
 <span class="line">cat &gt;&gt; /etc/resolv.conf &lt;&lt; &quot;EOF&quot;</span>
@@ -46,9 +49,10 @@
 <span class="line">yum -y install tree nmap dos2unix lrzsz nc lsof wget tcpdump htop iftop iotop sysstat nethogs </span>
 <span class="line">yum -y install psmisc net-tools bash-completion vim-enhanced </span>
 <span class="line">yum -y install epel-release</span>
+<span class="line">yum -y groupinstall &quot;Development Tools&quot; </span>
 <span class="line"></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>5-install_py3.sh</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>5-install_py3.sh</p>
 <div class="language-install_py3.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_py3.sh"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
 <span class="line">cd /root</span>
@@ -106,11 +110,21 @@
 <span class="line"></span>
 <span class="line">EOD</span>
 <span class="line">source /etc/profile</span>
+<span class="line"></span>
+<span class="line">cat &gt;&gt; /root/.bash_profile &lt;&lt; &quot;EOD&quot;</span>
+<span class="line">export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk</span>
+<span class="line">export MAVEN_HOME=/opt/maven</span>
+<span class="line">export PATH=$PATH:$JAVA_HOME/bin:$MAVEN_HOME/bin</span>
+<span class="line"></span>
+<span class="line">EOD</span>
+<span class="line"></span>
+<span class="line">source /root/.bash_profile</span>
+<span class="line"></span>
 <span class="line">java -version</span>
 <span class="line">mvn -v</span>
 <span class="line"></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>8-mvn_setting_mirror.sh</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>8-mvn_setting_mirror.sh</p>
 <div class="language-mvn_setting_mirror.sh line-numbers-mode" data-highlighter="prismjs" data-ext="mvn_setting_mirror.sh"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
 <span class="line"># 定义 settings.xml 文件路径</span>
@@ -139,6 +153,7 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>9-install_docker.sh</p>
 <div class="language-install_docker.sh line-numbers-mode" data-highlighter="prismjs" data-ext="install_docker.sh"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
+<span class="line">yum -y install iptables</span>
 <span class="line">curl -sfL https://get.rainbond.com/install_docker | bash</span>
 <span class="line"></span>
 <span class="line"></span>
@@ -182,7 +197,7 @@
 <span class="line">docker --version</span>
 <span class="line"></span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>10-install_docker_compose.sh</p>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>10-install_docker_compose.sh</p>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
 <span class="line">mkdir -p  /opt/self_compose</span>
@@ -222,9 +237,15 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>12_clear_unzip.sh</p>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre v-pre><code><span class="line">#!/bin/bash</span>
 <span class="line"></span>
+<span class="line">cd /root</span>
 <span class="line">rm -rf Python-3.11.0</span>
 <span class="line">rm -rf Python-3.11.0.tgz</span>
+<span class="line"></span>
+<span class="line">cd /opt</span>
+<span class="line">rm -rf apache-maven*</span>
+<span class="line">rm -rf docker</span>
+<span class="line">rm -rf self_compose</span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div></div></template>
 
 

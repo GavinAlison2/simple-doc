@@ -8,7 +8,8 @@
     "docs:build": "vuepress build docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:dev": "vuepress dev docs",
-    "deploy": " deploy.cmd",
+    "deploy": " deploy-source.sh",
+    "clear:dist": "clear-dir.sh",
     "docs:update-package": "npx vp-update"
   },
   "devDependencies": {

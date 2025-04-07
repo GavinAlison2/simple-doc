@@ -1,0 +1,16 @@
+import comp from "D:/workspace/front/es6_tee/vuepress-starter/docs/.vuepress/.temp/pages/guide/etl/1-hadoop-hdfs.html.vue"
+const data = JSON.parse("{\"path\":\"/guide/etl/1-hadoop-hdfs.html\",\"title\":\"HDFS\",\"lang\":\"zh-CN\",\"frontmatter\":{},\"headers\":[{\"level\":2,\"title\":\"目录\",\"slug\":\"目录\",\"link\":\"#目录\",\"children\":[]},{\"level\":2,\"title\":\"1.1   Hadoop quick start\",\"slug\":\"_1-1-hadoop-quick-start\",\"link\":\"#_1-1-hadoop-quick-start\",\"children\":[]},{\"level\":2,\"title\":\"1.2 Hadoop的特点\",\"slug\":\"_1-2-hadoop的特点\",\"link\":\"#_1-2-hadoop的特点\",\"children\":[]},{\"level\":2,\"title\":\"1.3 Hadoop生态圈组件及其作用\",\"slug\":\"_1-3-hadoop生态圈组件及其作用\",\"link\":\"#_1-3-hadoop生态圈组件及其作用\",\"children\":[]},{\"level\":2,\"title\":\"1.4 Hadoop 1.x，2x，3.x 的区别\",\"slug\":\"_1-4-hadoop-1-x-2x-3-x-的区别\",\"link\":\"#_1-4-hadoop-1-x-2x-3-x-的区别\",\"children\":[]},{\"level\":2,\"title\":\"1.5 Hadoop集群工作时启动哪些进程,它们有什么作用\",\"slug\":\"_1-5-hadoop集群工作时启动哪些进程-它们有什么作用\",\"link\":\"#_1-5-hadoop集群工作时启动哪些进程-它们有什么作用\",\"children\":[]},{\"level\":2,\"title\":\"1.6 在集群计算的时候，什么是集群的主要瓶颈\",\"slug\":\"_1-6-在集群计算的时候-什么是集群的主要瓶颈\",\"link\":\"#_1-6-在集群计算的时候-什么是集群的主要瓶颈\",\"children\":[]},{\"level\":2,\"title\":\"1.7 搭建Hadoop 集群的 xml 文件有哪些\",\"slug\":\"_1-7-搭建hadoop-集群的-xml-文件有哪些\",\"link\":\"#_1-7-搭建hadoop-集群的-xml-文件有哪些\",\"children\":[]},{\"level\":2,\"title\":\"1.8 Hadoop 的 checkpoint 流程\",\"slug\":\"_1-8-hadoop-的-checkpoint-流程\",\"link\":\"#_1-8-hadoop-的-checkpoint-流程\",\"children\":[]},{\"level\":2,\"title\":\"1.9 Hadoop 的默认块大小是多少?为什么要设置这么大\",\"slug\":\"_1-9-hadoop-的默认块大小是多少-为什么要设置这么大\",\"link\":\"#_1-9-hadoop-的默认块大小是多少-为什么要设置这么大\",\"children\":[]},{\"level\":2,\"title\":\"1.10 Block 划分的原因\",\"slug\":\"_1-10-block-划分的原因\",\"link\":\"#_1-10-block-划分的原因\",\"children\":[]},{\"level\":2,\"title\":\"1.11 Hadoop常见的压缩算法?\",\"slug\":\"_1-11-hadoop常见的压缩算法\",\"link\":\"#_1-11-hadoop常见的压缩算法\",\"children\":[]},{\"level\":2,\"title\":\"1.12 Hadoop作业提交到YARN的流程?\",\"slug\":\"_1-12-hadoop作业提交到yarn的流程\",\"link\":\"#_1-12-hadoop作业提交到yarn的流程\",\"children\":[]},{\"level\":2,\"title\":\"1.13 Hadoop的Combiner的作用\",\"slug\":\"_1-13-hadoop的combiner的作用\",\"link\":\"#_1-13-hadoop的combiner的作用\",\"children\":[]},{\"level\":2,\"title\":\"1.14 Hadoop序列化和反序列化\",\"slug\":\"_1-14-hadoop序列化和反序列化\",\"link\":\"#_1-14-hadoop序列化和反序列化\",\"children\":[]},{\"level\":2,\"title\":\"1.15 Hadoop的运行模式\",\"slug\":\"_1-15-hadoop的运行模式\",\"link\":\"#_1-15-hadoop的运行模式\",\"children\":[]},{\"level\":2,\"title\":\"1.16 Hadoop小文件处理问题\",\"slug\":\"_1-16-hadoop小文件处理问题\",\"link\":\"#_1-16-hadoop小文件处理问题\",\"children\":[]},{\"level\":2,\"title\":\"1.17 Hadoop 为什么要从2.x升级到3.x\",\"slug\":\"_1-17-hadoop-为什么要从2-x升级到3-x\",\"link\":\"#_1-17-hadoop-为什么要从2-x升级到3-x\",\"children\":[]},{\"level\":2,\"title\":\"1.18 HDFS写流程\",\"slug\":\"_1-18-hdfs写流程\",\"link\":\"#_1-18-hdfs写流程\",\"children\":[]},{\"level\":2,\"title\":\"1.19 HDFS 读流程\",\"slug\":\"_1-19-hdfs-读流程\",\"link\":\"#_1-19-hdfs-读流程\",\"children\":[]}],\"git\":{},\"filePathRelative\":\"guide/etl/1-hadoop-hdfs.md\"}")
+export { comp, data }
+
+if (import.meta.webpackHot) {
+  import.meta.webpackHot.accept()
+  if (__VUE_HMR_RUNTIME__.updatePageData) {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  }
+}
+
+if (import.meta.hot) {
+  import.meta.hot.accept(({ data }) => {
+    __VUE_HMR_RUNTIME__.updatePageData(data)
+  })
+}
