@@ -97,14 +97,15 @@
 <div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_7-yarn调度器" tabindex="-1"><a class="header-anchor" href="#_7-yarn调度器"><span>7. YARN调度器</span></a></h2>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre v-pre><code><span class="line">1. FIFO Scheduler</span>
 <span class="line">FIFO = first in first out 先进先出 （队列）</span>
-<span class="line">这种调度把应用提交按顺序排成一个队列，先进先出的队列，在进行资源分配的时候，先给队列中最头部的应用分配资源，等到应用满足了，再给下一个分配，以此类推。问题：大的应用可能会占用所有的资源，造成阻塞，不适合集群</span>
+<span class="line">这种调度把应用提交按顺序排成一个队列，先进先出的队列，在进行资源分配的时候，先给队列中最头部的应用分配资源，等到应用满足了，再给下一个分配，以此类推。</span>
+<span class="line">问题：大的应用可能会占用所有的资源，造成阻塞，不适合集群</span>
 <span class="line">2. Capacity Scheduler</span>
 <span class="line">专门有一个队列来运行小任务，但是为小任务专门设置的队列也会占用一定的资源，会导致大任务的执行时间落后于FIFO</span>
 <span class="line">3. Fair  Shceduler</span>
 <span class="line">不需要预先占用一定资源，动态调整</span>
 <span class="line">比如第一个是大任务，且只有这个大任务在运行，那么把所有资源给它，然后第二个小任务提交了 ，Fair Shceduler 就会分配一半的资源给到小任务，公平的共享资源，小任务跑完了还是会把资源给到大任务。</span>
 <span class="line"></span></code></pre>
-<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_8-yarn中container是如何启动的" tabindex="-1"><a class="header-anchor" href="#_8-yarn中container是如何启动的"><span>8. YARN中Container是如何启动的?</span></a></h2>
+<div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_8-yarn中container是如何启动的" tabindex="-1"><a class="header-anchor" href="#_8-yarn中container是如何启动的"><span>8. YARN中Container是如何启动的?</span></a></h2>
 <div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre v-pre><code><span class="line">Container启动时并不知道具体要在其中做什么</span>
 <span class="line">它被要求启动时只管根据 request 的要求准备运行环境，</span>
 <span class="line">从 request 中取出预先存储的命令简单加工后写到脚本文件并执行。</span>

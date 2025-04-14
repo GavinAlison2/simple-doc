@@ -34,8 +34,9 @@ export default defineUserConfig({
             collapsable:true,
             link: '/guide/etl/hadoop-readme.md',
             children: [
-              {text: 'hdfs', link: '/guide/etl/1-hadoop-hdfs.md'},
-              {text: 'yarn', link:'/guide/etl/2-hadoop-yarn.md'},
+              {text: 'hdfs', link: '/guide/etl/chapter1-hadoop-hdfs.md'},
+              {text: 'yarn', link:'/guide/etl/chapter2-hadoop-yarn.md'},
+              {text: 'hadoop安装windows', link:'/guide/etl/chapter3-hadoop-install-for-window.md'},
             ]
           },
         ]
@@ -108,8 +109,9 @@ export default defineUserConfig({
           { text: 'hadoop',
             collapsible:false,
             children: [
-            '1-hadoop-hdfs.md',
-            '2-hadoop-yarn.md',
+            'chapter1-hadoop-hdfs.md',
+            'chapter2-hadoop-yarn.md',
+            'chapter3-hadoop-install-for-window.md',
           ]}
         ]
       }],
