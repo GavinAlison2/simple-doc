@@ -1,17 +1,16 @@
 # Big Data 
 
-## HADOOP
+## Hadoop
 
-- [hdfs](./chapter1-hadoop-hdfs.md)
-- [yarn](./chapter2-hadoop-yarn.md)
-- [hadoop for windows](./chapter3-hadoop-for-windows.md)
-- [hadoop2](./chapter4-hadoop2.md)
+- [hdfs](./hadoop/chapter1-hadoop-hdfs.md)
+- [yarn](./hadoop/chapter2-hadoop-yarn.md)
+- [hadoop install for window](./hadoop/chapter3-hadoop-install-for-window.md)
+- [hadoop2](./hadoop/chapter4-hadoop2.md)
 
 ## Hive
 
-- [hive](./chapter5-hive.md)
-- [hive sql](./chapter6-hive-sql.md)
-
+- [hive](./hive/chapter5-hive.md)
+- [hive sql](./hive/chapter6-hive-sql.md)
 - [Hive教程](https://developer.aliyun.com/article/1379249)
 
 - hive docker 部署，并支持远程连接

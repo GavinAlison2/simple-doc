@@ -30,13 +30,12 @@ export default defineUserConfig({
       { text: '数据开发',
         children: [
           { text: '数据产品', link: '/guide/datawarehouse/index.md' },
-          { text: 'hadoop', 
+          { text: '大数据', 
             collapsable:true,
-            link: '/guide/etl/hadoop-readme.md',
+            link: '/guide/etl/bigdata-readme.md',
             children: [
-              {text: 'hdfs', link: '/guide/etl/chapter1-hadoop-hdfs.md'},
-              {text: 'yarn', link:'/guide/etl/chapter2-hadoop-yarn.md'},
-              {text: 'hadoop安装windows', link:'/guide/etl/chapter3-hadoop-install-for-window.md'},
+              {text: 'Hadoop', link: '/guide/etl/hadoop/readme.md'},
+              {text: 'Hive', link:'/guide/etl/hive/readme.md'},
             ]
           },
         ]
@@ -93,8 +92,8 @@ export default defineUserConfig({
         {
           text: '数据产品',
           collapsible: false,
-          children: [
-            'index.md',
+          link: 'index.md',
+          children: [ 
             '1-数据仓库工具箱-笔记.md',
             '2-数据产品经理的工作笔记.md',
             '3-数据产品经理实战笔记.md',
@@ -104,15 +103,32 @@ export default defineUserConfig({
       '/guide/etl/':[{ 
         text: '大数据技术',
         collapsable: false,
+        link: 'bigdata-readme.md',
         children: [
-          // {text: 'hadoop', link: 'hadoop-readme.md'},
-          { text: 'hadoop',
+          { 
+            text: 'Hadoop',
             collapsible:false,
+            link: 'hadoop/readme.md',
             children: [
-            'chapter1-hadoop-hdfs.md',
-            'chapter2-hadoop-yarn.md',
-            'chapter3-hadoop-install-for-window.md',
-          ]}
+            'hadoop/chapter1-hadoop-hdfs.md',
+            'hadoop/chapter2-hadoop-yarn.md',
+            'hadoop/chapter3-hadoop-install-for-window.md',
+          ]},
+          {
+            text: 'Hive',
+            collapsible:false,
+            link: 'hive/readme.md',
+            children: [
+              'hive/01.Hive-quickstart.md',
+              'hive/02.Hive-ddl.md',
+              'hive/03.Hive-table.md',
+              'hive/04.Hive-index-view.md',
+              'hive/05.Hive-dml.md',
+              'hive/06.Hive-multi-partition.md',
+              'hive/07.Hive-query.md',
+              'install/hive-install.md'
+            ]
+          }
         ]
       }],
       '/guide/vue/': [
