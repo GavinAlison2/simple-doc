@@ -15,4 +15,7 @@
 - [Hive 安装](../install/hive-install.md)
 
 
+## 面试题
+
+- [hive-面试题](./chapter5-hive.md)
 

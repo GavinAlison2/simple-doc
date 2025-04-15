@@ -1,4 +1,4 @@
-<template><div><h1 id="hive" tabindex="-1"><a class="header-anchor" href="#hive"><span>Hive</span></a></h1>
+<template><div><h1 id="hive-面试题" tabindex="-1"><a class="header-anchor" href="#hive-面试题"><span>Hive 面试题</span></a></h1>
 <h2 id="目录" tabindex="-1"><a class="header-anchor" href="#目录"><span>目录</span></a></h2>
 <ul>
 <li>1.Hive内部表和外部表的区别</li>
@@ -76,7 +76,7 @@ group(复杂类型)和primitive(基本类型)。</p>
 <h2 id="_5-数据建模用的哪些模型" tabindex="-1"><a class="header-anchor" href="#_5-数据建模用的哪些模型"><span>5. 数据建模用的哪些模型？</span></a></h2>
 <h3 id="_1-星型模型" tabindex="-1"><a class="header-anchor" href="#_1-星型模型"><span>1. 星型模型</span></a></h3>
 <p>星形模式
-<img src="@source/guide/.vuepress/public/images/hive/1.png" alt="1"></p>
+<img src="@source/.vuepress/public/images/hive/1.png" alt="1"></p>
 <p>星形模式(Star Schema)是最常用的维度建模方式。星型模式是以事实表为中心，所有的维度表直接连接在事实表上，像星星一样。
 星形模式的维度建模由一个事实表和一组维表成，且具有以下特点：</p>
 <p>a. 维表只和事实表关联，维表之间没有关联；</p>
@@ -84,11 +84,11 @@ group(复杂类型)和primitive(基本类型)。</p>
 <p>c. 以事实表为核心，维表围绕核心呈星形分布。</p>
 <h3 id="_2-雪花模型" tabindex="-1"><a class="header-anchor" href="#_2-雪花模型"><span>2. 雪花模型</span></a></h3>
 <p>雪花模式
-<img src="@source/guide/.vuepress/public/images/hive/2.png" alt="2"></p>
+<img src="@source/.vuepress/public/images/hive/2.png" alt="2"></p>
 <p>雪花模式(Snowflake Schema)是对星形模式的扩展。雪花模式的维度表可以拥有其他维度表的，虽然这种模型相比星型更规范一些，但是由于这种模型不太容易理解，维护成本比较高，而且性能方面需要关联多层维表，性能比星型模型要低。</p>
 <h3 id="_3-星座模型" tabindex="-1"><a class="header-anchor" href="#_3-星座模型"><span>3. 星座模型</span></a></h3>
 <p>星座模型
-<img src="@source/guide/.vuepress/public/images/hive/3.png" alt="3"></p>
+<img src="@source/.vuepress/public/images/hive/3.png" alt="3"></p>
 <p>星座模式是星型模式延伸而来，星型模式是基于一张事实表的，而星座模式是基于多张事实表的，而且共享维度信息。前面介绍的两种维度建模方法都是多维表对应单事实表，但在很多时候维度空间内的事实表不止一个，而一个维表也可能被多个事实表用到。在业务发展后期，绝大部分维度建模都采用的是星座模式。</p>
 <p>数仓建模详细介绍可查看：通俗易懂数仓建模</p>
 <h2 id="_6-为什么要对数据仓库分层" tabindex="-1"><a class="header-anchor" href="#_6-为什么要对数据仓库分层"><span>6. 为什么要对数据仓库分层？</span></a></h2>

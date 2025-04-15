@@ -13,6 +13,10 @@
 <li><RouteLink to="/guide/etl/hive/07.Hive-query.html">Hive 查询</RouteLink></li>
 <li><RouteLink to="/guide/etl/install/hive-install.html">Hive 安装</RouteLink></li>
 </ul>
+<h2 id="面试题" tabindex="-1"><a class="header-anchor" href="#面试题"><span>面试题</span></a></h2>
+<ul>
+<li><RouteLink to="/guide/etl/hive/chapter5-hive.html">hive-面试题</RouteLink></li>
+</ul>
 </div></template>
 
 

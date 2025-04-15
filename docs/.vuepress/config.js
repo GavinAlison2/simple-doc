@@ -126,7 +126,8 @@ export default defineUserConfig({
               'hive/05.Hive-dml.md',
               'hive/06.Hive-multi-partition.md',
               'hive/07.Hive-query.md',
-              'install/hive-install.md'
+              'install/hive-install.md',
+              'hive/chapter5-hive.md'
             ]
           }
         ]

@@ -8,12 +8,11 @@
 </ul>
 <h2 id="hive" tabindex="-1"><a class="header-anchor" href="#hive"><span>Hive</span></a></h2>
 <ul>
-<li>
-<p><RouteLink to="/guide/etl/hive/chapter5-hive.html">hive</RouteLink></p>
-</li>
-<li>
-<p><RouteLink to="/guide/etl/hive/chapter6-hive-sql.html">hive sql</RouteLink></p>
-</li>
+<li><RouteLink to="/guide/etl/hive/chapter5-hive.html">hive</RouteLink></li>
+</ul>
+<!-- - [hive sql](./hive/chapter6-hive-sql.md) -->
+<h2 id="参考资料" tabindex="-1"><a class="header-anchor" href="#参考资料"><span>参考资料</span></a></h2>
+<ul>
 <li>
 <p><a href="https://developer.aliyun.com/article/1379249" target="_blank" rel="noopener noreferrer">Hive教程</a></p>
 </li>
@@ -21,6 +20,7 @@
 <p>hive docker 部署，并支持远程连接</p>
 </li>
 </ul>
+<h2 id="spark" tabindex="-1"><a class="header-anchor" href="#spark"><span>Spark</span></a></h2>
 </div></template>
 
 

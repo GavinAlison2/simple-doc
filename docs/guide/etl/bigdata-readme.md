@@ -10,7 +10,14 @@
 ## Hive
 
 - [hive](./hive/chapter5-hive.md)
-- [hive sql](./hive/chapter6-hive-sql.md)
+<!-- - [hive sql](./hive/chapter6-hive-sql.md) -->
+
+
+## 参考资料
+
 - [Hive教程](https://developer.aliyun.com/article/1379249)
 
 - hive docker 部署，并支持远程连接
+
+## Spark
+
