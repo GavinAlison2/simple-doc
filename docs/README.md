@@ -5,12 +5,11 @@ heroImage: /images/logo.png
 heroHeight: '92px'
 actions:
   - text: 快速开始
-    link: /get-started.html
+    link: /guide/etl/bigdata-readme.md
     type: primary
   - text: 数据开发
     link: /guide/datawarehouse/index.html
     type: secondary
-    
 
 features:
   - title: 数据开发岗位 
@@ -43,3 +42,4 @@ footer: MIT Licensed | Copyright © 2016-present My Blog Community
 - [Tailwind css](./guide/tailwind/readme.md)
 - [Vue2](./guide/vue/readme.md)
 - [TypeScript](./guide/Typescript/readme.md)
+- [React](./guide/React/readme.md)

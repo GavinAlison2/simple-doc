@@ -20,7 +20,7 @@ export default defineUserConfig({
         children: [
           { text: 'Vue', link: '/guide/vue/readme.md' },
           { text: 'TypeScript', link: '/guide/Typescript/readme.md' },
-          { text: 'React', link: '/pages/folder1/test1.md' },
+          { text: 'React', link: '/guide/React/readme.md' },
           { text: 'Angular', link: '/pages/folder1/test1.md' },
           { text: 'Node.js', link: '/pages/folder1/test1.md' },
           { text: '小程序', link: '/pages/folder1/test1.md' },
