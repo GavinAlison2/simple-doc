@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue实例的创建</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>1-了解如何通过new Vue()创建Vue实例，掌握实例的挂载点、数据、方法等选项的使用。</h2>
+        <h4>{{ message }}</h4>
+        <button @click="changeMessage">点击我</button>
+    </div>
+
+    <div for="模版语法" id="app2">
+        <h2>2-掌握插值表达式、指令等模板语法的使用，如v-text、v-html、v-bind、v-on等</h2>
+        <div id="app">
+            <p v-text="text"></p>
+            <p v-text="html"></p>
+            <p v-html="html"></p>
+            <input v-bind:value="inputValue">
+            <button @click="updateInputValue">更新输入框值</button>
+        </div>
+    </div>
+    <div for="计算属性和侦听器">
+        <h2>3-理解计算属性和侦听器的区别与应用场景，学会定义和使用它们。</h2>
+        <div id="app3">
+            <input v-model="firstName">
+            <input v-model="lastName">
+            <p>全名：{{ fullName }}</p>
+        </div>
+    </div>
+    <div for="生命周期钩子函数">
+        <h2>4-熟悉Vue实例的生命周期，掌握各个生命周期钩子函数的执行时机和应用场景，<br>
+            如 <br>
+            beforeCreate、created、beforeMount、mounted、beforeUpdate、updated、beforeDestroy、destroyed等
+        </h2>
+        <div id="app4">
+            <h3>{{ message }}</h3>
+            <button @click="destroy">销毁实例</button>
+        </div>
+    </div>
+
+
+    <div for="组件基础">
+        <h2>5-学会定义和注册组件，掌握父子组件通信的方式，如props和emit，以及插槽的使用。</h2>
+        <div id="app5">
+            <child-component :parent-message="message" @child-event="handleChildEvent">
+            </child-component>
+        </div>
+    </div>
+
+    <script>
+        // 全局子组件
+        Vue.component('child-component', {
+            props: ['parentMessage'],
+            template: `
+                <div>
+                    <p>子组件接收到的消息：{{ parentMessage }}</p>
+                    <button @click="emitEvent">触发事件</button>
+                </div>
+            `,
+            methods: {
+                emitEvent() {
+                    this.$emit('child-event', '子组件触发的事件');
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app5',
+            data: {
+                message: '父组件的消息'
+            },
+            methods: {
+                handleChildEvent(data) {
+                    alert(`子组件触发的事件，传递的数据为：${data}`);
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            methods: {
+                changeMessage() {
+                    this.message = 'Hello again!';
+                }
+            }
+        });
+        new Vue({
+            el: '#app2',
+            data: {
+                text: '这是文本内容',
+                html: '<span style="color: red;">这是HTML内容</span>',
+                inputValue: '初始值'
+            },
+            methods: {
+                updateInputValue() {
+                    this.inputValue = '新值';
+                }
+            }
+        });
+        new Vue({
+            el: '#app3',
+            data: {
+                firstName: '张',
+                lastName: '三'
+            },
+            computed: {
+                fullName() {
+                    return this.firstName + this.lastName;
+                }
+            }
+            // 也可以使用侦听器来实现类似功能
+            // watch: {
+            //     firstName(newVal) {
+            //         this.fullName = `${newVal} ${this.lastName}`;
+            //     },
+            //     lastName(newVal) {
+            //         this.fullName = `${this.firstName} ${newVal}`;
+            //     }
+            // },
+            // data: {
+            //     firstName: '',
+            //     lastName: '',
+            //     fullName: ''
+            // }
+        });
+
+        new Vue({
+            el: '#app4',
+            data: {
+                message: '生命周期钩子函数示例'
+            },
+            beforeCreate() {
+                console.log('beforeCreate');
+            },
+            created() {
+                console.log('created');
+            },
+            beforeMount() {
+                console.log('beforeMount');
+            },
+            mounted() {
+                console.log('mounted');
+            },
+            beforeUpdate() {
+                console.log('beforeUpdate');
+            },
+            updated() {
+                console.log('updated');
+            },
+            beforeDestroy() {
+                console.log('beforeDestroy');
+            },
+            destroyed() {
+                console.log('destroyed');
+            },
+            methods: {
+                destroy() {
+                    this.$destroy();
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

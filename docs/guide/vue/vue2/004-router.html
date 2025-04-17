@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vue Router</title>
+</head>
+
+<body>
+    <div id="app">
+        <h2>Vue Router（路由管理）</h2>
+        <h3>1- 装和配置Vue Router，学习路由跳转、动态路由、嵌套路由、路由守卫等知识。</h3>
+        <h1>{{ $route.name }}</h1>
+        <router-link to="/home">首页</router-link>
+        <router-link to="/about">关于</router-link>
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.5.3/dist/vue-router.js"></script>
+    <script>
+        const Home = { template: '<div>首页内容</div>' }
+        const About = { template: '<div>关于内容</div>' }
+
+        const routes = [
+            { path: '/about', component: About, name: 'About' },
+            { path: '/home', component: Home, name: 'Home' }
+        ]
+
+        const router = new VueRouter({
+            routes // （缩写）相当于 routes: routes
+        })
+
+        new Vue({
+            router,
+            el: '#app'
+        });
+    </script>
+</body>
+
+</html>

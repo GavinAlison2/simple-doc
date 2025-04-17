@@ -1,0 +1,112 @@
+# vue2
+
+## table of contents
+
+- 全局配置
+- Vue.config.silent = true; // 阻止 vue 在启动时生成生产提示。
+- Vue.config.devtools = true; // 开启 vue-devtools。
+- Vue.config.productionTip = false; // 阻止 vue 在启动时生成生产提示。
+
+- 选项 API
+  - data
+  - props
+  - methods
+  - computed
+  - watch
+  - events
+  - lifecycle hooks
+  - assets
+  - directives
+- 实例
+  - vm.$data
+  - vm.$props
+  - vm.$el
+  - vm.$options
+  - vm.$parent
+  - vm.$root
+  - vm.$children
+  - vm.$slots
+  - vm.$refs
+  - vm.$emit
+  - vm.$on
+  - vm.$off
+  - vm.$watch
+  - vm.$set
+  - vm.$delete
+  - vm.$destroy
+  - vm.$mount
+- 指令 API
+  - v-text
+  - v-html
+  - v-show
+  - v-if
+  - v-else
+  - v-else-if
+  - v-for
+  - v-on
+  - v-bind
+  - v-model
+  - v-pre
+  - v-cloak
+  - v-once
+- 组件 API
+  - Vue.component
+  - Vue.directive
+  - Vue.filter
+  - Vue.use
+  - Vue.mixin
+  - Vue.extends
+  - Vue.nextTick
+  - Vue.set
+  - Vue.delete
+  - Vue.directive
+  - Vue.component
+  - Vue.prototype.$mount
+- 路由 API
+  - VueRouter
+  - VueRouter.install
+  - VueRouter.use
+  - VueRouter.mixin
+  - VueRouter.map
+  - VueRouter.beforeEach
+  - VueRouter.afterEach
+  - VueRouter.onReady
+  - VueRouter.onError
+  - VueRouter.push
+  - VueRouter.replace
+  - VueRouter.go
+  - VueRouter.back
+  - VueRouter.forward
+  - VueRouter.getMatchedComponents
+  - VueRouter.resolve
+  - VueRouter.addRoutes
+  - VueRouter.on
+  - VueRouter.off
+  - VueRouter.beforeResolve
+  - VueRouter.afterResolve
+  - VueRouter.match
+  - VueRouter.currentRoute
+  - VueRouter.options
+  - VueRouter.beforeEnter
+  - router.push
+  - router.replace
+  - router.go
+- 状态管理 API
+  - Vuex
+  - Vuex.install
+  - Vuex.use
+  - store.state
+  - store.getters
+  - store.mutations
+  - store.actions
+  - store.commit
+  - store.dispatch
+  - store.subscribe
+  - store.watch
+  - store.registerModule
+  - store.unregisterModule
+  - store.hotUpdate
+  - mapState
+  - mapGetters
+  - mapMutations
+  - mapActions

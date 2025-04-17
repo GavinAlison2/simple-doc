@@ -54,10 +54,10 @@ export default defineUserConfig({
           { text: 'Java', link: '/pages/folder1/test1.md' },
           { text: 'Python', link: '/pages/folder1/test1.md' },
           { text: 'Golang', link: '/pages/folder1/test1.md' },
-          { text: 'C++', link: '/pages/folder1/test1.md' },
-          { text: 'C#', link: '/pages/folder1/test1.md' },
-          { text: 'PHP', link: '/pages/folder1/test1.md' },
-          { text: 'Ruby', link: '/pages/folder1/test1.md' },
+          // { text: 'C++', link: '/pages/folder1/test1.md' },
+          // { text: 'C#', link: '/pages/folder1/test1.md' },
+          // { text: 'PHP', link: '/pages/folder1/test1.md' },
+          // { text: 'Ruby', link: '/pages/folder1/test1.md' },
         ]
       },
       { 
@@ -142,20 +142,7 @@ export default defineUserConfig({
         {
           text: 'Vue 学习1',
           collapsible: false,
-          children: [
-            'test1.md', 
-            'test2.md', 
-            'test3.md'
-          ]
-        },
-        {
-          text: 'Vue 学习2',
-          collapsible: false,
-          children: [
-            'test2.md', 
-            'test3.md'
-          ]
-        }
+        } 
       ],
       '/guide/ts/': [
         {
