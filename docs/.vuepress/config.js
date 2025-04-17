@@ -18,8 +18,8 @@ export default defineUserConfig({
       {
         text: '前端',
         children: [
-          { text: 'Vue', link: '/guide/vue/test1.md' },
-          { text: 'TypeScript', link: '/pages/folder1/test1.md' },
+          { text: 'Vue', link: '/guide/vue/readme.md' },
+          { text: 'TypeScript', link: '/guide/Typescript/readme.md' },
           { text: 'React', link: '/pages/folder1/test1.md' },
           { text: 'Angular', link: '/pages/folder1/test1.md' },
           { text: 'Node.js', link: '/pages/folder1/test1.md' },

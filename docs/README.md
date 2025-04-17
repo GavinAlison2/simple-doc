@@ -42,3 +42,4 @@ footer: MIT Licensed | Copyright © 2016-present My Blog Community
 - [ES6](./guide/es6/readme.md)
 - [Tailwind css](./guide/tailwind/readme.md)
 - [Vue2](./guide/vue/readme.md)
+- [TypeScript](./guide/Typescript/readme.md)

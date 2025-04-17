@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "CommonJS",
+        "target": "ESNext",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        },
+        "transpileOnly": true,
+        "files": true
+    },
+    "include": [
+        "**/*.ts",
+        "*.ts"
+    ]
+}
