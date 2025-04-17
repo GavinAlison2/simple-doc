@@ -17,6 +17,9 @@ git add -A
 
 git rm -r --cached node_modules
 git rm -r --cached docs/.vuepress/dist
+git rm -r --cached docs/.vuepress/.cache
+git rm -r --cached docs/.vuepress/.temp
+
 
 git commit -m 'deploy'
 
