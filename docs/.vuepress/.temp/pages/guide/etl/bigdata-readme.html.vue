@@ -21,6 +21,9 @@
 </li>
 </ul>
 <h2 id="spark" tabindex="-1"><a class="header-anchor" href="#spark"><span>Spark</span></a></h2>
+<ul>
+<li><RouteLink to="/guide/etl/spark/">Spark</RouteLink></li>
+</ul>
 </div></template>
 
 
