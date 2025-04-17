@@ -36,6 +36,7 @@ export default defineUserConfig({
             children: [
               {text: 'Hadoop', link: '/guide/etl/hadoop/readme.md'},
               {text: 'Hive', link:'/guide/etl/hive/readme.md'},
+              {text: 'Spark', link:'/guide/etl/spark/readme.md'}
             ]
           },
         ]
@@ -131,6 +132,11 @@ export default defineUserConfig({
             ]
           }
         ]
+      }],
+      '/guide/etl/spark/': [{
+        text: 'Spark 学习笔记',
+        collapsible: false,
+        link:'readme.md'
       }],
       '/guide/vue/': [
         {
