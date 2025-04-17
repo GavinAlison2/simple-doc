@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <h2>grid-cols-4</h2>
+    <div class="container">
+        <div
+            class="grid grid-cols-4 gap-4 font-mono text-white text-center font-bold leading-6 bg-stripes-fuchsia  rounded-lg">
+            <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg ">01
+            </div>
+            <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">02</div>
+            <div class="w-14 h-14 rounded-lg flex items-center justify-center bg-sky-500 shadow-lg">03</div>
+
+        </div>
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-cols-4 gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">01</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">03</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">04</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">05</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">06</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">07</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">08</div>
+                <div class="p-4 rounded-lg shadow-lg bg-fuchsia-500">09</div>
+            </div>
+        </div>
+    </div>
+    <h2>col-span-3 <br />
+        col-start-2 <br />
+    </h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-cols-4 gap-4 rounded-lg text-white text-center font-mono text-sm font-bold leading-6 ">
+                <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">01</div>
+                <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">02</div>
+                <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">03</div>
+                <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">04</div>
+                <div class="rounded-lg dark:bg-indigo-900 bg-indigo-300 p-4 shadow-lg">05</div>
+                <div class="col-span-3 grid grid-cols-subgrid gap-4">
+                    <div class="rounded-lg bg-stripes-pink bg-slate-300 p-4"></div>
+                    <div class="rounded-lg bg-pink-500 p-4 shadow-lg">06</div>
+                    <div class="rounded-lg bg-stripes-pink p-4 bg-slate-300"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>grid-cols-3 <br />
+        col-span-2 <br />
+        col-span-full <br />
+        col-start-2 <br />
+    </h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div class="grid grid-cols-3 gap-4 rounded-lg text-center font-mono text-sm font-bold ">
+                <div class="rounded-lg p-4 shadow-lg bg-indigo-300">1</div>
+                <div class="rounded-lg p-4 shadow-lg bg-indigo-300">2</div>
+                <div class="rounded-lg p-4 shadow-lg bg-indigo-300">3</div>
+                <div class="col-span-2 rounded-lg p-4 shadow-lg bg-indigo-300">4</div>
+                <div class="col-span-full rounded-lg p-4 shadow-lg bg-indigo-300">5</div>
+                <div class="col-start-2 rounded-lg p-4 shadow-lg bg-indigo-300">6</div>
+                <div class="rounded-lg p-4 shadow-lg bg-indigo-300">null</div>
+                <div class="col-end-4 rounded-lg p-4 shadow-lg bg-indigo-300">7</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>grid-rows-4 <br />
+        grid-flow-col <br />
+    </h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-rows-4 grid-cols-3x grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">06</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
+            </div>
+        </div>
+    </div>
+    <h2>grid-rows-subgrid</h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-rows-4 grid-cols-3x grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-pink rounded-lg">
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">01</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">03</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">04</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">05</div>
+                <div class="grid grid-rows-subgrid gap-4 row-span-3">
+                    <div class="row-start-2 p-4 rounded-lg shadow-lg bg-pink-500">06</div>
+                </div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">07</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">08</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">09</div>
+                <div class="p-4 rounded-lg shadow-lg bg-pink-500">10</div>
+            </div>
+        </div>
+    </div>
+
+
+    <h2>row-span-* <br />
+        row-start-* <br />
+        row-end-* <br />
+        col-start-* <br />
+        col-end-* <br />
+    </h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-fuchsia rounded-lg">
+                <div class="row-span-3 p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center ">01</div>
+                <div
+                    class="col-span-2 p-4 rounded-lg bg-fuchsia-300 grid place-content-center  dark:bg-fuchsia-800 dark:text-fuchsia-400">
+                    02
+                </div>
+                <div class="row-span-2 col-span-2 p-4 rounded-lg shadow-lg bg-fuchsia-500 grid place-content-center ">03
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>row-start-2</h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-rows-3 grid-flow-col gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-sky rounded-lg">
+                <div
+                    class="row-start-2 row-span-2 p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center  ">
+                    01
+                </div>
+                <div
+                    class="row-end-3 row-span-2 p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center ">
+                    02
+                </div>
+                <div
+                    class="row-start-1 row-end-4 last:p-4 sm:p-12 rounded-lg shadow-lg bg-blue-500 grid place-content-center ">
+                    03
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2>grid-flow-row-dense <br>
+        <span class="font-thin text-sm"> 使用一种“稠密”堆积算法，如果后面出现了稍小的元素，则会试图去填充网格中前面留下的空白</span>
+    </h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-cols-3 grid-rows-3 grid-flow-row-dense gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-purple rounded-lg">
+                <div class="p-4 col-span-2 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">01</div>
+                <div class="p-4 col-span-2 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-purple-500">03</div>
+                <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">04</div>
+                <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">05</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-cols-3 grid-rows-3 auto-cols-auto gap-4 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-purple rounded-lg">
+                <div class="p-4 rounded-lg shadow-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">01</div>
+                <div class="p-4 rounded-lg shadow-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-purple-300">03</div>
+                <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">04</div>
+                <div class="p-4 rounded-lg bg-purple-300 dark:bg-purple-800 dark:text-purple-400">05</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>grid /flex gap-4</h2>
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div
+                class="grid grid-cols-2 gap-5 font-mono text-white text-sm text-center font-bold leading-6 bg-stripes-violet rounded-lg">
+                <div class="p-4 rounded-lg shadow-lg bg-violet-500">01</div>
+                <div class="p-4 rounded-lg shadow-lg bg-violet-500">02</div>
+                <div class="p-4 rounded-lg shadow-lg bg-violet-500">03</div>
+                <div class="p-4 rounded-lg shadow-lg bg-violet-500">04</div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>

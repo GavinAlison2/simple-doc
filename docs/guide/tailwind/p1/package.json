@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "tailwind": "tailwindcss -i src/app.css -o src/output.css --watch  --minify",
+    "tailwind-dev": "tailwindcss -i src/app.css -o src/output.css --watch",
+    "clean": "rm src/output.css && rm -rf node_modules && rm -rf package-lock.json"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.8"
+  }
+}

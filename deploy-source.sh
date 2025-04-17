@@ -21,7 +21,7 @@ git rm -r --cached docs/.vuepress/.cache
 git rm -r --cached docs/.vuepress/.temp
 
 
-git commit -m 'deploy'
+git commit -m 'tailwindcss'
 
 git pull origin master --allow-unrelated-histories
 git remote add origin git@github.com:GavinAlison2/simple-doc.git
