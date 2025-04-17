@@ -18,7 +18,7 @@ features:
   - title: Java
     details: Java语言的笔记，知识点整理, Python, Go, Spring, Spring Boot, Spring Cloud, Spring Data JPA, Spring Security, Spring Cloud Alibaba等 知识点整理
   - title: 前端
-    details: 前端技术栈的笔记, Vue, React, Node.js, VuePress, ES6, TypeScript等 知识点整理
+    details: 前端技术栈的笔记, Vue, React, Node.js, VuePress, ES6, TailWind CSS,TypeScript等 知识点整理
   - title: 大数据技术
     details: 大数据技术栈的笔记，Hadoop, Spark, Kafka, Flink等 知识点整理
   - title: 项目笔记
