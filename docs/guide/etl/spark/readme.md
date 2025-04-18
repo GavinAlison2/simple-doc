@@ -11,6 +11,9 @@
 - [RDD 编程2](01.rdd2.md)
 - [Spark-Core 编程](spark-core.md)
 - [Spark-Core 编程2](spark-core2.md)
+- [Spark-executor ](spark-executor.md)
+- [Spark 数据倾斜](spark-数据倾斜.md)
+- [Spark Sql](spark-sql.md)
 
 - [DataFrame 编程](02.dataframe.md)
 - [DataSet 编程](03.dataset.md)
