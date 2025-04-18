@@ -1,0 +1,70 @@
+import{_ as n,c as a,e,o as l}from"./app-DKrcH86L.js";const i={};function t(p,s){return l(),a("div",null,s[0]||(s[0]=[e(`<h1 id="hive-partition-分区" tabindex="-1"><a class="header-anchor" href="#hive-partition-分区"><span>Hive Partition 分区</span></a></h1><p>分区表练习</p><h2 id="_1-创建分区表-单列分区" tabindex="-1"><a class="header-anchor" href="#_1-创建分区表-单列分区"><span>1. 创建分区表-单列分区</span></a></h2><div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre><code><span class="line"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> <span class="token keyword">IF</span> <span class="token operator">NOT</span> <span class="token keyword">EXISTS</span> day_table  <span class="token punctuation">(</span></span>
+<span class="line">    id <span class="token keyword">INT</span><span class="token punctuation">,</span></span>
+<span class="line">    content string</span>
+<span class="line">  <span class="token punctuation">)</span></span>
+<span class="line">  PARTITIONED <span class="token keyword">BY</span> <span class="token punctuation">(</span>  dt string<span class="token punctuation">)</span></span>
+<span class="line">  <span class="token keyword">row</span> format delimited</span>
+<span class="line"> <span class="token keyword">fields</span> <span class="token keyword">terminated</span> <span class="token keyword">by</span> <span class="token string">&#39;,&#39;</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>这里分区字段不能和表中的字段重复</p><h2 id="_2-加载数据" tabindex="-1"><a class="header-anchor" href="#_2-加载数据"><span>2. 加载数据</span></a></h2><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">cat &gt;&gt; ./hive-data/day_table.txt &lt;&lt;EOF</span>
+<span class="line">1,tom </span>
+<span class="line">2,jerry</span>
+<span class="line">3,alice</span>
+<span class="line">4,bob</span>
+<span class="line">5,lily</span>
+<span class="line">6,mary</span>
+<span class="line">7,jim</span>
+<span class="line">8,jane</span>
+<span class="line">9,jack</span>
+<span class="line">10,judy</span>
+<span class="line"></span>
+<span class="line">EOF</span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>docker 映射 hive-data 目录到宿主机 ./hive-data/day_table.txt: /opt/hive/ddldata/day_table.txt</p><div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre><code><span class="line"><span class="token keyword">LOAD</span> <span class="token keyword">DATA</span> <span class="token keyword">local</span> INPATH <span class="token string">&#39;/opt/hive/ddldata/day_table.txt&#39;</span></span>
+<span class="line">OVERWRITE <span class="token keyword">INTO</span> <span class="token keyword">TABLE</span> day_table</span>
+<span class="line"><span class="token keyword">PARTITION</span> <span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">&#39;2025-01-01&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_3-查询数据" tabindex="-1"><a class="header-anchor" href="#_3-查询数据"><span>3. 查询数据</span></a></h2><div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre><code><span class="line"><span class="token keyword">SELECT</span> <span class="token operator">*</span> <span class="token keyword">FROM</span> day_table  <span class="token keyword">WHERE</span> dt<span class="token operator">=</span><span class="token string">&#39;2021-01-01&#39;</span></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">1	tom 	2025-01-01</span>
+<span class="line">2	jerry	2025-01-01</span>
+<span class="line">3	alice	2025-01-01</span>
+<span class="line">4	bob	2025-01-01</span>
+<span class="line">5	lily	2025-01-01</span>
+<span class="line">6	mary	2025-01-01</span>
+<span class="line">7	jim	2025-01-01</span>
+<span class="line">8	jane	2025-01-01</span>
+<span class="line">9	jack	2025-01-01</span>
+<span class="line">10	judy	2025-01-01</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>存储到hdfs中</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">/user/hive/warehouse/day_table/dt=2025-01-01/000000_0</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><p>插入另一个分区</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">load data local inpath &#39;/opt/hive/ddldata/day_table.txt&#39;</span>
+<span class="line">OVERWRITE INTO TABLE day_table</span>
+<span class="line">PARTITION (dt=&#39;2025-02-01&#39;);</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">1	tom 	2025-01-01</span>
+<span class="line">2	jerry	2025-01-01</span>
+<span class="line">3	alice	2025-01-01</span>
+<span class="line">...</span>
+<span class="line">1	tom 	2025-02-01</span>
+<span class="line">2	jerry	2025-02-01</span>
+<span class="line">3	alice	2025-02-01</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="创建分区表-多列分区" tabindex="-1"><a class="header-anchor" href="#创建分区表-多列分区"><span>创建分区表-多列分区</span></a></h2><div class="language-sql line-numbers-mode" data-highlighter="prismjs" data-ext="sql"><pre><code><span class="line"><span class="token keyword">create</span> <span class="token keyword">table</span> day_hour_table <span class="token punctuation">(</span>id <span class="token keyword">int</span><span class="token punctuation">,</span> content string<span class="token punctuation">)</span> </span>
+<span class="line">partitioned <span class="token keyword">by</span> <span class="token punctuation">(</span>dt string<span class="token punctuation">,</span> <span class="token keyword">hour</span> string<span class="token punctuation">)</span></span>
+<span class="line"><span class="token keyword">row</span> format delimited <span class="token keyword">fields</span> <span class="token keyword">terminated</span> <span class="token keyword">by</span> <span class="token string">&#39;,&#39;</span></span>
+<span class="line"><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span class="token comment">-- 向双分区加载数据</span></span>
+<span class="line"><span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">&#39;/opt/hive/ddldata/day_table.txt&#39;</span> <span class="token keyword">into</span> <span class="token keyword">table</span> day_hour_table <span class="token keyword">partition</span> <span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">&#39;2025-01-01&#39;</span><span class="token punctuation">,</span> <span class="token keyword">hour</span><span class="token operator">=</span><span class="token string">&#39;01&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"><span class="token keyword">load</span> <span class="token keyword">data</span> <span class="token keyword">local</span> inpath <span class="token string">&#39;/opt/hive/ddldata/day_table.txt&#39;</span> <span class="token keyword">into</span> <span class="token keyword">table</span> day_hour_table <span class="token keyword">partition</span> <span class="token punctuation">(</span>dt<span class="token operator">=</span><span class="token string">&#39;2025-01-01&#39;</span><span class="token punctuation">,</span> <span class="token keyword">hour</span><span class="token operator">=</span><span class="token string">&#39;02&#39;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>添加两个字段相应的插入数据时要指定两个字段，一个字段会报错</p><p>存储</p><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">/user/hive/warehouse/day_hour_table/dt=2025-01-01/hour=01/000000_0</span>
+<span class="line">/user/hive/warehouse/day_hour_table/dt=2025-01-01/hour=02/000000_0</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="查询数据" tabindex="-1"><a class="header-anchor" href="#查询数据"><span>查询数据</span></a></h2><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">select * from day_hour_table where dt=&#39;2025-01-01&#39; and hour=&#39;01&#39;;</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div></div></div><div class="language-text line-numbers-mode" data-highlighter="prismjs" data-ext="text"><pre><code><span class="line">1	tom 	2025-01-01	01</span>
+<span class="line">2	jerry	2025-01-01	01</span>
+<span class="line">3	alice	2025-01-01	01</span>
+<span class="line">4	bob	2025-01-01	01</span>
+<span class="line">5	lily	2025-01-01	01</span>
+<span class="line">6	mary	2025-01-01	01</span>
+<span class="line">7	jim	2025-01-01	01</span>
+<span class="line">8	jane	2025-01-01	01</span>
+<span class="line">9	jack	2025-01-01	01</span>
+<span class="line">10	judy	2025-01-01	01</span>
+<span class="line"></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="总结" tabindex="-1"><a class="header-anchor" href="#总结"><span>总结</span></a></h2><ul><li>创建分区表时，分区字段不能和表中的字段重复</li><li>加载数据时，指定分区字段的值</li><li>查询数据时，指定分区字段的值</li><li>存储数据时，分区字段的值会作为文件夹名</li><li>多分区表，分区字段值会作为文件夹名的一部分</li><li>多分区表，查询时，指定所有分区字段的值</li><li>多分区表，加载数据时，指定所有分区字段的值</li><li>多分区表，存储数据时，分区字段的值会作为文件夹名的一部分</li></ul>`,27)]))}const c=n(i,[["render",t]]),r=JSON.parse('{"path":"/guide/etl/hive/06.Hive-multi-partition.html","title":"Hive Partition 分区","lang":"zh-CN","frontmatter":{},"headers":[{"level":2,"title":"1. 创建分区表-单列分区","slug":"_1-创建分区表-单列分区","link":"#_1-创建分区表-单列分区","children":[]},{"level":2,"title":"2. 加载数据","slug":"_2-加载数据","link":"#_2-加载数据","children":[]},{"level":2,"title":"3. 查询数据","slug":"_3-查询数据","link":"#_3-查询数据","children":[]},{"level":2,"title":"创建分区表-多列分区","slug":"创建分区表-多列分区","link":"#创建分区表-多列分区","children":[]},{"level":2,"title":"查询数据","slug":"查询数据","link":"#查询数据","children":[]},{"level":2,"title":"总结","slug":"总结","link":"#总结","children":[]}],"git":{"updatedTime":1744704693000,"contributors":[{"name":"alice","username":"alice","email":"921757697@qq.com","commits":1,"url":"https://github.com/alice"}],"changelog":[{"hash":"dfd0622aaebd86afdb6c3a976ac929291d829df9","time":1744704693000,"email":"921757697@qq.com","author":"alice","message":"deploy"}]},"filePathRelative":"guide/etl/hive/06.Hive-multi-partition.md"}');export{c as comp,r as data};
