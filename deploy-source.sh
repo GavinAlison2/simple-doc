@@ -21,7 +21,7 @@ git rm -r --cached docs/.vuepress/.cache
 git rm -r --cached docs/.vuepress/.temp
 
 
-git commit -m 'react'
+git commit -m 'doc 整理'
 
 git pull origin master --allow-unrelated-histories
 git remote add origin git@github.com:GavinAlison2/simple-doc.git
@@ -29,4 +29,3 @@ git branch -M master
 # git push  -f origin master:gh-pages
 git push -f origin master
 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                   
