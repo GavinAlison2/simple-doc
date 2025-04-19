@@ -14,6 +14,9 @@
 - [Spark-executor ](spark-executor.md)
 - [Spark 数据倾斜](spark-数据倾斜.md)
 - [Spark Sql](spark-sql.md)
+- [Spark Streaming](spark-streaming.md)
+- [Spark kafka](spark-kafka.md)
+
 
 - [DataFrame 编程](02.dataframe.md)
 - [DataSet 编程](03.dataset.md)
