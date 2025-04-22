@@ -48,3 +48,7 @@ footer: MIT Licensed | Copyright © 2016-present My Blog Community
 - [Vue2](./guide/vue/readme.md)
 - [TypeScript](./guide/Typescript/readme.md)
 - [React](./guide/React/readme.md)
+
+# MySQL
+
+- [MySQL](./guide/mysql/readme.md)

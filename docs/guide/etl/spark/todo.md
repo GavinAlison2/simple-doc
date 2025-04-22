@@ -32,3 +32,5 @@
 - https://github.com/gongjinx/blog/blob/master/%E5%A4%A7%E6%95%B0%E6%8D%AE/Spark/%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85Spark%E5%B9%B6%E5%A4%96%E6%8C%82%E5%88%B0HDP.md
 - https://github.com/deanwampler/spark-scala-tutorial/blob/master/notebooks/00_Tutorial.ipynb
 
+- https://github.com/HsiangSun/bigdatabook/blob/master/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E6%A0%88/%E6%95%B0%E6%8D%AE%E8%AE%A1%E7%AE%97/spark/spark-%E5%86%85%E6%A0%B8%E4%BB%A5%E5%8F%8A%E4%BC%98%E5%8C%96-%E5%B0%9A.md
+
