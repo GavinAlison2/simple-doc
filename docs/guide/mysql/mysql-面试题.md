@@ -22,13 +22,23 @@
 
     - 将查询结果返回给客户端。如果查询语句是INSERT、UPDATE、DELETE等修改数据的操作，则返回受影响的行数等信息。
 
-
-- undo log, mvcc
-- redolog，wal
+- undo log, mvcc， 
+- redolog，wal, 
 - binlog，备份，主从
 
 ![mysql-execute-sql](./assets/mysql-sql-execute-process.png)
 
+## redo log
+
+redo log 是 MySQL 用于保证数据持久性的一种机制。在 MySQL 中，每当有一条记录被更新，MySQL 都会先写入 redo log，然后再更新内存，以此来确保数据持久性。当事务提交时，redo log 被写入磁盘，并清空，以保证数据完整性。
+- 事务持久性
+- 数据一致性，完整性
+- 崩溃恢复, 恢复数据库最后一次正常运行的状态，通过执行redo log记录的操作. 重播机制. 
+- 性能优化， redo log 减少随机写，改成顺序写，提高性能，减少磁盘 IO。异步刷新redo buffer.
+
+innodb_flush_log_at_trx_commit=1，表示每次事务提交时，都将 redo log 写入磁盘。innodb_flush_log_at_trx_commit=0，表示系统崩溃时，只有 redo log 未写入磁盘，数据可能丢失。
+
+innodb 内存 -> redo log -> 磁盘
 
 
 > [redo log video](https://www.bilibili.com/video/BV1Zz42197cF/?spm_id_from=333.1387.upload.video_card.click&vd_source=5a41e8ae8c0a4c2c6809a5ccf977c1a9)
