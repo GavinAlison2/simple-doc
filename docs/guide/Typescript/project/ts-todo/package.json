@@ -1,0 +1,20 @@
+{
+  "name": "ts-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "todo": "ts-node ts-todo.ts",
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "ts-todo": "file:"
+  }
+}

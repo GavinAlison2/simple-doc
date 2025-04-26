@@ -1,0 +1,70 @@
+@tailwind base;
+/** Base styles  基本样式以及插件*/
+@tailwind components;
+/** Components 组件类和任何组件类通过插件注册 */
+@tailwind utilities;
+/** Utilities  工具类 */
+/**
+ * 使用此指令来控制 Tailwind 注入悬停、焦点、响应式、深色模式以及其他变体
+ * 如果省略，Tailwind 会将这些类附加到默认情况下您的样式表
+ */
+@tailwind variants;
+
+/* @layer base {
+    body {
+        @apply bg-white;
+    }
+
+    a:hover {
+        @apply bg-sky-500;
+    }
+} */
+/* 
+.select2-dropdown {
+    @apply rounded-b-lg shadow-md;
+}
+
+.select2-search {
+    @apply border border-gray-300 rounded;
+}
+
+.select2-results__group {
+    @apply text-lg font-bold text-gray-900;
+} */
+
+/* Input */
+.btn-1 {
+    @apply font-bold py-2 px-4 rounded !important;
+}
+
+@supports (color: red) {
+    .supports-cust-text {
+        color: red;
+    }
+}
+
+/* @supports (display: grid) and (color: blue) {
+    .supports-multiple {
+        display: grid;
+        color: blue;
+    }
+} */
+
+@layer components {
+    .btn-primary {
+        @apply py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75;
+    }
+
+    .card {
+        background-color: theme('colors.white');
+        border-radius: theme('borderRadius.lg');
+        padding: theme('spacing.6');
+        box-shadow: theme('boxShadow.xl');
+    }
+}
+
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+}

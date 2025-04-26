@@ -1,0 +1,25 @@
+{
+  "name": "typeorm-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/test.ts",
+    "start-js": "tsc && node dist/test.js",
+    "clean": "rm -rf dist && rm -rf node_modules && rm -rf package-lock.json",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "reflect-metadata": "^0.2.2",
+    "sqlite3": "^5.1.7",
+    "typeorm": "^0.3.20",
+    "typeorm-test": "file:"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "prettier": "^2.5.1",
+    "typescript": "^5.7.2"
+  }
+}

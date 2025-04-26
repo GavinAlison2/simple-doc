@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <script src="/vue/cdnjs/vue2.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <component :is="ViewComponent"></component>
+    </div>
+
+    <script>
+        const NotFound = { template: '<p>Page not found</p>' }
+        const Home = { template: '<p>home page</p>' }
+        const About = { template: '<p>about page</p>' }
+
+        const routes = {
+            '/home': Home,
+            '/about': About
+        }
+
+        new Vue({
+            el: '#app',
+            data: {
+                currentRoute: "/home"
+            },
+            computed: {
+                // ViewComponent() {
+                // return routes[this.currentRoute] || NotFound
+                // },
+                ViewComponent() {
+                    console.log(this.currentRoute); // 调试输出
+                    return routes[this.currentRoute] || NotFound
+                }
+            },
+            render(h) { return h(this.ViewComponent) },
+            // render: h => h(this.ViewComponent) // 失效
+        })</script>
+</body>
+
+</html>

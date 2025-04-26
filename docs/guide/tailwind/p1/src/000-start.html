@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #eaeaeb;
+        }
+
+        .chat-notification {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            background-color: #fff;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+        }
+
+        .chat-notification-logo-wrapper {
+            flex-shrink: 0;
+        }
+
+        .chat-notification-logo {
+            height: 3rem;
+            width: 3rem;
+        }
+
+        .chat-notification-content {
+            margin-left: 1rem;
+        }
+
+        .chat-notification-title {
+            color: #1a202c;
+            font-size: 1.25rem;
+            line-height: 1.25;
+            margin: 0 auto;
+        }
+
+        .chat-notification-message {
+            color: #718096;
+            font-size: 1rem;
+            line-height: 1.25;
+            margin: 5px auto;
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chat-notification my-2">
+        <div class="chat-notification-logo-wrapper">
+            <img class="chat-notification-logo" src="./img/logo.png" alt="chat-svg">
+        </div>
+        <div class="chat-notification-content">
+            <h4 class="chat-notification-title">
+                ChitChat
+            </h4>
+            <p class="chat-notification-message">You have a new message!</p>
+        </div>
+    </div>
+    <div class="h-5"> </div>
+
+    <div class="p-6 max-w-sm mx-auto bg-white rounded-xl shadow-lg flex items-center spave-x-4">
+        <div class="shrink-0">
+            <img src="./img/logo.png" alt="chat logo" class="size-12">
+        </div>
+        <div>
+            <div class="text-xl font-medium text-blcak  ">ChitChat</div>
+            <p class="mt-2 text-gray-500">You have a new message!</p>
+        </div>
+    </div>
+
+    <div class="h-5"> </div>
+    <div
+        class="max-w-sm mx-auto bg-white rounded-xl shadow-lg space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+        <img class="block mx-auto h-24 rounded-full sm:mx-0 sm:shrink-0"
+            src="https://www.tailwindcss.cn/img/erin-lindford.jpg" alt="Woman's Face" />
+        <div class="text-center space-y-2 sm:text-left">
+            <div class="space-y-0.5">
+                <p class="text-lg text-black font-semibold">
+                    Erin Lindford
+                </p>
+                <p class="text-slate-500 font-medium">
+                    Product Engineer
+                </p>
+            </div>
+            <button
+                class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
+        </div>
+    </div>
+</body>
+
+</html>

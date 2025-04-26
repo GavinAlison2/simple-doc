@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <div class="hidden max-w-screen-xl mx-auto px-4 py-8 bg-gray-100 rounded-lg shadow-md">
+        <iframe class="w-full aspect-video " src="https://www"></iframe>
+    </div>
+
+    <div class="hidden">
+        <div class="aspect-radio">asd</div>
+    </div>
+
+    <div class="container mx-auto">container, min-width: 100%</div>
+    <div class="sm:container mx-auto">container, min-width: 640px</div>
+    <div class="md:container mx-auto">md:container, min-width: 768px</div>
+    <div class="lg:container mx-auto">lg:container, min-width: 1024px</div>
+    <div class="xl:container mx-auto">xl:container, min-width: 1280px</div>
+    <div class="2xl:container mx-auto">2xl:container, min-width: 1536px</div>
+
+    <div class="my-10 py-4 h-5"></div>
+    <div class="flex gap-x-4">
+        <div class="bg-blue-500 p-4">元素1</div>
+        <div class="bg-green-500 p-4">元素2</div>
+        <div class="bg-yellow-500 p-4">元素3</div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-x-4">
+        <div class="bg-blue-500 p-4">元素1</div>
+        <div class="bg-green-500 p-4">元素2</div>
+        <div class="bg-yellow-500 p-4">元素3</div>
+        <div class="bg-purple-500 p-4">元素4</div>
+        <div class="bg-orange-500 p-4">元素5</div>
+        <div class="bg-pink-500 p-4">元素6</div>
+    </div>
+
+    <div class="relative ">
+        <div class="absolute inset-0 -top-8 -bottom-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div class="bg-stripes-blue opacity-75 w-full h-full"></div>
+            <div class="hidden sm:block bg-stripes-blue opacity-75 w-full h-full"></div>
+            <div class="hidden sm:block bg-stripes-blue opacity-75 w-full h-full"></div>
+        </div>
+        <!-- flex  justify-center items-center max-w-3xl -->
+        <!-- <div class="relative columns-1 sm:columns-3 gap-8 "> -->
+        <div class="relative columns-3xs gap-8">
+            <div class="relative aspect-w-16 aspect-h-9 aspect-video">
+                <img class="w-full object-cover rounded-lg" src="./img/col-1.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="relative aspect-w-16 aspect-h-9 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-2.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="relative aspect-w-16 aspect-h-9 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-3.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-1 aspect-h-1 mt-8 sm:mt-0">
+                <img class="w-full object-cover rounded-lg" src="./img/col-4.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-16 aspect-h-9 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-5.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-1 aspect-h-1 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-6.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-1 aspect-h-1 mt-8 sm:mt-0">
+                <img class="w-full object-cover rounded-lg" src="./img/col-7.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-1 aspect-h-1 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-8.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+            <div class="hidden sm:block relative aspect-w-16 aspect-h-9 mt-8">
+                <img class="w-full object-cover rounded-lg" src="./img/col-9.png">
+                <div class="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-lg"></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+services:
+  slave1:
+    image: registry.cn-hangzhou.aliyuncs.com/hadoop_test/hadoop_base
+    container_name: slave1
+    hostname: slave1
+    networks:
+      - hadoop
+    depends_on: 
+      - master   
+  slave2:
+    image: registry.cn-hangzhou.aliyuncs.com/hadoop_test/hadoop_base
+    container_name: slave2
+    hostname: slave2
+    networks:
+      - hadoop
+    depends_on: 
+      - master
+  master:
+    image: registry.cn-hangzhou.aliyuncs.com/hadoop_test/hadoop_base
+    container_name: master
+    hostname: master
+    networks:
+      - hadoop
+    ports:
+      - 9870:9870
+      - 8088:8088
+      - 10000:10000
+    volumes:
+      - ./hadoop-entrypoint.sh:/entrypoint.sh
+    entrypoint: ["/entrypoint.sh"]
+
+networks:
+  hadoop:
+    driver: bridge

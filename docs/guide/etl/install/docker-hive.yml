@@ -1,0 +1,42 @@
+version: '3'
+services:
+  hiveserver2:
+    # build: 
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: anolis-registry.cn-zhangjiakou.cr.aliyuncs.com/openanolis/hive:java8-anolis23
+    container_name: hiveserver2
+    restart: no
+    environment:
+      - SERVICE_NAME=hiveserver2
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_ROOT_HOST=%
+      - JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF-8 -Dsun.jnu.encoding=UTF-8
+      - IS_RESUME=true
+    volumes:
+      # - ./mysql-server.cnf:/etc/mysql/conf.d/mysql-server.cnf:rw
+      # - mysql-data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/my.cnf
+      - ./mysql-entrypoint.sh:/usr/local/bin/mysql-entrypoint.sh
+      - ./hive-site.xml:/opt/hive/conf/hive-site.xml:rw
+      - ./hive-entrypoint.sh:/entrypoint.sh
+      - ./hive-data:/opt/hive/ddldata
+    # command: ['sh', '+x', '/opt/hive/script/hive-script.sh']
+    ports:
+      - 10000:10000
+      - 3306:3306
+    networks:
+      - hive-network
+    dns: 
+      - 8.8.8.8
+      - 4.4.4.4
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+volumes:
+  mysql-data:
+  # hive-data:
+networks:
+  hive-network:
+    driver: bridge

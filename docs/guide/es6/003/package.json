@@ -1,0 +1,9 @@
+{
+  "name": "obj demo",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {},
+  "scripts": {
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock"
+  }
+}

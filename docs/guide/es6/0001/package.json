@@ -1,0 +1,12 @@
+{
+  "name": "promises demo",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.2.0",
+    "promises demo": "file:"
+  },
+  "scripts": {
+    "clean": "rm -rf node_modules && rm -rf package-lock.json && rm -rf yarn.lock"
+  }
+}

@@ -1,0 +1,45 @@
+
+name: Deploy Docs actions # 工作流的名字
+
+on:
+  push: # 只有在推送到指定分支时才触发工作流
+    branches: # 触发工作流的分支
+      # make sure this is the branch you are using
+      - master
+
+permissions: # 权限
+  contents: write
+
+jobs: # 工作流的步骤
+  deploy-gh-pages: # 工作流的所有任务分组在一起， 任务名
+    runs-on: ubuntu-latest   # 运行器类型
+    steps: #      任务的步骤
+      - name: Checkout  # 步骤名
+        uses: actions/checkout@v4 # 使用的动作
+        with: # 输入参数
+          fetch-depth: 0 # 克隆深度，默认是 1，这里设置为 0 克隆全部历史记录
+          # if your docs needs submodules, uncomment the following line
+          # submodules: true
+
+      - name: Setup Node.js # 安装 Node.js
+        uses: actions/setup-node@v4 # 使用的动作
+        with: # 输入参数
+          node-version: 20 #   Node.js 版本
+          cache: npm # 缓存 npm 依赖
+
+      - name: Install Deps # 安装依赖
+        run: npm ci # 运行 npm ci 命令
+
+      - name: Build Docs # 构建文档
+        env: # 环境变量
+          NODE_OPTIONS: --max_old_space_size=8192 # 增加内存限制
+        run: |- # 多行命令 # 运行 npm run docs:build 命令
+          npm run docs:build 
+          > docs/.vuepress/dist/.nojekyll # 创建 .nojekyll 文件，用于阻止 GitHub Pages 忽略掉 docs/.vuepress/dist/ 目录下的文件
+
+      - name: Deploy Docs # 部署文档
+        uses: JamesIves/github-pages-deploy-action@v4 # 使用的动作
+        with: # 输入参数
+          # This is the branch where the docs are deployed to
+          branch: gh-pages # 部署到的分支
+          folder: docs/.vuepress/dist # 部署的文件夹

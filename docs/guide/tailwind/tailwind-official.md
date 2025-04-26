@@ -1,0 +1,214 @@
+# table of content
+
+- 新手入门
+  - [安装](install.md)
+  - [第一个页面](first-page.md)
+  - 编辑器设置
+- 核心概念
+  - 工具优先的基础
+  - 处理悬停、聚焦和其他状态
+  - 响应式设计
+  - 夜间模式
+  - 重用样式
+  - 添加自定义样式
+  - 函数和指令
+- 定制化
+  - 配置
+  - 内容配置
+  - 主题配置
+  - 自定义屏幕
+  - 自定义颜色
+  - 自定义间距
+  - 插件
+- 基本样式
+- 布局
+
+  - 纵横比 aspect-ratio, aspect-video, aspect-auto
+  - 容器 container, container-fluid, container-center, md:container
+  - 列 columns-auto columns-2, columns-3
+  - 中断之后 break-after, break-inside
+  - 中断之前 break-before
+  - 盒装饰中断 box-decoration-slice, box-decoration-clone
+  - 盒尺寸 box-border, box-content
+  - 展示 display, hidden, visible, invisible, block, inline-block, inline, flex, inline-flex, table, inline-table, table-caption, table-cell, table-column, table-column-group, table-footer-group, table-header-group, table-row, table-row-group, flow-root, grid, inline-grid, contents, list-item
+  - 浮动 float, float-right, float-left, float-none, float-start, float-end,
+  - 清除 clear, clear-left, clear-right, clear-both, clear-none, clear-start, clear-end
+  - 隔离 isolate, isolate-auto, isolate-block, isolate-inline, isolate-none
+  - 对象适合 object-contain, object-cover, object-fill, object-none, object-scale-down,
+  - 对象位置 object-bottom, object-center, object-left, object-left-top,object-left-bottom, object-right, object-right-top, object-right-bottom, object-top, object-fit, object-position, object-position-bottom, object-position-center, object-position-left, object-position-left-bottom, object-position-left-top, object-position-right, object-position-right-bottom, object-position-right-top, object-position-top, object-position-x, object-position-y, object-position-z,
+  - 溢出 overflow, overflow-auto, overflow-hidden, overflow-visible, overflow-scroll, overflow-x-auto, overflow-y-auto, overflow-x-hidden, overflow-y-hidden, overflow-x-visible, overflow-y-visible, overflow-x-scroll, overflow-y-scroll,
+  - 过度滚动行为 overscroll-auto, overscroll-contain, overscroll-none, overscroll-x-auto, overscroll-y-auto, overscroll-x-contain, overscroll-y-contain, overscroll-x-none, overscroll-y-none,
+  - 位置 position , static, fixed, absolute, relative, sticky,
+  - 上右下左 top, right, bottom, left,inset-0, inset-x-0, inset-y-0, top-0, right-0, bottom-0, left-0, inset-auto, inset-x-auto, inset
+  - 可见性 visible, invisible, visible-print, invisible-print, collapse
+  - Z 索引 z-0, z-10, z-20, z-30, z-40, z-50, z-auto,
+
+- 弹性盒子 & 网格
+
+  - 弹性基础 basis, basis-1, basis-1/2, basis-auto, basis-full, basis-min, basis-max, basis-prose, basis-screen, basis-px, basis-0, basis
+  - 弹性方向 flex-row, flex-row-reverse, flex-col, flex-col-reverse
+  - 弹性换行 flex-wrap, flex-nowrap, flex-wrap-reverse
+  - 弹性 flex-1, flex-auto, flex-initial, flex-none
+  - 弹性增长 grow, grow-0
+  - 排序 order, order-1, order-2, order-3, order-4, order-5, order-6, order-7, order-8, order-9, order-10, order-11, order-12, order-first, order-last, order-none
+  - 弹性收缩 shrink, shrink-0
+  - 网格模板列 grid-cols-1, grid-cols-2, grid-cols-3, grid-cols-4, grid-cols-5, grid-cols-6, grid-cols-7, grid-cols-8, grid-cols-9, grid-cols-10, grid-cols-11, grid-cols-12, grid-cols-none, grid-cols
+  - 网格列开始结束 grid-col-start, grid-col-end, grid-row-start, grid-row-end
+  - 网格模板行 grid-rows-1, grid-rows-2, grid-rows-3, grid-rows-4, grid-rows-5, grid-rows-6, grid-rows-none, grid-rows
+  - 网格行开始结束 grid-row-start, grid-row-end
+  - 网格自动流 grid-flow-row, grid-flow-col, grid-flow-row-dense, grid-flow-col-dense
+  - 网格自动列 auto-cols-auto, auto-cols-min, auto-cols-max, auto-cols-fr, auto-cols
+  - 网格自动行 auto-rows-auto, auto-rows-min, auto-rows-max, auto-rows-fr, auto-rows
+  - 缺口 gap-0, gap-1, gap-2, gap-3, gap-4, gap-5, gap-6, gap-7, gap-8, gap-px
+  - 纵向对齐内容 justify-content x justif-normal, justify-start, justify-end, justify-center, justify-between, justify-around, justify-evenly
+  - 纵向对齐条目 justify-items x , justify-items-auto, justify-items-start, justify-items-end, justify-items-center, justify-items-stretch, justify-items-baseline
+  - 纵向对齐自身 justify-self x, justify-self-auto, justify-self-start, justify-self-end, justify-self-center, justify-self-stretch, justify-self-baseline
+  - 横向对齐内容 align-content y,content-normal, content-start, content-end, content-center, content-between, content-around, content-evenly
+  - 横向对齐条目 align-items y, items-start, items-end, items-center, items-baseline, items-stretch
+  - 横向对齐自身 align-self y, self-auto, self-start, self-end, self-center, self-stretch, self-baseline
+  - 放置内容 place-content, placen-content-normal, place-content-start, place-content-end, place-content-center, place-content-between, place-content-around, place-content-evenly
+  - 放置条目 place-items,place-items-auto, place-items-start, place-items-end, place-items-center, place-items-stretch, place-items-baseline
+  - 放置自身 place-self, place-self-auto, place-self-start, place-self-end, place-self-center, place-self-stretch, place-self-baseline
+
+- 间距
+  - 内边距 p-0, px-1, py-1, pt-1, pb-1, pl-1, pr-1, p-2, px-2, py-2, pt-2, pb-2, pl-2, pr-2, p-3, px-3, py-3, pt-3, pb-3, pl-3, pr-3, p-4, px-4, py-4, pt-4, pb-4, pl-4, pr-4, p-5, px-5, py-5, pt-5, pb-5, pl-5, pr-5, p-6, px-6, py-6, pt-6, pb-6, pl-6, pr-6, p-8, px-8, py-8, pt-8, pb-8, pl-8, pr-8, p-10, px-10, py-10, pt-10, pb-10, pl-10, pr-10,
+  - 外边距 m-0, m-1, m-auto, mx-auto, my-auto, mt-auto, mb-auto, ml-auto, mr-auto,
+  - 间距 space-x-0, space-y-0, space-x-1, space-y-1, space-x-2, space-y-2, space-x
+- 尺寸
+  - 宽度 w-1
+  - 高度 h-1
+  - 最小宽度 min-w-1
+  - 最大宽度 max-w-1
+  - 最小高度 min-h-1
+  - 最大高度 max-h-1
+  - 尺寸 size-1, size-auto
+- 排版
+
+  - 字体系列 font-sans, font-serif, font-mono
+  - 字体大小 text-xs, text-sm, text-base, text-lg, text-xl, text-2xl, text-3xl, text-4xl, text-5xl, text-base/8
+  - 字体平滑 antialiased, subpixel-antialiased
+  - 字体样式 italic, not-italic
+  - 字体重量 font-light, font-normal, font-medium, font-semibold, font-bold
+  - 字体变体数字 normal-nums, ordinal, slashed-zero, lining-nums, proportional-nums
+  - 字母间距 tracking-tighter, tracking-tight, tracking-normal, tracking-wide, tracking-wider, tracking-widest
+  - 行夹 line-clamp-1, line-clamp-2, line-clamp-3, line-clamp-4, line-clamp-none
+  - 行高 leading-none, leading-tight, leading-snug, leading-normal, leading-relaxed, leading-loose, leading-3, leading-4, leading-5, leading-6, leading-7, leading-8, leading-9, leading-10
+  - 列表样式图片 list-image-none, list-image-[url(check.png)]
+  - 列表样式位置 list-image-inside, list-image-outside
+  - 列表样式类型 list-disc, list-decimal, list-none
+  - 文本对齐 text-left, text-center, text-right, text-justify, text-start, text-end
+  - 文本颜色 text-white, text-black, text-gray-500, 字体颜色
+  - 文本修饰 underline, line-through, no-underline, overline , 下划线
+  - 文本修饰色 decoration-white, decoration-black, decoration-gray-500 , 下划线的修饰色
+  - 文本装饰样式 decoration-solid, decoration-double, decoration-dotted, decoration-dashed, decoration-wavy, 下划线样式
+  - 文本修饰粗细 decoration-auto, decoration-from-font, decoration-thick, decoration-thin, 修饰线粗细, decoration-1
+  - 文本下划线偏移 underline-offset-auto, underline-offset-0, underline-offset-1, underline-offset-2
+  - 文本转换 uppercase, lowercase, capitalize, 文本大小写, normal-case
+  - 文本溢出 truncate, text-ellipsis, text-clip
+  - 文本换行 text-wrap, text-nowrap, text-break-all, text-balance, text-pretty
+  - 文本缩进 indent-0, indent-1
+  - 垂直对齐 align-baseline, align-top, align-middle, align-bottom, align-text-top, align-text-bottom
+  - 空格 whitespace-normal, whitespace-no-wrap, whitespace-pre, whitespace-pre-line, whitespace-pre-wrap,whitespace-break-spaces
+  - 分词 break-normal, break-words, break-all, break-keep
+  - 连字符 hyphens-none, hyphens-manual, hyphens-auto
+  - 内容 content-none, content-['Hello World'], 设置 ::before 和 ::after 伪元素的内容
+
+- 背景
+
+  - 背景附件 bg-fixed, bg-local, bg-scroll
+  - 背景剪辑 bg-clip-border, bg-clip-padding, bg-clip-content, bg-clip-text
+  - 背景颜色 bg-transparent, bg-black, bg-white, bg-gray-500, bg-red-500, bg-yellow-500, bg-green-500, bg-blue-500, bg-indigo-500, bg-purple-500, bg-pink-500, bg-opacity-50, bg-opacity-100, bg-opacity-25, bg-opacity-75, bg-opacity-10, bg-opacity-20, bg-opacity-30, bg-opacity-40, bg-opacity-50, bg-opacity-60, bg-opacity-70, bg-opacity-80, bg-opacity-90, bg-opacity-95, bg-gradient-to-t, bg-gradient-to-tr, bg-gradient-to-r, bg-
+  - 背景来源 bg-origin-border, bg-origin-padding, bg-origin-content
+  - 背景位置 bg-bottom, bg-center, bg-left, bg-left-bottom, bg-left-top, bg-right, bg-right-bottom, bg-right-top, bg-top
+  - 背景重复 bg-repeat, bg-repeat-x, bg-repeat-y, bg-repeat-round, bg-repeat-space, bg-no-repeat
+  - 背景尺寸 bg-auto, bg-cover, bg-contain
+  - 背景图片 bg-['url(hero.jpg)'], bg-[url('hero.jpg')], bg-gradient-to-b, bg-gradient-to-bl, bg-gradient-to-l, bg-gradient-from-black, bg-gradient-via-white, bg-gradient-to-r from-green-400 via-blue-5, bg-none
+  - 渐变颜色停止 from-current, to-current, from-transparent, to-transparent, from-black, to-black,
+
+- 边框
+
+  - 边框半径 rounded-none, rounded-sm, rounded, rounded-md, rounded-lg, rounded-xl, rounded-2xl, rounded-3xl, rounded-full, rounded-t-xl, rounded-b-xl, rounded-r-xl, rounded-l-xl
+  - 边框宽度 `border-0, border-2, border-4, border-8, border, border-t, border-b, border-r, border-l, border-x-*, border-y-*, divide-x-*`
+  - 边框颜色 border-slate-600, border-indigo-500/100(改变透明度), `border-t-*, border-b-*, divide-x-*, divide-y-*`
+  - 边框样式 border-solid, border-dashed, border-dotted, border-double, border-none,
+  - 分割宽度 divide-x-2, divide-y-2, divide-x-reverse,divide-x, divide-y
+  - 分割颜色 divide-black, divide-gray-500/100(改变透明度), ivide-slate-400
+  - 分割样式 divide-solid, divide-dashed, divide-dotted, divide-double, divide-none,
+  - 轮廓宽度 outline-0, outline-1, outline-2, outline-4, outline-8, outline, outline-t, outline-b, outline-r, outline-l, outline-x-_, outline-y-_,
+  - 轮廓颜色 outline-white, outline-black, outline-gray-500, outline-indigo-500/100(改变透明度)
+  - 轮廓样式 outline-solid, outline-dashed, outline-dotted, outline-double, outline-none,
+  - 轮廓偏移 outline-offset-0, outline-offset-1, outline-offset-2, outline-offset-4, outline-offset-8, outline-offset, outline-offset-t, outline-offset-b, outline-offset-r, outline-offset-l, outline-offset-x-_, outline-offset-y-_,
+  - 环宽 ring-0, ring-1, ring-2, ring-4, ring-8, ring, ring-t, ring-b, ring-r, ring-l, ring-x-_, ring-y-_, ring-inset
+  - 环颜色 ring-white, ring-black, ring-gray-500, ring-indigo-500/100(改变透明度)
+  - 环偏移宽度 ring-offset-0, ring-offset-1, ring-offset-2, ring-offset-4, ring-offset-8, ring-offset, ring-offset-t, ring-offset-b, ring-offset-r, ring-offset-l, ring-offset-x-_, ring-offset-y-_,
+  - 环偏移颜色 ring-offset-white, ring-offset-black, ring-offset-gray-500, ring-offset-indigo-500/100(改变透明度)
+
+- 效果
+
+  - 盒阴影 shadow-sm, shadow, shadow-md, shadow-lg, shadow-xl, shadow-2xl, shadow-inner, shadow-none
+  - 盒阴影颜色 shadow-slate-600, shadow-indigo-500/100(改变透明度)
+  - 透明度 opacity-0, opacity-25, opacity-50, opacity-75, opacity-100
+  - 混入混合模式 min-blend-normal, min-blend-multiply, min-blend-screen, min-blend-overlay, min-blend-darken, min-blend-lighten
+  - 背景混合模式 bg-blend-screen, bg-blend-multiply
+
+- 滤镜
+  - 模糊 blur-none, blur-sm, blur-md, blur-lg, blur-xl, blur-2xl
+  - 亮度 brightness-0, brightness-50, brightness-75, brightness-90, brightness-95
+  - 对比 contrast-0, contrast-50, contrast-75, contrast-90, contrast-95
+  - 投影 drop-shadow-sm, drop-shadow, drop-shadow-md, drop-shadow-lg, drop-shadow-xl, drop-shadow-2xl, drop-shadow-none
+  - 灰阶 grayscale, grayscale-0, grayscale-50, grayscale-100
+  - 色调旋转 hue-rotate-0
+  - 倒置 invert-0
+  - 饱和 saturate-0
+  - 棕褐色 sepia-0
+  - 背景模糊 backdrop-blur-none, backdrop-blur-sm, backdrop-blur-md, backdrop-blur-lg, backdrop-blur-xl, backdrop-blur-2xl
+  - 背景亮度 backdrop-brightness-0
+  - 背景对比 backdrop-contrast-0
+  - 背景灰度 backdrop-grayscale-0
+  - 背景色相旋转 backdrop-hue-rotate-0
+  - 背景反转 backdrop-invert-0
+  - 背景透明度 backdrop-opacity-0, backdrop-opacity-25, backdrop-opacity-50, backdrop-opacity-75, backdrop-opacity-100
+  - 背景饱和 backdrop-saturate-0
+  - 背景棕褐色 backdrop-sepia-0
+- 表格
+  - 边框坍塌 border-collapse
+  - 边框间距 border-spacing-0, border-spacing-2, border-spacing-4, border-spacing-8
+  - 字幕端 caption-top, caption-bottom
+- 转场 & 动画
+  - 转场属性 transition, transition-property, transition-duration, transition-timing-function, transition-delay, transition-none, transition-shadow, transition-transform, transition-opacity, transition-all
+  - 转场持续时间 duration-75, duration-100, duration-150, duration-200, duration-300, duration-500, duration-700
+  - 转场计时函数 ease-linear, ease-in, ease-out, ease-in-out
+  - 转场延迟 delay-75, delay-100, delay-150, delay-200, delay-300, delay-500, delay-700
+  - 动画 animation-none, animation-spin, animation-ping, animation-pulse,
+- 转换
+
+  - 缩放 scale-0, scale-50, scale-75, scale-90, scale-95, scale-100, scale-105, scale-110, scale-125, scale-150, scale-200
+  - 旋转 rotate-0, rotate-45, rotate-90, rotate-180, rotate-225, rotate-270, rotate-360
+  - 转变 transform, transform-gpu, transform-none, transform-origin, transform-rotate, transform-scale, transform-skew, transform-skew-x, transform-skew-y, transform-translate, transform-translate-x, transform-translate-y
+  - 倾斜 skew-x-0, skew-x-3, skew-x-6, skew-x-12, skew-y-0, skew-y-3, skew-y-6, skew-y-12
+  - 变换原点 translate-y-2, translate-y-4, translate-y-8, translate-x-2, translate-x-4, translate-x-8
+
+- 交互
+
+  - 强调色 accent-inherit, accent-transparent, accent-current, accent-black, accent-white, accent-gray-500, accent-red-500, accent-yellow-500, accent-green-500, accent-blue-500, accent-indigo-500, accent-purple-500,accent-emerald-500/25
+  - 外貌 appearance-none, appearance-auto
+  - 光标 cursor, cursor-auto, cursor-default, cursor-pointer, cursor-wait, cursor-text, cursor-move, cursor-not-allowed, cursor-help,
+  - 插入符颜色 caret-color, caret-color-inherit, caret-color-transparent, caret-color-current, caret-color-black, caret-color-white, caret-color-gray-500, caret-color-red-500, caret-color-yellow-500, caret-color-green-500, caret-color-blue-500, caret-color-indigo-500, caret-color-purple-500, caret-color-emerald-500/25
+  - 指针事件 pointer-events-none, pointer-events-auto,
+  - 调整大小 resize-none, resize-y, resize-x, resize
+  - 滚动行为 scroll-auto, scroll-smooth
+  - 滚动边距 scroll-m-0, scroll-m-2, scroll-m-4, scroll-m-8
+  - 滚动填充 scroll-px-0, scroll-px-2, scroll-px-4, scroll-px-8
+  - 滚动快停 snap-normal, snap-always,
+  - 滚动捕捉类型 snap-x, snap-y, snap-both, snap-both, snap-mandatory, snap-proximity
+  - 触摸动作 touch-auto, touch-none, touch-manipulation
+  - 用户选择 select-none, select-text, select-all, select-auto
+  - 将会改变 will-change-auto, will-change-contents, will-change-scroll, will-change-transform, will-change-opacity
+
+- SVG
+  - 填充 fill-current, fill-transparent, fill-black, fill-white, fill-gray-500, fill-red-500, fill-yellow-500, fill-green-500, fill-blue-500, fill-indigo-500, fill-purple-500, fill-pink-500, fill-opacity-50
+  - 笔画 stroke-none, stroke-current, stroke-transparent, stroke-black, stroke-white, stroke-gray-500, stroke-red-500, stroke-yellow-500
+  - 笔划宽度 stroke-0, stroke-1, stroke-2, stroke-4, stroke-8
+- 无障碍
+  - 屏幕阅读器 sr-only, not-sr-only
+  - 强制颜色调整 forced-color-adjust-none, forced-color-adjust-auto

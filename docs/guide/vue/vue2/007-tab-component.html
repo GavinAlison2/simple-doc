@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <script src="/tailwind/cdnjs/tailwind-3.4.16.js"></script>
+    <script src="/Vue/cdnjs/vue2.js"></script>
+    <style>
+        .table-button {
+            padding: 6px 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            margin-bottom: -1px;
+            margin-right: -1px;
+        }
+
+        .table-button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .table-button.active {
+            background-color: #9bec94;
+        }
+
+        .tab {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="dynamic-component" class="demo">
+        <button v-for="tab in tabs" :key="tab.name" @click="currentTab = tab"
+            :class=" [tab.toLowerCase()===currentTab ? 'table-button active inline-block' : 'table-button inline-block' ]">
+            {{ tab }}
+        </button>
+        <!-- 使用:is 属性来指定组件名称 -->
+        <component :is="currentTabComponent" class="tab block"></component>
+        <!-- 使用 is 属性来指定组件名称 -->
+    </div>
+
+    <div id="app2">
+        <!-- 直接使用 is 属性来指定组件名称 -->
+        <component is="MyComponent"></component>
+    </div>
+
+    <script>
+
+        // 注册组件
+        Vue.component('MyComponent', {
+            template: '<div>This is the content of MyComponent</div>'
+        });
+
+        new Vue({
+            el: '#app2'
+        });
+
+        Vue.component('home-component', {
+            template: `
+            <div>
+                <h2>This is home tab</h2>
+                <p>This is the content of home tab</p>
+            </div>
+            `
+        });
+        Vue.component('about-component', {
+            template: `
+            <div>
+                <h2>This is  about tab</h2>
+                <p>This is the content of about tab</p>
+            </div>
+            `
+        });
+        Vue.component('contact-component', {
+            template: `
+            <div>
+                <h2>This is contact tab</h2>
+                <p>This is the content of contact tab</p>
+            </div>
+            `
+        });
+
+        let vm = new Vue({
+            el: '#dynamic-component',
+            data: {
+                currentTab: 'home',
+                tabs: ['Home', 'About', 'Contact']
+            },
+            computed: {
+                currentTabComponent: function () {
+                    return this.currentTab.toLowerCase() + '-component';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

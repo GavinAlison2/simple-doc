@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <div class="container max-w-md mx-auto">
+        <h2 class="text-3xl font-bold text-center mb-10">Visible and Invisible and hidden</h2>
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div class="grid grid-cols-4 gap-4 font-mono text-white text-sm font-bold leading-6">
+                <div class="p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">01</div>
+                <div class="invisible  p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">02
+                </div>
+                <div class="hidden p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">02
+                </div>
+                <div class="p-4 flex items-center justify-center bg-cyan-500 shadow-lg rounded-lg">03</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>collapse</h2>
+        <div class="relative rounded-xl overflow-auto">
+            <div class="py-8">
+                <div class="mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Showing all rows</div>
+                <table
+                    class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-700">
+                        <tr>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Invoice #</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Client</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">
+                                Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #100</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Pendant Publishing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $2,000.00</td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #101</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Kruger Industrial Smoothing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $545.00</td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #102</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                J. Peterman</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $10,000.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-10 mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Hiding a row using
+                    <code class="text-xs text-slate-700 dark:text-slate-300">`collapse`</code>
+                </div>
+                <table
+                    class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-700">
+                        <tr>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Invoice #</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Client</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">
+                                Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #100</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Pendant Publishing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $2,000.00</td>
+                        </tr>
+                        <tr class="collapse">
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #101</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Kruger Industrial Smoothing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $545.00</td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #102</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                J. Peterman</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $10,000.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="mt-10 mb-3 pl-4 text-sm font-medium text-slate-500 dark:text-slate-400">Hiding a row using
+                    <code class="text-xs text-slate-700 dark:text-slate-300">`hidden`</code>
+                </div>
+                <table
+                    class="border-collapse w-full border-y border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-800 text-sm shadow-sm">
+                    <thead class="bg-slate-50 dark:bg-slate-700">
+                        <tr>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Invoice #</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-left">
+                                Client</th>
+                            <th
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-600 font-semibold px-4 py-3 text-slate-900 dark:text-slate-200 text-right">
+                                Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #100</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Pendant Publishing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $2,000.00</td>
+                        </tr>
+                        <tr class="hidden">
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #101</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                Kruger Industrial Smoothing</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $545.00</td>
+                        </tr>
+                        <tr>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                #102</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400">
+                                J. Peterman</td>
+                            <td
+                                class="border first:border-l-0 last:border-r-0 border-slate-300 dark:border-slate-700 px-4 py-3 text-slate-500 dark:text-slate-400 text-right tabular-nums">
+                                $10,000.25</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="relative rounded-xl overflow-auto p-8">
+            <div class="grid grid-cols-3 gap-4 font-mono text-white text-sm font-bold leading-6">
+                <div class="p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">01</div>
+                <div class="visible p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">02</div>
+                <div class="p-4 flex items-center justify-center bg-fuchsia-500 shadow-lg rounded-lg">03</div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

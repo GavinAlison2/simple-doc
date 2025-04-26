@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "install": "npm install ",
+    "start": "ts-node p2/index.ts",
+    "clean": " rm -rf dist && rm -rf node_modules && rm -rf package-lock.json"
+  },
+  "devDependencies": {
+    "reflect-metadata": "^0.2.2"
+  },
+  "include": [
+    "p2/*.ts",
+    "p1/*.ts"
+  ]
+}

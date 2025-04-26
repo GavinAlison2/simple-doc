@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+
+<body>
+    <h2 class="max-w-md mx-auto text-center text-4xl font-bold leading-tight text-gray-800">上/右/下/左
+        <br />
+        relative 定位 <br />
+        absolute 定位 top, right, bottom, left <br />
+    </h2>
+    <div class="relative rounded-xl overflow-auto p-8">
+        <div
+            class="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-white text-sm font-bold leading-6">
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 h-14 absolute left-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    01
+                </div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 absolute inset-x-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    02</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 h-14 absolute right-0 top-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    03</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 absolute inset-y-0 left-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    04</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div class="p-4 absolute inset-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">05
+                </div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 absolute inset-y-0 right-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    06</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 h-14 absolute left-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    07</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 absolute inset-x-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    08</div>
+            </div>
+            <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                <div
+                    class="p-4 w-14 h-14 absolute right-0 bottom-0 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                    09</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2 class="max-w-md mx-auto text-center text-4xl font-bold leading-tight text-gray-800">左边距 -left-4
+            <div class="relative rounded-xl overflow-auto p-8">
+                <div class="flex justify-center font-mono text-white text-sm font-bold leading-6">
+                    <div class="relative w-18 h-18 sm:w-32 sm:h-32 rounded-lg bg-stripes-purple bg-gray-300">
+                        <div
+                            class="p-4 w-14 h-14 absolute -left-4 -top-4 flex items-center justify-center bg-purple-500 shadow-lg rounded-lg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+
+</html>

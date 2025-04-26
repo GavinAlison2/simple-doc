@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" -->
+    <!-- <link rel="stylesheet" href="./css/bootstrap.min.css" crossorigin="anonymous"> -->
+    <script src="./js/handlebars.min.js"></script>
+    <link rel="stylesheet" href="./output.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"> -->
+
+</head>
+
+<body>
+    <h2 class="text-center text-xl font-bold text-gray-800 my-10 ">
+        <div class="space-x-8 block">
+            基于父状态的样式 (group-{modifier}) <br />
+            <span class="text-sm text-gray-500 text-left">
+                此模式适用于每个伪类修饰符，<br />
+                例如 group-focus、group-active 甚至 group-odd <br />
+            </span>
+        </div>
+    </h2>
+    <div class="tailwind-section flex items-center justify-center my-10">
+        <!-- <a href="#" class="block max-w-xs mx-auto rounded-lg p-6 
+             bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 
+             hover:bg-sky-500 hover:ring-sky-500">
+            <h3 class="text-slate-900 text-sm font-semibold">Hover me</h3>
+        </a> -->
+        <a href="#" class="group block max-w-xs mx-auto rounded-lg p-6 
+             bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 
+             hover:bg-sky-500 hover:ring-sky-500">
+            <div class="flex items-center space-x-3
+            group-hover:text-white  
+             ">
+                <svg class="h-6 w-6
+                group-hover:text-white 
+                " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M12 10.5v6m3-3H9m4.06-7.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+                </svg>
+                <h3 class="text-slate-900 
+                group-hover:text-white 
+                text-sm font-semibold">New project</h3>
+            </div>
+            <p class="text-slate-500 group-hover:text-white text-sm 
+             ">
+                Create a new project from a variety of starting
+                templates.</p>
+        </a>
+    </div>
+
+    <h2 class="font-bold text-center">区分嵌套组</h2>
+    <script id="people-template" type="text/x-handlebars-template">
+        <div id="group_name">
+            <ul role="list" class="mx-auto max-w-md bg-white p-2 shadow-lg rounded-lg">
+                {{#each people as |person|}}
+                  <li class="group/item
+                   hover:bg-slate-100 
+                   w-full h-fit p-2
+                  flex items-center justify-center rounded-xl   
+                    ">
+                    <div class="flex w-3/4 p-auto h-auto">
+                        <div class="flex-shrink-0  p-2 space-y-2 h-full">
+                            <img class="h-12 w-12 rounded-full  " src="{{person.imageUrl}}" alt="" />
+                        </div>
+                        <div class="w-full text-sm p-2 leading-6 ">
+                          <a class="font-semibold text-slate-900 w-full block" href="{{person.url}}">{{person.name}}</a>
+                          <span class="text-slate-500 w-full">{{person.title}}</span>
+                        </div>
+                    </div>
+                    
+                    <a class="group/edit  w-1/4 invisible
+                    group-hover/item:visible  
+                    relative flex items-center justify-center 
+                     hover:bg-slate-200 text-slate-900
+                     text-center   rounded-xl p-2 
+                     grow-1 h-full" href="#" for="tel:{{person.phone}}">
+                        <span class="
+                        group-hover/edit:text-gray-700  
+                        group-hover/item:visible
+                        transition  font-semibold border-none 
+                        text-center text-slate-900  ">Call</span>
+                        <svg class="  h-5 w-5  
+                        group-hover/item:visible
+                        group-hover/edit:translate-x-0.5 
+                        group-hover/edit:text-slate-500
+                        text-slate-400   transition   ml-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd"></path>
+                        </svg>
+                        
+    </a>
+    </li>
+    {{/each}}  
+    </ul>
+    </div>
+     </script>
+
+    <script>
+        // 定义数据
+        const people = [
+            {
+                imageUrl: "./img/Kristen-Ramos.jpg",
+                name: "Kristen Ramos",
+                title: "Regional Paradigm Technician",
+                url: "#",
+                email: "kristen.ramos@example.com"
+            },
+            {
+                imageUrl: "./img/Floyd-Miles.jpg",
+                name: "Floyd Miles",
+                title: "Product Directives Officer",
+                url: "#",
+                email: "Floyd.Miles@example.com"
+            },
+            {
+                imageUrl: "./img/Courtney-Henry.jpg",
+                name: "Courtney Henry",
+                title: "Senior Designer",
+                url: "#",
+                email: "Courtney.Henry@example.com"
+            },
+            {
+                imageUrl: "./img/Ted-Fox.jpg",
+                name: "Ted Fox",
+                title: "VP, Hardware Engineering",
+                url: "#",
+                email: "Ted.Fox@example.com"
+            }
+        ];
+        const source = document.getElementById('people-template').innerHTML;
+        const template = Handlebars.compile(source);
+        const html = template({ people });
+        document.body.insertAdjacentHTML('beforeend', html);
+    </script>
+
+    <h2 class="text-center font-semibold">peer-checked/draft <br />
+        peer-checked/published
+    </h2>
+
+    <div class="pd-4">
+        <fieldset class="mx-auto max-w-md bg-white p-8 text-sm shadow">
+            <div class="">
+                <legend class="mb-6 border-b border-slate-200 pb-2 text-base font-semibold">Published status</legend>
+                <input id="draft" class="peer/draft form-radio 
+                    mr-2 mb-0.5 border-slate-300   text-sky-400
+                     focus:ring-sky-300" type="radio" name="status" checked />
+                <label for="draft" class="peer-checked/draft:text-sky-500">Draft</label>
+                <input id="published" class="peer/published form-radio 
+                mr-2 mb-0.5 ml-4 border-slate-300 text-sky-400 focus:ring-sky-300" type="radio" name="status" />
+                <label for="published" class="peer-checked/published:text-sky-500">Published</label>
+                <div class="hidden peer-checked/draft:block">Drafts are only visible to administrators.</div>
+                <div class="hidden peer-checked/published:block">Your post will be publicly visible on your site.</div>
+            </div>
+        </fieldset>
+    </div>
+    <h2 class="text-center font-semibold">peer-[.is-dirty]</h2>
+    <div class="flex items-center justify-center my-4">
+        <form>
+            <label for="email">Email:</label>
+            <input id="email" name="email" type="email" class="is-dirty peer" required />
+            <div class="hidden peer-[.is-dirty]:peer-required:block ">This field is required.</div>
+        </form>
+    </div>
+
+    <div class="max-w-sm  mx-auto my-10">
+        <h2 class="border-b border-slate-200 text-base mb-4 pb-2
+        font-semibold">*-{modifier}</h2>
+        <h2 class="font-bold">Categories<h2>
+                <ul class="
+                 dark:text-sky-300 dark:*:border-sky-500/15 
+                 dark:*:bg-sky-500/10 
+                 flex flex-wrap items-center justify-center py-4
+                  text-sky-600 bg-gray-50 rounded-lg shadow-lg
+                 gap-2 list-none  text-sm 
+                 
+                 *:rounded-full
+                 *:border *:border-sky-100 *:bg-sky-50 
+                 *:px-2 *:py-0.5 
+                    ">
+                    <li>Sales</li>
+                    <li>Marketing</li>
+                    <li>SEO</li>
+                    <li>Analytics</li>
+                    <li>Design</li>
+                    <li>Strategy</li>
+                    <li>Security</li>
+                    <li>Growth</li>
+                    <li>Mobile</li>
+                    <li>UX/UI</li>
+                </ul>
+    </div>
+
+
+    <div class="max-w-sm mx-auto my-10">
+        <h2 class="font-bold mb-4 pb-2">基于后代的样式 (has-{modifier})</h2>
+
+        <div class="bg-white p-4 shadow-lg rounded-lg 
+        flex items-center flex-col justify-start 
+        space-x-4">
+            <h3 class="text-xl font-bold mb-2 w-full">Payment method</h3>
+            <fieldset class="w-full">
+                <div class="mt-4 space-x-2 w-full space-y-4">
+                    <label class="
+                    has-[:checked]:ring-indigo-200 
+                    has-[:checked]:text-indigo-900
+                    has-[:checked]:bg-indigo-50 
+                    text-slate-700 
+                    grid grid-cols-[24px_1fr_auto] 
+                      items-center 
+                      gap-6 rounded-lg 
+                      p-4 ring-1 
+                      ring-transparent 
+                      hover:bg-slate-100
+                     " id="google">
+                        <svg class="w-8  " fill="currentColor" viewBox="0 0 24 13">
+                            <path
+                                d="M3.96299 1.735C3.22833 1.73504 2.50814 1.9393 1.88285 2.32497C1.25756 2.71063 0.751781 3.26252 0.42199 3.919C0.144511 4.47115 0 5.08054 0 5.6985C0 6.31645 0.144511 6.92584 0.42199 7.478C0.751781 8.13447 1.25756 8.68636 1.88285 9.07202C2.50814 9.45769 3.22833 9.66195 3.96299 9.662C5.03299 9.662 5.93299 9.31 6.58999 8.705C7.33799 8.015 7.76999 6.995 7.76999 5.789C7.76976 5.51882 7.74634 5.24916 7.69999 4.983H3.96399V6.509H6.10399C6.06043 6.75276 5.96798 6.98519 5.83221 7.19228C5.69644 7.39937 5.52016 7.57684 5.31399 7.714C4.95799 7.955 4.49999 8.093 3.96399 8.093C2.92999 8.093 2.05299 7.396 1.73899 6.457C1.57315 5.96493 1.57315 5.43207 1.73899 4.94C2.05299 4 2.92999 3.304 3.96399 3.304C4.52899 3.29475 5.07496 3.50811 5.48399 3.898L6.61599 2.768C5.89873 2.09384 4.94728 1.72362 3.96299 1.735ZM10.464 2.285V9.185H11.35V6.39H12.815C13.418 6.39 13.925 6.194 14.337 5.802C14.5421 5.61815 14.705 5.39214 14.8146 5.13945C14.9242 4.88676 14.9779 4.61337 14.972 4.338C14.9762 4.06405 14.9216 3.79238 14.8121 3.54125C14.7026 3.29011 14.5406 3.06533 14.337 2.882C14.1354 2.68674 13.897 2.53337 13.6358 2.43073C13.3746 2.32809 13.0956 2.27822 12.815 2.284L10.464 2.285ZM12.891 3.135C13.0456 3.13769 13.1981 3.17139 13.3395 3.23408C13.4808 3.29678 13.6082 3.3872 13.714 3.5C13.8267 3.60959 13.9162 3.74065 13.9774 3.88544C14.0385 4.03024 14.07 4.18582 14.07 4.343C14.07 4.50017 14.0385 4.65576 13.9774 4.80055C13.9162 4.94534 13.8267 5.07641 13.714 5.186C13.6007 5.30328 13.4642 5.39562 13.3132 5.45709C13.1622 5.51857 13 5.54783 12.837 5.543H11.35V3.135H12.837C12.855 3.13458 12.873 3.13458 12.891 3.135ZM17.015 4.31C16.173 4.31 15.538 4.618 15.108 5.235L15.889 5.726C16.177 5.309 16.569 5.1 17.064 5.1C17.3798 5.09612 17.6855 5.21145 17.92 5.423C18.0354 5.51846 18.1282 5.63844 18.1915 5.77423C18.2548 5.91001 18.2871 6.05818 18.286 6.208V6.41C17.946 6.217 17.512 6.121 16.986 6.121C16.369 6.121 15.876 6.266 15.507 6.555C15.137 6.843 14.953 7.232 14.953 7.72C14.949 7.9396 14.994 8.15734 15.0848 8.35733C15.1757 8.55732 15.31 8.73451 15.478 8.876C15.828 9.184 16.263 9.339 16.783 9.339C17.393 9.339 17.881 9.069 18.248 8.529H18.286V9.184H19.134V6.275C19.134 5.665 18.944 5.185 18.566 4.835C18.186 4.485 17.67 4.31 17.015 4.31ZM19.278 4.464L21.224 8.886L20.126 11.266H21.041L24 4.463H23.035L21.667 7.854H21.647L20.241 4.464H19.278ZM17.132 6.832C17.626 6.832 18.012 6.942 18.288 7.162C18.288 7.534 18.141 7.858 17.848 8.135C17.5835 8.39951 17.225 8.54839 16.851 8.549C16.6011 8.55376 16.3573 8.47178 16.161 8.317C16.0697 8.25093 15.9954 8.16402 15.9445 8.06349C15.8935 7.96295 15.8673 7.85171 15.868 7.739C15.868 7.482 15.988 7.269 16.231 7.092C16.471 6.919 16.772 6.832 17.132 6.832Z">
+                            </path>
+                        </svg>
+                        <span class=" ">Google Pay</span>
+                        <input name="payment_method" type="radio" class="
+                        box-content h-1.5 w-1.5 appearance-none rounded-full
+                        border-[5px] border-white bg-white  bg-clip-padding
+                        outline-none ring-1 ring-gray-950/10 
+                        checked:border-indigo-500
+                        checked:ring-indigo-500 
+                    " />
+                    </label>
+                </div>
+                <div class="mt-4 space-x-2 w-full space-y-4">
+                    <label class="
+                     text-slate-700 has-[:checked]:ring-indigo-200 
+                     has-[:checked]:text-indigo-900
+                      has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center 
+                      gap-6 rounded-lg p-4 ring-1 ring-transparent hover:bg-slate-100
+                     " id="apple">
+                        <svg class="w-8 mt-1 fill-current" fill="currentColor" viewBox="0 0 24 13">
+                            <path
+                                d="M4.38526 1.86704C4.10401 2.19606 3.65392 2.45565 3.20387 2.41854C3.14762 1.97367 3.36793 1.50091 3.62579 1.20892C3.90704 0.870635 4.39932 0.62962 4.79781 0.611084C4.84468 1.07453 4.66182 1.52871 4.38526 1.86704ZM4.79312 2.50663C4.14146 2.46956 3.5836 2.87272 3.27418 2.87272C2.96012 2.87272 2.48659 2.52517 1.97092 2.53443C1.30056 2.5437 0.677025 2.91906 0.33479 3.51694C-0.368428 4.71265 0.151978 6.48308 0.831712 7.45632C1.16457 7.9383 1.56306 8.46662 2.0881 8.44809C2.58507 8.42955 2.78195 8.12834 3.38204 8.12834C3.98677 8.12834 4.16026 8.44809 4.68531 8.43882C5.2291 8.42955 5.57134 7.95688 5.9042 7.47485C6.28388 6.92799 6.43862 6.39499 6.44799 6.36718C6.43862 6.35791 5.3979 5.96402 5.38853 4.77753C5.37915 3.78576 6.20893 3.31304 6.24643 3.28524C5.77759 2.59931 5.04629 2.52517 4.79312 2.50663ZM8.55765 1.16258V8.38789H9.69212V5.91768H11.2626C12.6971 5.91768 13.7051 4.94445 13.7051 3.53552C13.7051 2.12664 12.7159 1.16262 11.3001 1.16262H8.5576L8.55765 1.16258ZM9.69212 2.10806H11.0001C11.9846 2.10806 12.5471 2.62711 12.5471 3.54011C12.5471 4.4531 11.9846 4.97684 10.9954 4.97684H9.69212V2.10806ZM15.7772 8.44345C16.4898 8.44345 17.1508 8.08664 17.4508 7.52119H17.4743V8.38785H18.5244V4.79143C18.5244 3.74868 17.6806 3.07666 16.3819 3.07666C15.1771 3.07666 14.2864 3.75795 14.2536 4.69412H15.2756C15.36 4.24921 15.7771 3.95722 16.3491 3.95722C17.043 3.95722 17.4321 4.27701 17.4321 4.86562V5.26415L16.0163 5.34756C14.6989 5.42634 13.9864 5.95934 13.9864 6.88629C13.9864 7.82245 14.7224 8.44345 15.7772 8.44345ZM16.0819 7.58607C15.4772 7.58607 15.0927 7.29876 15.0927 6.85844C15.0927 6.4043 15.4631 6.14012 16.171 6.09841L17.4321 6.01963V6.42743C17.4321 7.10408 16.8508 7.58607 16.0819 7.58607H16.0819ZM19.9261 10.3529C21.0325 10.3529 21.5529 9.93584 22.0076 8.67057L24 3.14617H22.8467L21.5107 7.41456H21.4872L20.1511 3.14617H18.9651L20.8871 8.40638L20.784 8.72618C20.6106 9.2684 20.3293 9.47698 19.8277 9.47698C19.7386 9.47698 19.5652 9.46771 19.4948 9.45844V10.3251C19.5604 10.3436 19.8417 10.3529 19.9261 10.3529Z">
+                            </path>
+                        </svg>
+                        <span class=" ">Apple Pay</span>
+                        <input name="payment_method" type="radio" class="
+                        box-content h-1.5 w-1.5 appearance-none rounded-full 
+                        border-[5px] border-white bg-white bg-clip-padding 
+                        outline-none ring-1 ring-gray-950/10 checked:border-indigo-500
+                        checked:ring-indigo-500   
+                    " />
+                    </label>
+                </div>
+                <div class="mt-4 space-x-2 w-full space-y-4">
+                    <label class="
+                     text-slate-700 has-[:checked]:ring-indigo-200 
+                     has-[:checked]:text-indigo-900
+                      has-[:checked]:bg-indigo-50 grid grid-cols-[24px_1fr_auto] items-center 
+                      gap-6 rounded-lg p-4 ring-1 ring-transparent hover:bg-slate-100
+                     " id="apple">
+                        <svg class="w-8" viewBox="0 0 24 13" fill="none">
+                            <rect stroke="currentColor" x="0.5" y="0.5" width="23" height="11" rx="1.5"></rect>
+                            <path fill="currentColor"
+                                d="M16.539 3.18591C16.0742 3.01652 15.5828 2.93152 15.088 2.93491C13.488 2.93491 12.358 3.74091 12.35 4.89791C12.34 5.74791 13.153 6.22691 13.768 6.51091C14.399 6.80291 14.61 6.98691 14.608 7.24791C14.604 7.64491 14.104 7.82491 13.639 7.82491C13 7.82491 12.651 7.73591 12.114 7.51291L11.915 7.41991L11.688 8.75191C12.077 8.91391 12.778 9.05291 13.502 9.06491C15.203 9.06491 16.315 8.26391 16.328 7.03291C16.342 6.35391 15.902 5.84091 14.976 5.41691C14.413 5.14191 14.064 4.95791 14.064 4.67891C14.064 4.43191 14.363 4.16791 14.988 4.16791C15.404 4.15785 15.8174 4.23589 16.201 4.39691L16.351 4.46391L16.578 3.17691L16.539 3.18591ZM20.691 3.04291H19.441C19.052 3.04291 18.759 3.14991 18.589 3.53591L16.185 8.98191H17.886L18.226 8.08891L20.302 8.09091C20.351 8.29991 20.501 8.98191 20.501 8.98191H22.001L20.691 3.04291ZM10.049 2.99291H11.67L10.656 8.93491H9.03705L10.049 2.99091V2.99291ZM5.93405 6.26791L6.10205 7.09291L7.68605 3.04291H9.40305L6.85205 8.97391H5.13905L3.73905 3.95191C3.71637 3.8691 3.66312 3.79798 3.59005 3.75291C3.08545 3.49225 2.55079 3.29444 1.99805 3.16391L2.02005 3.03891H4.62905C4.98305 3.05291 5.26805 3.16391 5.36305 3.54191L5.93305 6.27091L5.93405 6.26791ZM18.691 6.87391L19.337 5.21191C19.329 5.22991 19.47 4.86891 19.552 4.64591L19.663 5.15891L20.038 6.87291H18.69L18.691 6.87391Z">
+                            </path>
+                        </svg>
+                        <span class=" ">Credit Card</span>
+                        <input name="payment_method" type="radio" class="
+                        box-content h-1.5 w-1.5 appearance-none rounded-full 
+                        border-[5px] border-white bg-white bg-clip-padding 
+                        outline-none ring-1 ring-gray-950/10 checked:border-indigo-500
+                        checked:ring-indigo-500   
+                    " />
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="max-w-sm mx-auto my-10">
+        <h2 class="font-bold mb-4 pb-2">基于对等后代的样式 (peer-has-{modifier})</h2>
+
+        <!-- flex items-center flex-col justify-start  -->
+        <div class="bg-white p-4 shadow-lg rounded-lg 
+        space-x-4">
+            <h3 class="text-xl font-bold mb-2 w-full">Today</h3>
+            <fieldset class="">
+                <div class=" grid grid-cols-[1fr_24px] items-center gap-6  ">
+                    <label class="peer  grid grid-cols-[auto_1fr] items-center 
+                        gap-3 rounded-md px-2 hover:bg-slate-100">
+                        <input type="checkbox" class="peer size-3.5 appearance-none 
+                            rounded-sm border border-slate-300
+                            accent-pink-500 dark:accent-pink-600 
+                            checked:appearance-auto" checked>
+                        <span class="select-none text-slate-700
+                             peer-checked:text-slate-400 
+                             peer-checked:line-through">
+                            Create a to do list</span>
+                    </label>
+                    <div class="size-[26px] rounded-md p-1 hover:bg-red-50 
+                        peer-has-[:checked]:hidden hover:text-red-500 
+                        ">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class=" grid grid-cols-[1fr_24px] items-center gap-6  ">
+                    <label class="peer  grid grid-cols-[auto_1fr] items-center 
+                        gap-3 rounded-md px-2 hover:bg-slate-100">
+                        <input type="checkbox" class="peer size-3.5 appearance-none 
+                            rounded-sm border border-slate-300
+                            accent-pink-500 dark:accent-pink-600 
+                            checked:appearance-auto">
+                        <span class="select-none text-slate-700
+                             peer-checked:text-slate-400 
+                             peer-checked:line-through">
+                            Check off first item</span>
+                    </label>
+                    <div class="size-[26px] rounded-md p-1 hover:bg-red-50 
+                        peer-has-[:checked]:hidden hover:text-red-500 
+                        ">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class=" grid grid-cols-[1fr_24px] items-center gap-6  ">
+                    <label class="peer  grid grid-cols-[auto_1fr] items-center 
+                        gap-3 rounded-md px-2 hover:bg-slate-100">
+                        <input type="checkbox" class="peer size-3.5 appearance-none 
+                            rounded-sm border border-slate-300
+                            accent-pink-500 dark:accent-pink-600 
+                            checked:appearance-auto">
+                        <span class="select-none text-slate-700
+                             peer-checked:text-slate-400 
+                             peer-checked:line-through">
+                            Investigate race condition</span>
+                    </label>
+                    <div class="size-[26px] rounded-md p-1 hover:bg-red-50 
+                        peer-has-[:checked]:hidden hover:text-red-500 
+                        ">
+                        <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="max-w-sm mx-auto my-10">
+        <h2 class="font-bold mb-4 pb-2"> before 和 after </h2>
+
+        <div class="bg-white p-4 shadow-lg rounded-lg 
+        space-x-4">
+            <label class="block">
+                <span class="
+                    before:content-['**'] before:mr-0.5 before:text-red-500
+                    after:content-['*']  after:ml-0.5  after:text-red-500
+                    block text-sm font-medium
+                      text-slate-700">
+                    Email
+                </span>
+                <input type="email" name="email" class="mt-1 px-3 py-2 bg-white border 
+                    shadow-sm border-slate-300 placeholder-slate-400 
+                    focus:outline-none focus:border-sky-500 
+                    focus:ring-sky-500 focus:ring-1 
+                    block w-full rounded-md 
+                     dark:bg-slate-800 
+                    sm:text-sm 
+                    placeholder:font-bold placeholder:text-red-300
+                    " placeholder="you@example.com" />
+            </label>
+            <label for="" class="h-5"> </label>
+            <label class="relative block">
+                <span class="sr-only">Search</span>
+                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </span>
+                <input class="placeholder:italic placeholder:text-slate-400 block
+                     bg-white w-full border border-slate-300 rounded-md
+                      py-2 pl-9 pr-3 shadow-sm 
+                      focus:outline-none focus:border-sky-500 focus:ring-sky-500 
+                      focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search" />
+            </label>
+        </div>
+    </div>
+
+    <div class="max-w-sm mx-auto my-10">
+        <h2 class="font-bold mb-4 pb-2"> 文件输入按钮 </h2>
+
+        <div class="bg-white p-4 shadow-lg rounded-lg 
+        space-x-4">
+            <form class="flex items-center space-x-6">
+                <div class="shrink-0">
+                    <img class="h-10 w-10 object-cover rounded-full"
+                        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+                        alt="Current profile photo" />
+                </div>
+                <label class="block">
+                    <span class="sr-only">Choose profile photo</span>
+                    <input type="file" class="block w-full text-sm text-slate-500
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-full file:border-0
+                file:text-sm file:font-semibold
+                file:bg-violet-50 file:text-violet-700
+                hover:file:bg-violet-100
+              " />
+                </label>
+            </form>
+        </div>
+    </div>
+
+    <div class="max-w-sm mx-auto my-10 ">
+        <h2 class="font-bold mb-4 pb-2"> 列表标记 marker </h2>
+
+        <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">
+                Ingredients
+            </h2>
+            <ul role="list" class="mt-3 list-disc space-y-3 text-slate-500  
+                 marker:text-sky-400 dark:text-slate-400">
+                <li>5 cups chopped Porcini mushrooms</li>
+                <li>1/2 cup of olive oil</li>
+                <li>3lb of celery</li>
+            </ul>
+        </div>
+    </div>
+    <div class="max-w-sm mx-auto my-10 ">
+        <h2 class="font-bold mb-4 pb-2"> 高亮的文本 selection </h2>
+
+        <div class="selection:bg-fuchsia-300 selection:text-fuchsia-900">
+            <p>
+                So I started to walk into the water. I won't lie to you boys, I was
+                terrified. But I pressed on, and as I made my way past the breakers
+                a strange calm came over me. I don't know if it was divine intervention
+                or the kinship of all living things but I tell you Jerry at that moment,
+                I <em>was</em> a marine biologist.
+            </p>
+        </div>
+        <h2 class="font-bold mb-4 pb-2">first-line , first-letter</h2>
+        <p class="first-line:uppercase first-line:tracking-widest
+  first-letter:text-7xl first-letter:font-bold first-letter:text-slate-900
+  first-letter:mr-3 first-letter:float-left
+">
+            Well, let me tell you something, funny boy. Y'know that little stamp, the one
+            that says "New York Public Library"? Well that may not mean anything to you,
+            but that means a lot to me. One whole hell of a lot.
+        </p>
+
+
+        <dialog class="backdrop:bg-gray-50">
+            <form method="dialog">
+                <!-- ... -->
+            </form>
+        </dialog>
+    </div>
+    <div class="max-w-5xl mx-auto my-10 ">
+
+        <div class="relative rounded-xl overflow-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2">
+                <div class="p-8 pt-7 rounded-lg shadow-xl bg-slate-300 ">
+                    <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
+                    <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+                        <div>
+                            <span
+                                class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
+                        <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Writes Upside-Down</h3>
+                        <p class="mt-2 text-sm text-slate-500">
+                            The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even
+                            works in outer space.
+                        </p>
+                    </div>
+                </div>
+                <div class="bg-slate-900 p-8 pt-7">
+                    <p class="mb-2 text-sm font-medium text-slate-400">Dark mode</p>
+                    <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+                        <div>
+                            <span
+                                class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                                    aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                    </path>
+                                </svg>
+                            </span>
+                        </div>
+                        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Writes Upside-Down</h3>
+                        <p class="mt-2 text-sm text-slate-400">
+                            The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even
+                            works in outer space.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-5xl mx-auto my-10 ">
+        <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
+            <form>
+                <legend> Choose a theme: </legend>
+                <div class="grid grid-flow-col mt-4 ">
+                    <label for="theme-1" class="text-sm font-medium text-slate-700">
+                        <div
+                            class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-cyan-500 has-[:checked]:bg-cyan-50 has-[:checked]:text-cyan-50 grid items-center justify-center">
+                            <input type="radio" name="themes" id="theme-1"
+                                class="forced-colors:appearance-auto appearance-none" checked="">
+                            <p class="forced-colors:block hidden">
+                                Cyan
+                            </p>
+                            <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-cyan-200 forced-colors:hidden">
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-cyan-500 ring-2 ring-current forced-colors:hidden">
+                            </div>
+                        </div>
+                    </label>
+                    <label for="theme-2" class="text-sm font-medium text-slate-700">
+                        <div
+                            class="relative h-16 w-16 rounded-xl forced-colors:border-0 bg-transparent border border-transparent text-white hover:bg-slate-50 has-[:checked]:border-blue-500 has-[:checked]:bg-blue-50 has-[:checked]:text-blue-50 grid items-center justify-center">
+                            <input type="radio" name="themes" id="theme-2"
+                                class="forced-colors:appearance-auto appearance-none">
+                            <p class="forced-colors:block hidden">
+                                Blue
+                            </p>
+                            <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-blue-200 forced-colors:hidden">
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-blue-500 ring-2 ring-current forced-colors:hidden">
+                            </div>
+                        </div>
+                    </label>
+                    <label for="theme-3" class="text-sm font-medium text-slate-700">
+                        <div
+                            class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-indigo-500 has-[:checked]:bg-indigo-50 has-[:checked]:text-indigo-50 grid items-center justify-center">
+                            <input type="radio" name="themes" id="theme-3"
+                                class="forced-colors:appearance-auto appearance-none">
+                            <p class="forced-colors:block hidden">
+                                Indigo
+                            </p>
+                            <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-indigo-200  forced-colors:hidden">
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-indigo-500 ring-2 ring-current forced-colors:hidden">
+                            </div>
+                        </div>
+                    </label>
+                    <label for="theme-4" class="text-sm font-medium text-slate-700">
+                        <div
+                            class="relative h-16 w-16 rounded-xl forced-colors:border-0 border bg-transparent border-transparent text-white hover:bg-slate-50 has-[:checked]:border-purple-500 has-[:checked]:bg-purple-50 has-[:checked]:text-purple-50 grid items-center justify-center">
+                            <input type="radio" name="themes" id="theme-4"
+                                class="forced-colors:appearance-auto appearance-none">
+                            <p class="forced-colors:block hidden">
+                                Purple
+                            </p>
+                            <div class="absolute left-3 top-3 h-6 w-6 rounded-full bg-purple-200 forced-colors:hidden">
+                            </div>
+                            <div
+                                class="absolute bottom-3 right-3 h-6 w-6 rounded-full bg-purple-500 ring-2 ring-current forced-colors:hidden">
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="max-w-md mx-auto my-10 ">
+        <div>
+            <article class="print:hidden">
+                <h1>My Secret Pizza Recipe</h1>
+                <p>This recipe is a secret, and must not be shared with anyone</p>
+            </article>
+            <div class="hidden print:block">
+                Are you seriously trying to print this? It's secret!
+            </div>
+        </div>
+    </div>
+    <div class="max-w-md mx-auto my-10 ">
+        <h2 class="supports-cust-text ">aaaaa</h2>
+        <h2 class="supports-multiple ">bbbbb</h2>
+    </div>
+    <div class="max-w-lg mx-auto p-8">
+        <details class="
+        open:bg-white 
+        open:ring-1 open:ring-black/5
+        open:shadow-lg 
+        dark:open:bg-slate-900 
+             dark:open:ring-white/10 
+             p-6 
+             rounded-lg" open>
+            <summary class="text-sm leading-6 
+            text-slate-900 dark:text-white
+             font-semibold select-none">
+                Why do they call it Ovaltine?
+            </summary>
+            <div class="mt-3 text-sm leading-6 
+            text-slate-600 dark:text-slate-400">
+                <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+            </div>
+        </details>
+    </div>
+</body>
+
+</html>

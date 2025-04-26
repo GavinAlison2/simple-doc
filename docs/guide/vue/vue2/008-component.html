@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="/tailwind/cdnjs/tailwind-3.4.16.js"></script>
+    <script src="/Vue/cdnjs/vue2.js"></script>
+</head>
+
+<body>
+    <div id="components-app1">
+        <button-counter v-bind:title="parentTitle"></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter2></button-counter2>
+    </div>
+
+    <div id="component-app2">
+        <button-counterx v-for="post in posts" :key="post.id" :title="post.title" :post="post"
+            @enlarge-text="onEnlargeText" :post-font-size="postFontSize"></button-counterx>
+        <div :style="{ fontSize: postFontSize + 'em' }"> 变动字体</div>
+
+        <custom-input v-model="searchText"></custom-input>
+
+        <alert-box v-on:close="alertClosed">
+            Slot contents here...
+        </alert-box>
+    </div>
+
+
+    <script>
+        new Vue({
+            el: '#component-app2',
+            data: {
+                parentTitle: 'This is title',
+                posts: [
+                    { id: 1, title: 'My journey with Vue', content: 'I have been learning Vue for a while now and I really enjoy it.' },
+                    { id: 2, title: 'Blogging with Vue', content: 'I am excited to start blogging about Vue.' },
+                    { id: 3, title: 'Why Vue is so fun', content: 'Vue is a great framework for building complex interfaces.' }
+                ],
+                postFontSize: 1.2,
+                postFontSizex: 1.2,
+                searchText: '111'
+            },
+            methods: {
+                onEnlargeText: function (enlargeAmount) {
+                    this.postFontSize += Number(enlargeAmount)
+                    this.postFontSizex += Number(enlargeAmount)
+                },
+                alertClosed: function () {
+                    console.log("alert closed")
+                }
+            },
+            beforeUpdate: function () {
+                console.log('post updated')
+                console.log(this.searchText, 'searchText')
+            },
+            components: {
+                'button-counterx': {
+                    template: `
+                    <div>
+                        <button v-on:click="count++"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2  ">
+                            You clicked me {{ count }} times. --{{title}}</button>
+
+                        <div class="blog-post">
+                            <h3 v-if="post">{{ post.title }}</h3>
+                            <div v-html="post.content"></div>
+                        </div>
+
+                        <button v-on:click="$emit('enlarge-text', 0.1)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2 block">
+                            Enlarge text
+                        </button>
+                        <!-- 使用计算属性来响应式更新字体大小 -->
+                       <div :style="{ fontSize: fontSize + 'em' }"> 变动字体fontSize</div>
+                       <div :style="{ fontSize: postFontSizex + 'em' }"> 变动字体 postFontSizex</div>
+                    </div>
+                    `,
+                    props: ['title', 'post', 'postFontSize', 'postFontSizex'],
+                    data: function () {
+                        return {
+                            count: 0,
+                        }
+                    },
+                    computed: {
+                        fontSize() {
+                            // console.log('fontSize')
+                            return this.postFontSize;
+                        }
+                    }
+                },
+                "custom-input": {
+                    template: `
+                        <input
+                            v-bind:value="searchText"
+                            v-on:input="$emit('input', $event.target.value)"
+                            class="border-2 border-gray-200 rounded w-full p-2"
+                        > </input>`,
+                    props: ['searchText'],
+                    // props: ['value'],
+                    // data: function () {
+                    //     return {
+                    //         count: 0
+                    //     }
+                    // },
+
+                },
+                "alert-box": {
+                    template: `
+                    <div class="">
+                        <strong>Error!</strong>
+                        <slot></slot>
+                        <button v-on:click="$emit('close')">Close</button>
+                    </div>`,
+
+                }
+            }
+        });
+
+
+
+        Vue.component('button-counter', {
+            template: `
+            <button v-on:click="count++"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2  ">
+                You clicked me {{ count }} times. --{{title}}</button>
+            `,
+            props: ['title'],
+            data: function () {
+                return {
+                    count: 0
+                }
+            },
+        });
+        Vue.component('button-counter2', {
+            template: `
+            <div>
+                <button v-on:click="count_data++"
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-2 block">
+                    2222 === You clicked me {{ count_data }} times.
+                </button>
+            </div>
+            `,
+            data: function () {
+                return { count_data: 0 }
+            }
+        });
+        new Vue({
+            el: '#components-app1',
+            data: {
+                parentTitle: 'This is parent title'
+            }
+        });
+    </script>
+</body>
+
+</html>

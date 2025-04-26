@@ -1,0 +1,14 @@
+{
+    "name": "ts-node-esm-example",
+    "scripts": {
+        "test:p1": "tsc app.ts",
+        "clean": "rm -rf node_modules package-lock.json"
+    },
+    "dependencies": {
+        "ts-node-esm-example": "file:"
+    },
+    "devDependencies": {
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-prettier": "^5.2.1"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "target": "es6",
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": false,
+        "strictPropertyInitialization": false,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        // "outDir": "./dist",
+        "rootDir": "./src",
+        "resolveJsonModule": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "sourceMap": true
+    },
+    "include": [
+        "src/**/*",
+        "src/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
+    ]
+}
