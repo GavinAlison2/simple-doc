@@ -42,3 +42,4 @@ innodb 内存 -> redo log -> 磁盘
 
 
 > [redo log video](https://www.bilibili.com/video/BV1Zz42197cF/?spm_id_from=333.1387.upload.video_card.click&vd_source=5a41e8ae8c0a4c2c6809a5ccf977c1a9)
+
