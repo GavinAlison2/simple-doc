@@ -27,7 +27,7 @@ features:
 
 footer: MIT Licensed | Copyright © 2016-present My Blog Community
 ---
-# [大数据](./guide/etl/bigdata-readme.md)
+## [大数据](./guide/etl/bigdata-readme.md)
 
 - [Hadoop](./guide/etl/hadoop/readme.md)
 - [Hive](./guide/etl/hive/readme.md)
@@ -35,13 +35,11 @@ footer: MIT Licensed | Copyright © 2016-present My Blog Community
 - Kafka
 - Flink
 
----
-# linux
+## linux
 
 - [linux 环境搭建](./guide/linux/readme.md)
 
----
-# 前端
+## 前端
 
 - [ES6](./guide/es6/readme.md)
 - [Tailwind css](./guide/tailwind/readme.md)
@@ -49,6 +47,10 @@ footer: MIT Licensed | Copyright © 2016-present My Blog Community
 - [TypeScript](./guide/Typescript/readme.md)
 - [React](./guide/React/readme.md)
 
-# MySQL
+## MySQL
 
 - [MySQL](./guide/mysql/readme.md)
+
+## JVM
+
+- [JVM](./guide/jvm/readme.md)
