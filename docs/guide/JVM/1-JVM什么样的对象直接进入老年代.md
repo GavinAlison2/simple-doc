@@ -19,9 +19,6 @@
   这个过程是JVM根据对象的年龄来判断的，如果对象的年龄超过了`-XX:MaxTenuringThreshold`设定的阈值，
   则会直接进入老年代。
   当survior区域存活对象的总大小占用了survior区域的50%,那么此时将按照对象的存活年龄从小到大进行排序，然后依次累加，当累加到对象大小超过50%，则将大于等于当前对象年龄的存活对象全部挪到老年代.
-  
-
-
 
 
 > https://www.bilibili.com/video/BV1AT42197jB?spm_id_from=333.788.videopod.episodes&vd_source=5a41e8ae8c0a4c2c6809a5ccf977c1a9
