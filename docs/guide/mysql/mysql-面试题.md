@@ -8,14 +8,16 @@
 
 2. 解析
 
-    - 词法分析：MySQL 将输入的 SQL 语句按照词法规则进行拆分，识别出关键字、标识符、常量等。例如，对于语句SELECT * FROM users WHERE age > 18;，会将其拆分为SELECT（关键字）、*（通配符）、FROM（关键字）、users（表名，标识符）等。
+    - 词法分析：MySQL 将输入的 SQL 语句按照词法规则进行拆分，识别出关键字、标识符、常量等。例如，对于语句`SELECT * FROM users WHERE age > 18;`，会将其拆分为`SELECT`（关键字）、`*`（通配符）、`FROM`（关键字）、`users`（表名，标识符）等。
     - 语法分析：根据 MySQL 的语法规则，对词法分析后的结果进行语法检查和结构分析，构建出对应的解析树。如果 SQL 语句语法错误，在此阶段就会被发现并返回错误信息。
 
 3. 查询优化
-    - 逻辑优化：对解析树进行优化，例如简化查询条件、消除冗余的子查询或视图等。如查询SELECT * FROM (SELECT * FROM users) AS t;，会被优化为SELECT * FROM users;。
-    - 物理优化：根据表的索引、数据分布等信息，选择最优的查询执行计划，包括决定使用何种索引、连接方式以及表的扫描顺序等。例如，若users表的age字段上有索引，对于SELECT * FROM users WHERE age > 18;语句，优化器可能会选择使用该索引来快速定位满足条件的记录。
+
+    - 逻辑优化：对解析树进行优化，例如简化查询条件、消除冗余的子查询或视图等。如查询`SELECT * FROM (SELECT * FROM users) AS t;`，会被优化为`SELECT * FROM users;`。
+    - 物理优化：根据表的索引、数据分布等信息，选择最优的查询执行计划，包括决定使用何种索引、连接方式以及表的扫描顺序等。例如，若users表的age字段上有索引，对于`SELECT * FROM users WHERE age > 18;`语句，优化器可能会选择使用该索引来快速定位满足条件的记录。
 
 4. 查询执行
+
     - 按照优化后的执行计划，调用存储引擎的接口来获取数据。如果需要进行表连接、排序、分组等操作，在这个阶段会按照相应的算法进行处理。例如，使用嵌套循环连接算法来连接多个表，使用快速排序算法对结果集进行排序等。
 
 5. 结果集返回
@@ -26,7 +28,7 @@
 - redolog，wal
 - binlog，备份，主从
 
-![mysql-execute-sql](./assets/mysql-sql-execute-process.png)
+![mysql-execute-process](assets/mysql-sql-execute-process.png)
 
 ## 2. redo log
 
@@ -40,7 +42,6 @@ redo log 是 MySQL 用于保证数据持久性的一种机制。在 MySQL 中，
 innodb_flush_log_at_trx_commit=1，表示每次事务提交时，都将 redo log 写入磁盘。innodb_flush_log_at_trx_commit=0，表示系统崩溃时，只有 redo log 未写入磁盘，数据可能丢失。
 
 innodb 内存 -> redo log -> 磁盘
-
 
 > [redo log video](https://www.bilibili.com/video/BV1Zz42197cF/?spm_id_from=333.1387.upload.video_card.click&vd_source=5a41e8ae8c0a4c2c6809a5ccf977c1a9)
 
@@ -59,14 +60,14 @@ create table if not exists t1 (
 ) engine=innodb default charset=utf8mb4;
 ```
 
-### UUID可以用来做主键吗？ 存在哪些问题?
+### 3.1 UUID可以用来做主键吗？ 存在哪些问题?
 
 UUID 是随机生成的，每次当插入记录时，需要查找定位位置，会导致数据写入效率低下，并且可能伴随着数据的移动.
 不同于自增的数据的批量插入，直接定位数据，顺序插入，比UUID插入的效率高。
 
 UUID 是由 32个十六进制数字和4个连字符组成的，不好阅读.
 
-### 雪花算法原理？
+### 3.2 雪花算法原理？
 
 分布式 ID 生成算法
 

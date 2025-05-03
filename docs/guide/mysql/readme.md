@@ -21,7 +21,7 @@
 - [MySQL 工具推荐](mysql-tools-recommend.md)
 - [MySQL 性能优化](mysql-performance.md) 
 -->
-
+<!-- 
 ## MySQL 测试
 
 - [MySQL 性能测试](mysql-performance-test.md)
@@ -30,7 +30,8 @@
 - [MySQL TPC-C 测试](mysql-tpc-c-test.md)
 - [MySQL TPC-H 测试](mysql-tpc-h-test.md)
 - [MySQL 性能测试工具](mysql-performance-test-tools.md)
-- [MySQL 性能调优](mysql-performance-tuning.md)
+- [MySQL 性能调优](mysql-performance-tuning.md) 
+-->
 
 ## MySQL 深入学习
 
