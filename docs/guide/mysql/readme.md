@@ -52,8 +52,14 @@
 
 ## MySQL 45 讲
 
-- [01-sql语句如何执行](mysql45讲/1-sql语句如何执行.md)
-
+- [sql语句如何执行](mysql45讲/01-02-sql执行.md)
+- [事务](mysql45讲/03-事务.md)
+- [锁](mysql45讲/06-07-锁.md)
+- [mvcc](mysql45讲/08-mvcc.md)
+- [索引](mysql45讲/09-普通索引和唯一索引.md)
+- [脏页](mysql45讲/10-12-DirtyPag脏页.md)
+- [临时表](mysql45讲/13-17-临时表.md)
+- [索引失效](mysql45讲/18-20-索引失效.md)
 - [mysql高可用](mysql45讲/21-25-mysql高可用.md)
 - [备库](mysql45讲/26-27-备库.md)
 - [读写分离](mysql45讲/28-读写分离有哪些坑.md)
