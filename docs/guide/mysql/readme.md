@@ -44,8 +44,26 @@
 - [索引失效](mysql-索引失效.md)
 - [MySQL SQL explained]()
 - [MySQL 谓词下推](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html#optimizer-hints-index-range)
-- [MySQL 回表]
+- [MySQL 回表]()
 - [MySQL Redo Log 分析]()
 - [MySQL Undo Log 分析]()
 - [MySQL Double Buffering]()
 - [MySQL 死锁]()
+
+## MySQL 45 讲
+
+- [01-sql语句如何执行](mysql45讲/1-sql语句如何执行.md)
+
+- [mysql高可用](mysql45讲/21-25-mysql高可用.md)
+- [备库](mysql45讲/26-27-备库.md)
+- [读写分离](mysql45讲/28-读写分离有哪些坑.md)
+- [数据库查询内存不足](mysql45讲/29-33-数据库问题-查询多数内存不足.md)
+- [NLJ-join](<mysql45讲/34 -到底可不可以使用join.md>)
+- [join turning](mysql45讲/35-Join语句优化.md)
+- [temp table](mysql45讲/36-39-临时表-自增主键.md)
+- [insert lock](mysql45讲/40-insert语句的锁为什么这么多.md)
+- [copy table](mysql45讲/41-快速复制一张表.md)
+- [grant flush](mysql45讲/42-grant之后要flush.md)
+- [partition table](mysql45讲/43-分区表.md)
+- [join qa](mysql45讲/44-join问题.md)
+- [id over](mysql45讲/45-id-over.md)
