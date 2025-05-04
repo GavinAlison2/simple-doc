@@ -4,7 +4,7 @@ git add .
 
 git commit -m "deploy mysql 45讲"
 
-git pull origi master
+git pull origin master
 @REM git pull origin master --allow-unrelated-histories
 @REM git remote add origin git@github.com:GavinAlison2/simple-doc.git
 git push origin master
