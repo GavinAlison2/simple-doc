@@ -52,6 +52,7 @@
 
 ## MySQL 45 讲
 
+- [mysql 45讲](mysql-45讲.md)
 - [sql语句如何执行](mysql45讲/01-02-sql执行.md)
 - [事务](mysql45讲/03-事务.md)
 - [锁](mysql45讲/06-07-锁.md)
