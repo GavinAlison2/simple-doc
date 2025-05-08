@@ -30,17 +30,18 @@ Driver 在 Spark 作业执行时主要负责：
 Spark Executor 是集群中工作节点（Worker）中的一个 JVM 进程，负责在 Spark 作业中运行具体任务（Task），任务彼此之间相互独立。Spark 应用启动时，Executor 节点被同时启动，并且始终伴随着整个 Spark 应用的生命周期而存在。如果有 Executor 节点发生了故障或崩溃，Spark 应用也可以继续执行，会将出错节点上的任务调度到其他 Executor 节点上继续运行。
 
 Executor 有两个核心功能：
+
 - 负责运行组成 Spark 应用的任务，并将结果返回给驱动器进程
 - 它们通过自身的块管理器（Block Manager）为用户程序中要求缓存的 RDD 提供内存式存储。RDD 是直接缓存在 Executor 进程内的，因此任务可以在运行时充分利用缓存数据加速运算。
 
 Master & Worker：
+
 - Master：负责资源的分配和调度，包括任务调度、资源管理、容错恢复等。主要负责资源的调度和分配，并进行集群的监控等职责，类似于 Yarn 环境中的 RM
 - Worker：负责具体的任务执行，包括数据的处理、shuffle 等。类似于 Yarn 环境中 NM。
 
 ApplicationMaster：
 
 ​ Hadoop 用户向 YARN 集群提交应用程序时,提交程序中应该包含 ApplicationMaster，用于向资源调度器申请执行任务的资源容器 Container，运行用户自己的程序任务 job，监控整个任务的执行，跟踪整个任务的状态，处理任务失败等异常情况。说的简单点就是，ResourceManager（资源）和 Driver（计算）之间的解耦合靠的就是ApplicationMaster。
-
 
 ## 核心概念
 
@@ -51,6 +52,7 @@ ApplicationMaster：
 这里的资源一般指的是工作节点 Executor 的内存大小和使用的虚拟 CPU 核（Core）数量。
 
 参数：
+
 - --num-executors：设置 Executor 数量
 - --executor-memory：设置每个 Executor 的内存大小
 - --executor-cores：设置每个 Executor 的虚拟 CPU 核数量
@@ -105,6 +107,7 @@ Spark 应用程序提交到 Yarn 环境中执行的时候，一般会有两种�
 ### Yarn Client 模式
 
 Client 模式将用于监控和调度的 Driver 模块在客户端执行，而不是在 Yarn 中，所以一般用于测试。
+
 - Driver 在任务提交的本地机器上运行
 - Driver 启动后会和 ResourceManager 通讯申请启动 ApplicationMaster
 - ResourceManager 分配 container，在合适的 NodeManager 上启动 ApplicationMaster，负责向 ResourceManager 申请 Executor 内存
@@ -115,10 +118,9 @@ Client 模式将用于监控和调度的 Driver 模块在客户端执行，而�
 ### Yarn Cluster 模式
 
 Cluster 模式将用于监控和调度的 Driver 模块启动在 Yarn 集群资源中执行。一般应用于实际生产环境。
+
 - 在 YARN Cluster 模式下，任务提交后会和 ResourceManager 通讯申请启动ApplicationMaster，
 - 随后 ResourceManager 分配 container，在合适的 NodeManager 上启动 ApplicationMaster，此时的 ApplicationMaster 就是 Driver。
 - Driver 启动后向 ResourceManager 申请 Executor 内存，ResourceManager 接到ApplicationMaster 的资源申请后会分配 container，然后在合适的 NodeManager 上启动Executor 进程
 - Executor 进程启动后会向 Driver 反向注册，Executor 全部注册完成后 Driver 开始执行main 函数，
 - 之后执行到 Action 算子时，触发一个 Job，并根据宽依赖开始划分 stage，每个 stage 生成对应的 TaskSet，之后将 task 分发到各个 Executor 上执行。
-
-

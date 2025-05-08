@@ -2,7 +2,7 @@ CHCP 65001
 
 git add .
 
-git commit -m "deploy mysql 45讲"
+git commit -m "deploy mysql 手绘图"
 
 git pull origin master
 @REM git pull origin master --allow-unrelated-histories

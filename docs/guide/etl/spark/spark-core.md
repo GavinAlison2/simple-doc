@@ -28,6 +28,7 @@
 ​ 从计算的角度来讲，数据处理过程中需要计算资源（内存 & CPU）和计算模型（逻辑）。执行时，需要将计算资源和计算模型进行协调和整合。Spark 框架在执行时，先申请资源，然后将应用程序的数据处理逻辑分解成一个一个的计算任务。然后将任务发到已经分配资源的计算节点上, 按照指定的计算模型进行数据计算。最后得到计算结果。
 
 RDD 是 Spark 框架中用于数据处理的核心模型，接下来我们看看，在 Yarn 环境中，RDD的工作原理:
+
 1. 启动 Yarn 集群环境
 2. Spark 通过申请资源创建调度节点和计算节点
 3. Spark 框架根据需求将计算逻辑根据分区划分成不同的任务
@@ -50,12 +51,15 @@ rdd1.collect().foreach(println)
 rdd2.collect().foreach(println)
 sparkContext.stop() 
 ```
+
 从底层代码实现来讲，makeRDD 方法其实就是 parallelize 方法
+
 ```scala
 def makeRDD[T: ClassTag]( seq: Seq[T], numSlices: Int = defaultParallelism): RDD[T] = withScope {
     parallelize(seq, numSlices)
 }
 ```
+
 2. 从外部存储（文件）创建 RDD
 由外部存储系统的数据集创建 RDD 包括：本地的文件系统，所有 Hadoop 支持的数据集，比如 HDFS、HBase 等。
 
@@ -66,9 +70,12 @@ val rdd = sparkContext.textFile("file:///path/to/file")
 rdd.collect().foreach(println)
 sparkContext.stop() 
 ```
+
 3. 从其他 RDD 创建
+
 主要是通过一个 RDD 运算完后，再产生新的 RDD。详情请参考后续章节
-4. 直接创建 RDD（new）
+
+1. 直接创建 RDD（new）
 使用 new 的方式直接构造 RDD，一般由 Spark 框架自身使用。
 
 ### RDD 并行度与分区
@@ -86,6 +93,7 @@ sparkContext.stop()
 
 读取内存数据时，数据可以按照并行度的设定进行数据的分区操作，数据分区规则的
 Spark 核心源码如下：
+
 ```scala
 def positions(length: Long, numSlices: Int): Iterator[(Int, Int)] = {
     (0 until numSlices).iterator.map { i =>
@@ -97,6 +105,7 @@ def positions(length: Long, numSlices: Int): Iterator[(Int, Int)] = {
 ```
 
 读取文件数据时，数据是按照 Hadoop 文件读取的规则进行切片分区，而切片规则和数据读取的规则有些差异，具体 Spark 核心源码如下
+
 ```scala
 public InputSplit[] getSplits(JobConf job, int numSplits) throws IOException {
     long totalSize = 0; // compute total size
@@ -126,9 +135,9 @@ public InputSplit[] getSplits(JobConf job, int numSplits) throws IOException {
 RDD 根据数据处理方式的不同将算子整体上分为 Value 类型、双 Value 类型和 Key-Value类型
 
 1. Value 类型
+
 - map：对每个元素进行转换操作，返回一个新的元素
 - flatMap：对每个元素进行转换操作，返回多个元素
-
 
 ### RDD 序列化
 
@@ -186,6 +195,7 @@ class Search(query:String) extends Serializable {
 ​ Java 的序列化能够序列化任何的类。但是比较重（字节多），序列化后，对象的提交也比较大。Spark 出于性能的考虑，Spark2.0 开始支持另外一种 Kryo 序列化机制。Kryo 速度是 Serializable 的 10 倍。当 RDD 在 Shuffle 数据的时候，简单数据类型、数组和字符串类型已经在 Spark 内部使用 Kryo 来序列化。
 
 注意：即使使用 Kryo 序列化，也要继承 Serializable 接口。
+
 ```scala
 object serializable_Kryo {
     def main(args: Array[String]): Unit = {
@@ -384,8 +394,7 @@ override def findMissingPartitions(): Seq[Int] = {
 } 
 ```
 
-
-## spark dag中job 为什么会分stage,
+## spark dag中job 为什么会分stage
 
 在 Spark DAG（有向无环图）中，Job 被划分为 Stage 的主要原因是 基于数据依赖关系的划分，特别是 宽依赖（Shuffle Dependency）和窄依赖（Narrow Dependency） 的区别。这种划分是为了优化任务调度和执行效率。以下是详细解释：
 
@@ -405,6 +414,7 @@ Spark 的 DAG Scheduler 会将 Job 拆分成多个 Stage，关键分界线是宽
 因为 Shuffle 是分布式计算的“同步点”，必须等待所有上游任务完成数据输出后，下游任务才能读取数据。
 
 ### Stage 的类型
+
 一个 Job 通常分为两种 Stage：
 
 - ShuffleMapStage：宽依赖的 Stage，需要执行 Shuffle 操作。
@@ -424,6 +434,7 @@ rdd = sc.textFile("data.txt")
   .reduceByKey(lambda a, b: a + b)       # 宽依赖 → 新 Stage  
   .collect()                             # ResultStage
 ```
+
 - Stage 0：textFile → flatMap → map（窄依赖连续执行）。
 - Stage 1：reduceByKey（需要 Shuffle）。
 - Stage 2：collect()（最终结果）。
@@ -437,10 +448,9 @@ Stage 失败时只需重算该 Stage 及其下游 Stage（而非整个 Job）。
 - 资源调度：
 Shuffle 是资源密集型操作，明确 Stage 边界有助于合理分配资源。
 
-
 关键点,说明
+
 - Stage 划分依据,遇到宽依赖（Shuffle）时切分 Stage。
 - 窄依赖,	合并到同一 Stage，流水线执行。
 - 宽依赖,	强制分 Stage，需等待 Shuffle 完成。
 - 优化目标,	减少 Shuffle 开销，提高并行度和容错效率。
-

@@ -66,6 +66,7 @@ Spark 的数据读取及数据保存可以从两个维度来作区分：文件�
 - text 文件
 - sequence 文件, ​ SequenceFile 文件是 Hadoop 用来存储二进制形式的 key-value 对而设计的一种平面文件(FlatFile)
 - object 对象文件,  对象文件是将对象序列化后保存的文件，采用 Java 的序列化机制。可以通过 `objectFile[T: ClassTag](path)`函数接收一个路径，读取对象文件，返回对应的 RDD，也可以通过调用saveAsObjectFile()实现对对象文件的输出。因为是序列化所以要指定类型
+
 ```scala
 // 读取输入文件
 val inputRDD: RDD[String] = sc.textFile("input/1.txt")
@@ -145,7 +146,6 @@ class WordCountAccumulator extends AccumulatorV2[String, mutable.Map[String, Lon
     override def value: mutable.Map[String, Long] = map
 }
 ```
-
 
 ## 广播变量
 
