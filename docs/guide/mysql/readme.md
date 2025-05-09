@@ -35,19 +35,30 @@
 
 ## MySQL 深入学习
 
+- [innodb 图解](innoDB.md)
 - [MVCC](./mvcc.md)
 - [MySQL-b+tree-插入与页分裂](mysql-b+tree-插入与页分裂.md)
+- [binlog redolog](mysql-binlog-redolog.md)
 - [Buffer-Pool](mysql-buffer-pool.md)
+- [free-flush-lru 链表](mysql-bufferpool-freeflushlru.md)
+- [changebuffer](mysql-changebuffer.md)
+- [doublewrite](mysql-Doublewrite.md)
+- [log图解](mysql-log.md)
+- [log 与事务](mysql-log对应事务.md)
+- [mysql-cbo-rbo 执行计划](mysql-rbo-cbo.md)
+- [sql执行图解](mysql-执行逻辑.md)
 - [A Hash Index](mysql-内存自适应哈希索引.md)
 - [sql卡住](mysql-sql卡住.md)
 - [索引](mysql-索引.md)
 - [索引失效](mysql-索引失效.md)
+- [mysql 思考整理](mysql-思考整理.md)
+- [锁](mysql-锁.md)
+- [mysql 面试题](mysql-面试题.md)
 - [MySQL SQL explained]()
 - [MySQL 谓词下推](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html#optimizer-hints-index-range)
 - [MySQL 回表]()
 - [MySQL Redo Log 分析]()
 - [MySQL Undo Log 分析]()
-- [MySQL Double Buffering]()
 - [MySQL 死锁]()
 
 ## MySQL 45 讲

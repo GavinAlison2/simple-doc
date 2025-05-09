@@ -160,4 +160,3 @@ Buffer Pool没有直接常用传统的LRU算法，而是采用了基于冷热数
 最终最老的页面会从尾部逐出，清空这些缓存页，并放入free链表，从LRU链表删除，从Flush链表删除。
 
 如果 Buffer Pool 不够使用了，那么 MySQL就会将 LRU 链表中的尾节点刷入到磁盘中， Buffer Pool 腾出内存空间。
-
