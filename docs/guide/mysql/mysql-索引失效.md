@@ -1,5 +1,46 @@
 # MySQL 索引失效
 
+## 索引失效的场景
+
+- 使用函数或者表达式
+- 存在隐式类型转换
+- 组合索引未遵循最左匹配原则
+- like 查询使用左通配符
+- OR 条件中没有存在索引列
+- 使用`!=`、`<>`、`NOT IN` 条件，无法使用索引
+- 使用 `IS NULL` 或 `IS NOT NULL`, 无法使用索引
+- 使用 `ORDER BY` 或 `GROUP BY` 中的列没有使用索引，无法使用索引
+- 使用 `SELECT *` 返回的数据量过大，无法使用索引
+
+```sql
+-- case1 使用函数或者表达式
+SELECT LENGTH(name) as length_name, name FROM table_name WHERE LENGTH(name) > 5;
+
+-- case2 存在隐式类型转换
+SELECT name FROM table_name WHERE age > '20';
+
+-- case3 组合索引未遵循最左匹配原则
+SELECT name, age FROM table_name WHERE name = 'Tom' AND age > 20;
+
+-- case4 like 查询使用左通配符
+SELECT name FROM table_name WHERE name LIKE '%Tom';
+
+-- case5 OR 条件中没有存在索引列
+SELECT name FROM table_name WHERE name = 'Tom' OR age > 20;
+
+-- case6 使用!=、<>、NOT IN 条件，无法使用索引
+SELECT name FROM table_name WHERE age NOT IN (10, 20, 30);
+
+-- case7 使用 IS NULL 或 IS NOT NULL, 无法使用索引
+SELECT name FROM table_name WHERE age IS NULL;
+
+-- case8 使用 ORDER BY 或 GROUP BY 中的列没有使用索引，无法使用索引
+SELECT age FROM table_name ORDER BY name;
+
+-- case9 使用 SELECT * 返回的数据量过大，无法使用索引
+SELECT * FROM table_name; 
+```
+
 ## 索引失效的原因
 
 - 索引列数据类型不匹配

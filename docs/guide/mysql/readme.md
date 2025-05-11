@@ -53,13 +53,16 @@
 - [索引失效](mysql-索引失效.md)
 - [mysql 思考整理](mysql-思考整理.md)
 - [锁](mysql-锁.md)
+- [MySQL 死锁](./)
 - [mysql 面试题](mysql-面试题.md)
-- [MySQL SQL explained]()
+- [MySQL SQL explained](mysql-explained.md)
 - [MySQL 谓词下推](https://dev.mysql.com/doc/refman/8.0/en/optimizer-hints.html#optimizer-hints-index-range)
-- [MySQL 回表]()
-- [MySQL Redo Log 分析]()
-- [MySQL Undo Log 分析]()
-- [MySQL 死锁]()
+- [MySQL 回表](./)
+- [MySQL Redo Log 分析](./)
+- [MySQL Undo Log 分析](./)
+
+- [mysql explain](mysql-explained.md)
+- [join 算法-snlj-bnlj-inlj-mrr-hashjoin](mysql-join.md)
 
 ## MySQL 45 讲
 
@@ -85,3 +88,13 @@
 - [partition table](mysql45讲/43-分区表.md)
 - [join qa](mysql45讲/44-join问题.md)
 - [id over](mysql45讲/45-id-over.md)
+
+## SQL 优化
+
+- [SQL 优化](https://www.cnblogs.com/ryanw/category/1571353.html)
+
+## MySQL 场景
+
+- [slow-log](mysql场景/mysql-slow-log.md)
+- [删除大量数据](mysql场景/mysql-删除大量数据.md)
+- insert into select 单条插入| load data infile 批量插入

@@ -17,6 +17,16 @@
 - index
 - mvcc, read view
 
+## log
+
+- redo log
+- undo log
+- binlog
+- error log 错误日志
+- query slow log 慢查询日志
+- general log 通用日志
+- relay log 中继日志
+
 ## 索引
 
 - B+树
@@ -24,7 +34,7 @@
 - 二级索引
 - 普通索引
 - 联合索引
-- 覆盖索引
+- 覆盖索引, 避免回表
 - 前缀索引
 - hash索引
 - 索引失效
@@ -36,11 +46,11 @@
   - X锁
   - IS锁
   - IX锁
+- 自增锁
 - 行锁
   - record lock
   - gap lock
   - next-key lock
-- 主键锁
 - 死锁
   - 死锁检测
   - 死锁超时
