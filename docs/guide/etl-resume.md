@@ -27,3 +27,10 @@
 - PrestoSQL
 
 - ElasticSearch, Kibana, Logstash
+
+## 参考产品
+
+- dataworks
+- 网易数帆
+- 阿里云数据湖
+- 腾讯云数据仓库
