@@ -1,0 +1,101 @@
+# Vue3 API
+
+- config API
+  - Vue.createApp({}).config = {...}
+  - errorHandler
+  - warnHandler
+  - globalProperties
+  - isCustomElement
+  - optionMergeStrategies
+  - performance
+- createApp API
+  - component 
+  - config
+  - directive
+  - mixin
+  - provide
+  - use
+- global API
+  - createApp
+  - h , VNode
+  - defineComponent
+  - defineAsyncComponent
+  - resolveComponent
+  - resolveDynamicComponent
+  - resolveDirective
+  - withDirectives
+  - createRenderer
+  - nextTick, 将回调推迟到下一个 DOM 更新周期之后执行
+- Data API
+  - data, 返回组件实例的 data 对象的函数
+  - props, props 可以是数组或对象，用于接收来自父组件的数据
+  - computed, 计算属性将被混入到组件实例中。所有 getter 和 setter 的 this 上下文自动地绑定为组件实例
+  - methods, 组件实例的方法,可以直接通过 VM 实例访问这些方法，或者在指令表达式中使用。方法中的 this 自动绑定为组件实例
+  - watch, 观察属性的变化,一个对象，键是需要观察的表达式，值是对应回调函数。值也可以是方法名，或者包含选项的对象
+  - emits, 声明发射的事件,emits 可以是数组或对象，从组件触发自定义事件，emits 可以是简单的数组，或者对象作为替代，允许配置和事件验证
+- DOM API
+  - template, 组件的 HTML 模板
+  - render, 组件的渲染函数，接收 createElement 函数作为参数，返回 VNode
+  - slots, 插槽，可以用来向组件传递内容
+- 生命周期钩子
+  - beforeCreate, 在实例初始化之后，数据观测 (data observer) 和 event/watcher 事件配置之前被调用
+  - created, 在实例创建完成后被调用
+  - beforeMount, 在挂载开始之前被调用
+  - mounted, 在实例挂载之后被调用
+  - beforeUpdate, 在数据更新时调用，发生在虚拟 DOM 打补丁之前
+  - updated, 在由于数据更改导致的虚拟 DOM 重新渲染和打补丁之后调用
+  - beforeDestroy, 在实例销毁之前调用
+  - destroyed, 在实例销毁之后调用
+  - activated, 在keep-alive组件激活时调用
+  - deactivated, 在keep-alive组件停用时调用
+  - beforeUnmount, 在组件实例被从DOM中移除之前调用
+  - unmounted, 在组件实例被从DOM中移除之后调用
+  - errorCaptured, 捕获组件渲染期间的错误，并返回一个函数来处理错误，或者返回 false 以阻止错误继续向上抛出。
+  - renderTracked, 跟踪依赖项时调用，返回一个函数用来停止跟踪。
+  - renderTriggered, 触发依赖项重新渲染时调用，返回一个函数用来停止触发。
+- 资源
+  - directives, 自定义指令
+  - components, 自定义组件
+- 组合
+  - mixins, 组件混入
+  - extends, 组件扩展
+  - provide / inject, 跨组件数据共享
+  - setup, 组合式 API
+- name, 允许组件模板递归地调用自身
+- delimiters, 改变模板的定界符
+- inheritAttrs, 继承父组件的属性
+- 实例property
+  - $data
+  - $props
+  - $el
+  - $options
+  - $parent
+  - $root
+  - $children
+  - $refs
+  - $slots
+  - $scopedSlots
+  - $isServer
+  - $attrs
+- 实例方法
+  - $watch
+  - $emit
+  - $forceUpdate
+  - $nextTick
+  - $mount
+- 指令
+  - v-text
+  - v-html
+  - v-show
+  - v-if
+  - v-else
+  - v-else-if
+  - v-for
+  - v-on
+  - v-bind
+  - v-model
+  - v-slot
+  - v-pre
+  - v-once
+  - v-is
+- 
