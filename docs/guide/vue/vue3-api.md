@@ -9,7 +9,7 @@
   - optionMergeStrategies
   - performance
 - createApp API
-  - component 
+  - component
   - config
   - directive
   - mixin

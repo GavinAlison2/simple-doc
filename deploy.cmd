@@ -2,7 +2,7 @@ CHCP 65001
 
 git add .
 
-git commit -m "deploy vue3"
+git commit -m "deploy uniapp 组件"
 
 git pull origin master
 @REM git pull origin master --allow-unrelated-histories

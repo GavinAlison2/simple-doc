@@ -1,11 +1,13 @@
 # 前端
 
 ## 包含的技术
+
 - HTML
 - CSS
 - JavaScript
 
 ## 基础技术
+
 - DOM
 - BOM
 - 事件
@@ -23,18 +25,20 @@
 - jQuery
 - Node.js
 
-
 ## CSS框架
+
 - Tailwind CSS
 - PostCSS
 
 ## UI组件库
+
 - Bootstrap
 - Element UI
 - Ant Design
 - Sass/Less
 
 ## 前端工具
+
 - Webpack
 - Gulp
 - Grunt
