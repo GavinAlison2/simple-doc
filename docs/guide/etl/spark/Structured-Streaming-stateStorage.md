@@ -1,16 +1,13 @@
-# Structured Streaming 之状态存储解析 #
+# Structured Streaming 之状态存储解析
 
-***[ Spark] Structured Streaming 源码解析系列***  
+**_[ Spark] Structured Streaming 源码解析系列_**
 
-
-```
+```md
 本文内容适用范围：
 * 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
 ```
 
-
-
-阅读本文前，请一定先阅读 [Structured Streaming 实现思路与实现概述](./Structured%20Streaming%20实现思路与实现概述%20.md) 一文，其中概述了 Structured Streaming 的实现思路（包括 StreamExecution, StateStore 等在 Structured Streaming 里的作用），有了全局概念后再看本文的细节解释。
+阅读本文前，请一定先阅读  [Structured Streaming 实现思路与实现概述](./Structured-Streaming-Implementation-and-Overview.md)  一文，其中概述了 Structured Streaming 的实现思路（包括 StreamExecution, StateStore 等在 Structured Streaming 里的作用），有了全局概念后再看本文的细节解释。
 
 ## 引言
 
@@ -29,23 +26,24 @@
 <p align="center"><img src="./structstream/20250420011.png"></p>
 
 StateStore 模块的总体思路：
+
 - 分布式实现
-    - 跑在现有 Spark 的 driver-executors 架构上
-    - driver 端是轻量级的 coordinator，只做协调工作
-    - executor 端负责状态的实际分片的读写
+  - 跑在现有 Spark 的 driver-executors 架构上
+  - driver 端是轻量级的 coordinator，只做协调工作
+  - executor 端负责状态的实际分片的读写
 - 状态分片
-    - 因为一个应用里可能会包含多个需要状态的 operator，而且 operator 本身也是分 partition 执行的，所以状态存储的分片以 `operatorId`+`partitionId` 为切分依据
-    - 以分片为基本单位进行状态的读入和写出
-    - 每个分片里是一个 key-value 的 store，key 和 value 的类型都是 `UnsafeRow`（可以理解为 SparkSQL 里的 Object 通用类型），可以按 key 查询、或更新
+  - 因为一个应用里可能会包含多个需要状态的 operator，而且 operator 本身也是分 partition 执行的，所以状态存储的分片以 `operatorId`+`partitionId` 为切分依据
+  - 以分片为基本单位进行状态的读入和写出
+  - 每个分片里是一个 key-value 的 store，key 和 value 的类型都是 `UnsafeRow`（可以理解为 SparkSQL 里的 Object 通用类型），可以按 key 查询、或更新
 - 状态分版本
-    - 因为 StreamExection 会持续不断地执行批次，因而同一个 operator 同一个 partition 的状态也是随着时间不断更新、产生新版本的数据
-    - 状态的版本是与 StreamExecution 的进展一致，比如 StreamExection 的批次 id = 7 完成时，那么所有 version = 7 的状态即已经持久化
+  - 因为 StreamExection 会持续不断地执行批次，因而同一个 operator 同一个 partition 的状态也是随着时间不断更新、产生新版本的数据
+  - 状态的版本是与 StreamExecution 的进展一致，比如 StreamExection 的批次 id = 7 完成时，那么所有 version = 7 的状态即已经持久化
 - 批量读入和写出分片
-    - 对于每个分片，读入时
-        - 根据 operator + partition + version， 从 HDFS 读入数据，并缓存在内存里
-    - 对于每个分片，写出时
-        - 累计当前版本（即 StreamExecution 的当前批次）的多行的状态修改，一次性写出到 HDFS 一个修改的流水 log，流水 log 写完即标志本批次的状态修改完成
-        - 同时应用修改到内存中的状态缓存
+  - 对于每个分片，读入时
+    - 根据 operator + partition + version， 从 HDFS 读入数据，并缓存在内存里
+  - 对于每个分片，写出时
+    - 累计当前版本（即 StreamExecution 的当前批次）的多行的状态修改，一次性写出到 HDFS 一个修改的流水 log，流水 log 写完即标志本批次的状态修改完成
+    - 同时应用修改到内存中的状态缓存
 
 关于 StateStore 的 operator, partiton, version 有一个图片可帮助理解：
 
@@ -75,26 +73,26 @@ StateStore 模块的总体思路：
 
   // 查询一条 key-value
   def get(key: UnsafeRow): Option[UnsafeRow]
-    
+
   // 新增、或修改一条 key-value
   def put(key: UnsafeRow, value: UnsafeRow): Unit
-    
+
   // 删除一条符合条件的 key-value
   def remove(condition: UnsafeRow => Boolean): Unit
   // 根据 key 删除 key-value
   def remove(key: UnsafeRow): Unit
-  
+
   /* == 批量操作相关 =============================== */
-    
+
   // 提交当前执行批次的所有修改，将刷出到 HDFS，成功后版本将自增
   def commit(): Long
 
   // 放弃当前执行批次的所有修改
   def abort(): Unit
-    
+
   // 当前状态分片、当前版本的所有 key-value 状态
   def iterator(): Iterator[(UnsafeRow, UnsafeRow)]
-    
+
   // 当前状态分片、当前版本比上一个版本的所有增量更新
   def updates(): Iterator[StoreUpdate]
 ```
@@ -108,10 +106,10 @@ StateStore 模块的总体思路：
   // 开始进行一些更改
   store.put(...)
   store.remove(...)
-    
+
   // 更改完成，批量提交缓存在内存里的更改到 HDFS
   store.commit()
-    
+
   // 查看当前状态分片的所有 key-value / 刚刚更新了的 key-value
   store.iterator()
   store.updates()
@@ -135,9 +133,9 @@ StateStore 的所有状态以 HDFS 为准。如果某个状态分片在更新过
 
 ## 总结
 
-在 Structured Streaming 里，StateStore 模块提供了 ***分片的***、***分版本的***、***可迁移的***、***高可用***  key-value store。
+在 Structured Streaming 里，StateStore 模块提供了 **_分片的_**、**_分版本的_**、**_可迁移的_**、**_高可用_** key-value store。
 
-基于这个 StateStore 模块，StreamExecution 实现了 ***增量的*** 持续查询、和很好的故障恢复以维护 ***end-to-end exactly-once guarantees***。
+基于这个 StateStore 模块，StreamExecution 实现了 **_增量的_** 持续查询、和很好的故障恢复以维护 **_end-to-end exactly-once guarantees_**。
 
 ## 扩展阅读
 

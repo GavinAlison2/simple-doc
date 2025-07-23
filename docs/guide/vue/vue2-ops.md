@@ -24,16 +24,16 @@
   </table>
 </template>
 <script>
-export default {
-    name: 'Table',
-        return {
-            items: [
-                { id: 1, name: 'John', age: 25 },
-                { id: 2, name: 'Mary', age: 30 },
-                { id: 3, name: 'Tom', age: 28 }
-            ]
-        }
-}
+  export default {
+      name: 'Table',
+          return {
+              items: [
+                  { id: 1, name: 'John', age: 25 },
+                  { id: 2, name: 'Mary', age: 30 },
+                  { id: 3, name: 'Tom', age: 28 }
+              ]
+          }
+  }
 </script>
 ```
 
@@ -77,15 +77,15 @@ export default {
   </table>
 </template>
 <script>
-export default {
-    name: 'Table',
-        return {
-            items: [
-                { id: 1, name: 'John', age: 25 },
-                { id: 2, name: 'Mary', age: 30 },
-                { id: 3, name: 'Tom', age: 28 }
-            ]
-        }
-}
+  export default {
+      name: 'Table',
+          return {
+              items: [
+                  { id: 1, name: 'John', age: 25 },
+                  { id: 2, name: 'Mary', age: 30 },
+                  { id: 3, name: 'Tom', age: 28 }
+              ]
+          }
+  }
 </script>
 ```

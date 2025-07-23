@@ -1,8 +1,7 @@
 # table of content
 
 - 新手入门
-  - [安装](install.md)
-  - [第一个页面](first-page.md)
+  - [安装](./tailwind-install.md)
   - 编辑器设置
 - 核心概念
   - 工具优先的基础

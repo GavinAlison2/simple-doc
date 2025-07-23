@@ -1,11 +1,11 @@
-# Structured Streaming 实现思路与实现概述 #
+# Structured Streaming 实现思路与实现概述
 
-***[Spark] Structured Streaming 源码解析系列*** ，返回目录请 [猛戳这里](.)
+**_[Spark] Structured Streaming 源码解析系列_** ，返回目录请 [猛戳这里](.)
 
-
-```
+```md
 本文内容适用范围：
-* 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
+
+- 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
 ```
 
 本文目录
@@ -51,9 +51,9 @@ Spark 2.x 则咔咔咔精简到只保留一个 SparkSession 作为主程序入�
 
 使用 Dataset/DataFrame 的行列数据表格来表达 structured data，既容易理解，又具有广泛的适用性：
 
-- Java 类 `class Person { String name; int age; double height}` 的多个对象可以方便地转化为  `Dataset/DataFrame`
-- 多条 json 对象比如 `{name: "Alice", age: 20, height: 1.68}, {name: "Bob", age: 25, height: 1.76}` 可以方便地转化为  `Dataset/DataFrame`
-- 或者 MySQL 表、行式存储文件、列式存储文件等等等都可以方便地转化为  `Dataset/DataFrame`
+- Java 类 `class Person { String name; int age; double height}` 的多个对象可以方便地转化为 `Dataset/DataFrame`
+- 多条 json 对象比如 `{name: "Alice", age: 20, height: 1.68}, {name: "Bob", age: 25, height: 1.76}` 可以方便地转化为 `Dataset/DataFrame`
+- 或者 MySQL 表、行式存储文件、列式存储文件等等等都可以方便地转化为 `Dataset/DataFrame`
 
 Spark 2.0 更进一步，使用 Dataset/Dataframe 的行列数据表格来扩展表达 streaming data —— 所以便横空出世了 Structured Streaming 、《Structured Streaming 源码解析系列》—— 与静态的 structured data 不同，动态的 streaming data 的行列数据表格是一直无限增长的（因为 streaming data 在源源不断地产生）！
 
@@ -85,14 +85,14 @@ query.awaitTermination()                           // 当前用户主线程挂�
 这里需要说明几点：
 
 - Structured Streaming 也是先纯定义、再触发执行的模式，即
-  - 前面大部分代码是 ***纯定义*** Dataset/DataFrame 的产生、变换和写出
-  - 后面位置再真正 ***start*** 一个新线程，去触发执行之前的定义
-- 在新的执行线程里我们需要 ***持续地*** 去发现新数据，进而 ***持续地*** 查询最新计算结果至写出
-  - 这个过程叫做 ***continous query（持续查询）***
+  - 前面大部分代码是 **_纯定义_** Dataset/DataFrame 的产生、变换和写出
+  - 后面位置再真正 **_start_** 一个新线程，去触发执行之前的定义
+- 在新的执行线程里我们需要 **_持续地_** 去发现新数据，进而 **_持续地_** 查询最新计算结果至写出
+  - 这个过程叫做 **_continous query（持续查询）_**
 
 ## 四、StreamExecution：持续查询的运转引擎
 
-现在我们将目光聚焦到 ***continuous query*** 的驱动引擎（即整个 Structured Streaming 的驱动引擎） StreamExecution 上来。
+现在我们将目光聚焦到 **_continuous query_** 的驱动引擎（即整个 Structured Streaming 的驱动引擎） StreamExecution 上来。
 
 ### 1. StreamExecution 的初始状态
 
@@ -121,19 +121,19 @@ StreamExection 另外的重要成员变量是：
 
 1. StreamExecution 通过 Source.getOffset() 获取最新的 offsets，即最新的数据进度；
 2. StreamExecution 将 offsets 等写入到 offsetLog 里
-     - 这里的 offsetLog 是一个持久化的 WAL (Write-Ahead-Log)，是将来可用作故障恢复用
+   - 这里的 offsetLog 是一个持久化的 WAL (Write-Ahead-Log)，是将来可用作故障恢复用
 3. StreamExecution 构造本次执行的 LogicalPlan
-     - (3a) 将预先定义好的逻辑（即 StreamExecution 里的 logicalPlan 成员变量）制作一个副本出来
-     - (3b) 给定刚刚取到的 offsets，通过 Source.getBatch(offsets) 获取本执行新收到的数据的 Dataset/DataFrame 表示，并替换到 (3a) 中的副本里
-     - 经过 (3a), (3b) 两步，构造完成的 LogicalPlan 就是针对本执行新收到的数据的 Dataset/DataFrame 变换（即整个处理逻辑）了
+   - (3a) 将预先定义好的逻辑（即 StreamExecution 里的 logicalPlan 成员变量）制作一个副本出来
+   - (3b) 给定刚刚取到的 offsets，通过 Source.getBatch(offsets) 获取本执行新收到的数据的 Dataset/DataFrame 表示，并替换到 (3a) 中的副本里
+   - 经过 (3a), (3b) 两步，构造完成的 LogicalPlan 就是针对本执行新收到的数据的 Dataset/DataFrame 变换（即整个处理逻辑）了
 4. 触发对本次执行的 LogicalPlan 的优化，得到 IncrementalExecution
-     - 逻辑计划的优化：通过 Catalyst 优化器完成
-     - 物理计划的生成与选择：结果是可以直接用于执行的 RDD DAG
-     - 逻辑计划、优化的逻辑计划、物理计划、及最后结果 RDD DAG，合并起来就是 IncrementalExecution
+   - 逻辑计划的优化：通过 Catalyst 优化器完成
+   - 物理计划的生成与选择：结果是可以直接用于执行的 RDD DAG
+   - 逻辑计划、优化的逻辑计划、物理计划、及最后结果 RDD DAG，合并起来就是 IncrementalExecution
 5. 将表示计算结果的 Dataset/DataFrame (包含 IncrementalExecution) 交给 Sink，即调用 Sink.add(ds/df)
 6. 计算完成后的 commit
-     - (6a) 通过 Source.commit() 告知 Source 数据已经完整处理结束；Source 可按需完成数据的 garbage-collection
-     - (6b) 将本次执行的批次 id 写入到 batchCommitLog 里
+   - (6a) 通过 Source.commit() 告知 Source 数据已经完整处理结束；Source 可按需完成数据的 garbage-collection
+   - (6b) 将本次执行的批次 id 写入到 batchCommitLog 里
 
 ### 3. StreamExecution 的持续查询（增量）
 
@@ -147,9 +147,9 @@ Structured Streaming 的做法是：
 
 - 引入全局范围、高可用的 StateStore
 - 转全量为增量，即在每次执行时：
-    - 先从 StateStore 里 restore 出上次执行后的状态
-    - 然后加入本执行的新数据，再进行计算
-    - 如果有状态改变，将把改变的状态重新 save 到 StateStore 里
+  - 先从 StateStore 里 restore 出上次执行后的状态
+  - 然后加入本执行的新数据，再进行计算
+  - 如果有状态改变，将把改变的状态重新 save 到 StateStore 里
 - 为了在 Dataset/DataFrame 框架里完成对 StateStore 的 restore 和 save 操作，引入两个新的物理计划节点 —— StateStoreRestoreExec 和 StateStoreSaveExec
 
 所以 Structured Streaming 在编程模型上暴露给用户的是，每次持续查询看做面对全量数据，但在具体实现上转换为增量的持续查询。
@@ -168,34 +168,34 @@ Structured Streaming 的做法是：
 - 读取 batchCommitLog 决定是否需要重做最近一个批次
 - 如果需要，那么重做 (3a), (3b), (4), (5), (6a), (6b) 步
   - 这里第 (5) 步需要分两种情况讨论
-    - (i) 如果上次执行在 (5) ***结束前即失效***，那么本次执行里 sink 应该完整写出计算结果
-    - (ii) 如果上次执行在 (5) ***结束后才失效***，那么本次执行里 sink 可以重新写出计算结果（覆盖上次结果），也可以跳过写出计算结果（因为上次执行已经完整写出过计算结果了）
+    - (i) 如果上次执行在 (5) **_结束前即失效_**，那么本次执行里 sink 应该完整写出计算结果
+    - (ii) 如果上次执行在 (5) **_结束后才失效_**，那么本次执行里 sink 可以重新写出计算结果（覆盖上次结果），也可以跳过写出计算结果（因为上次执行已经完整写出过计算结果了）
 
-这样即可保证每次执行的计算结果，在 sink 这个层面，是 ***不重不丢*** 的 —— 即使中间发生过 1 次或以上的失效和恢复。
+这样即可保证每次执行的计算结果，在 sink 这个层面，是 **_不重不丢_** 的 —— 即使中间发生过 1 次或以上的失效和恢复。
 
 ### 5. Sources 与 Sinks
 
-可以看到，Structured Streaming 层面的 Source，需能 ***根据 offsets 重放数据***  [2]。所以：
+可以看到，Structured Streaming 层面的 Source，需能 **_根据 offsets 重放数据_** [2]。所以：
 
-|             Sources             |              是否可重放               | 原生内置支持  |                    注解                    |
-| :-----------------------------: | :------------------------------: | :-----: | :--------------------------------------: |
-| **HDFS-compatible file system** |  √  |   已支持   | 包括但不限于 text, json, csv, parquet, orc, ... |
-|            **Kafka**            |  √  |   已支持   |              Kafka 0.10.0+               |
-|         **RateStream**          |  √  |   已支持   |                以一定速率产生数据                 |
-|            **RDBMS**            |  √  | *(待支持)* |                预计后续很快会支持                 |
-|           **Socket**            | × |   已支持   |           主要用途是在技术会议/讲座上做 demo           |
-|       **Receiver-based**        | × |  不会支持   |              就让这些前浪被拍在沙滩上吧               |
+|             Sources             | 是否可重放 | 原生内置支持 |                      注解                       |
+| :-----------------------------: | :--------: | :----------: | :---------------------------------------------: |
+| **HDFS-compatible file system** |     √      |    已支持    | 包括但不限于 text, json, csv, parquet, orc, ... |
+|            **Kafka**            |     √      |    已支持    |                  Kafka 0.10.0+                  |
+|         **RateStream**          |     √      |    已支持    |               以一定速率产生数据                |
+|            **RDBMS**            |     √      |  _(待支持)_  |               预计后续很快会支持                |
+|           **Socket**            |     ×      |    已支持    |       主要用途是在技术会议/讲座上做 demo        |
+|       **Receiver-based**        |     ×      |   不会支持   |           就让这些前浪被拍在沙滩上吧            |
 
-也可以看到，Structured Streaming 层面的 Sink，需能 ***幂等式写入数据***  [3]。所以：
+也可以看到，Structured Streaming 层面的 Sink，需能 **_幂等式写入数据_** [3]。所以：
 
-|              Sinks              |              是否幂等写入              | 原生内置支持  |                    注解                    |
-| :-----------------------------: | :------------------------------: | :-----: | :--------------------------------------: |
-| **HDFS-compatible file system** |  √   |   已支持   | 包括但不限于 text, json, csv, parquet, orc, ... |
-|    **ForeachSink** (自定操作幂等)     |  √   |   已支持   |              可定制度非常高的 sink               |
-|            **RDBMS**            |  √   | *(待支持)* |                预计后续很快会支持                 |
-|            **Kafka**            | × |   已支持   | Kafka 目前不支持幂等写入，所以可能会有重复写入<br/>（但推荐接着 Kafka 使用 streaming de-duplication 来去重） |
-|    **ForeachSink** (自定操作不幂等)    | × |   已支持   |              不推荐使用不幂等的自定操作               |
-|           **Console**           | × |   已支持   |           主要用途是在技术会议/讲座上做 demo           |
+|              Sinks               | 是否幂等写入 | 原生内置支持 |                                                     注解                                                     |
+| :------------------------------: | :----------: | :----------: | :----------------------------------------------------------------------------------------------------------: |
+| **HDFS-compatible file system**  |      √       |    已支持    |                               包括但不限于 text, json, csv, parquet, orc, ...                                |
+|  **ForeachSink** (自定操作幂等)  |      √       |    已支持    |                                            可定制度非常高的 sink                                             |
+|            **RDBMS**             |      √       |  _(待支持)_  |                                              预计后续很快会支持                                              |
+|            **Kafka**             |      ×       |    已支持    | Kafka 目前不支持幂等写入，所以可能会有重复写入<br/>（但推荐接着 Kafka 使用 streaming de-duplication 来去重） |
+| **ForeachSink** (自定操作不幂等) |      ×       |    已支持    |                                          不推荐使用不幂等的自定操作                                          |
+|           **Console**            |      ×       |    已支持    |                                      主要用途是在技术会议/讲座上做 demo                                      |
 
 ### 6. 小结：end-to-end exactly-once guarantees
 

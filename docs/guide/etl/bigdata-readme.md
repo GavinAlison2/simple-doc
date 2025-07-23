@@ -1,4 +1,4 @@
-# Big Data 
+# Big Data
 
 ## Hadoop
 
@@ -9,16 +9,14 @@
 
 ## Hive
 
-- [Hive](./hive/readme.md)
-<!-- - [hive sql](./hive/chapter6-hive-sql.md) -->
+- [Hive](hive/readme.md)
 
 ## 参考资料
 
-- [Hive教程](https://developer.aliyun.com/article/1379249)
+- [Hive 教程](https://developer.aliyun.com/article/1379249)
 
 - hive docker 部署，并支持远程连接
 
 ## Spark
 
 - [Spark](./spark/readme.md)
-

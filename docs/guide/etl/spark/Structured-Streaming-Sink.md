@@ -1,14 +1,12 @@
-# Structured Streaming 之 Sink 解析 #
+# Structured Streaming 之 Sink 解析
 
-
-```
+```md
 本文内容适用范围：
-* 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
+
+- 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
 ```
 
-
-
-阅读本文前，请一定先阅读 [Structured Streaming 实现思路与实现概述](./Structured%20Streaming%20实现思路与实现概述%20.md) 一文，其中概述了 Structured Streaming 的实现思路（包括 StreamExecution, Source, Sink 等在 Structured Streaming 里的作用），有了全局概念后再看本文的细节解释。
+阅读本文前，请一定先阅读  [Structured Streaming 实现思路与实现概述](./Structured-Streaming-Implementation-and-Overview.md)  一文，其中概述了 Structured Streaming 的实现思路（包括 StreamExecution, Source, Sink 等在 Structured Streaming 里的作用），有了全局概念后再看本文的细节解释。
 
 ## 引言
 
@@ -24,7 +22,7 @@ trait Sink {
 
 这个仅有的 `addBatch()` 方法支持了 Structured Streaming 实现 end-to-end exactly-once 处理所一定需要的功能。我们将马上解析这个 `addBatch()` 方法。
 
-相比而言，前作 Spark Streaming 并没有对输出进行特别的抽象，而只是在 DStreamGraph [2] 里将一些 dstreams 标记为了 output。当需要 exactly-once 特性时，程序员可以根据当前批次的时间标识，来 ***自行维护和判断*** 一个批次是否已经执行过。
+相比而言，前作 Spark Streaming 并没有对输出进行特别的抽象，而只是在 DStreamGraph [2] 里将一些 dstreams 标记为了 output。当需要 exactly-once 特性时，程序员可以根据当前批次的时间标识，来 **_自行维护和判断_** 一个批次是否已经执行过。
 
 进化到 Structured Streaming 后，显式地抽象出了 Sink，并提供了一些原生幂等的 Sink 实现：
 
@@ -46,19 +44,19 @@ trait Sink {
 3. 由 Source 根据 StreamExecution 所要求的 start offset、end offset，提供在 `(start, end]` 区间范围内的数据
 4. StreamExecution 触发计算逻辑 logicalPlan 的优化与编译
 5. 把计算结果写出给 Sink
-     - 具体是由 StreamExecution 调用 `Sink.addBatch(batchId: Long, data: DataFrame)`
-     - 注意这时才会由 Sink 触发发生实际的取数据操作，以及计算过程
-     - 通常 Sink 直接可以直接把 `data: DataFrame` 的数据写出，并在完成后记录下 `batchId: Long`
-     - 在故障恢复时，分两种情况讨论：
-       - (i) 如果上次执行在本步 ***结束前即失效***，那么本次执行里 sink 应该完整写出计算结果
-       - (ii) 如果上次执行在本步 ***结束后才失效***，那么本次执行里 sink 可以重新写出计算结果（覆盖上次结果），也可以跳过写出计算结果（因为上次执行已经完整写出过计算结果了）
+   - 具体是由 StreamExecution 调用 `Sink.addBatch(batchId: Long, data: DataFrame)`
+   - 注意这时才会由 Sink 触发发生实际的取数据操作，以及计算过程
+   - 通常 Sink 直接可以直接把 `data: DataFrame` 的数据写出，并在完成后记录下 `batchId: Long`
+   - 在故障恢复时，分两种情况讨论：
+     - (i) 如果上次执行在本步 **_结束前即失效_**，那么本次执行里 sink 应该完整写出计算结果
+     - (ii) 如果上次执行在本步 **_结束后才失效_**，那么本次执行里 sink 可以重新写出计算结果（覆盖上次结果），也可以跳过写出计算结果（因为上次执行已经完整写出过计算结果了）
 6. 在数据完整写出到 Sink 后，StreamExecution 通知 Source 可以废弃数据；然后把成功的批次 id 写入到 batchCommitLog
 
 ## Sink 的具体实现：HDFS-API compatible FS, Foreach
 
 ### (a) 具体实现: HDFS-API compatible FS
 
-通常我们使用如下方法方法写出到  HDFS-API compatible FS:
+通常我们使用如下方法方法写出到 HDFS-API compatible FS:
 
 ```scala
 writeStream
@@ -67,7 +65,7 @@ writeStream
   .option("path", "path/to/destination/dir")
 ```
 
-那么我们看这里 `FileStreamSink` 具体的  `addBatch()` 实现是：
+那么我们看这里 `FileStreamSink` 具体的 `addBatch()` 实现是：
 
 ```scala
   // 来自：class FileStreamSink extends Sink
@@ -138,7 +136,7 @@ writeStream
   })
 ```
 
-那么我们看这里 `ForeachSink` 具体的  `addBatch()` 实现是：
+那么我们看这里 `ForeachSink` 具体的 `addBatch()` 实现是：
 
 ```scala
   // 来自：class ForeachSink extends Sink with Serializable
@@ -191,7 +189,7 @@ writeStream
   .option("topic", ...) // 写出到哪个 topic
 ```
 
-那么我们看这里 `KafkaSink` 具体的  `addBatch()` 实现是：
+那么我们看这里 `KafkaSink` 具体的 `addBatch()` 实现是：
 
 ```scala
   // 来自：class KafkaSink extends Sink
@@ -209,7 +207,7 @@ writeStream
   }
 ```
 
-那么我们继续看这里 `KafkaWriteTask` 具体的  `execute()` 实现是：
+那么我们继续看这里 `KafkaWriteTask` 具体的 `execute()` 实现是：
 
 ```scala
   // 来自：class KafkaWriteTask
@@ -251,12 +249,12 @@ writeStream
 
 我们总结一下截至目前，Sink 已有的具体实现：
 
-|              Sinks              |              是否幂等写入              | 原生内置支持 |                    注解                    |
-| :-----------------------------: | :------------------------------: | :----: | :--------------------------------------: |
-| **HDFS-compatible file system** |  √  |  已支持   | 包括但不限于 text, json, csv, parquet, orc, ... |
-|    **ForeachSink** (自定操作幂等)     |   √  |  已支持   |              可定制度非常高的 sink               |
-|            **Kafka**            | × |  已支持   | Kafka 目前不支持幂等写入，所以可能会有重复写入<br/>（但推荐接着 Kafka 使用 streaming de-duplication 来去重） |
-|    **ForeachSink** (自定操作不幂等)    |   ×  |  已支持   |              不推荐使用不幂等的自定操作               |
+|              Sinks               | 是否幂等写入 | 原生内置支持 |                                                     注解                                                     |
+| :------------------------------: | :----------: | :----------: | :----------------------------------------------------------------------------------------------------------: |
+| **HDFS-compatible file system**  |      √       |    已支持    |                               包括但不限于 text, json, csv, parquet, orc, ...                                |
+|  **ForeachSink** (自定操作幂等)  |      √       |    已支持    |                                            可定制度非常高的 sink                                             |
+|            **Kafka**             |      ×       |    已支持    | Kafka 目前不支持幂等写入，所以可能会有重复写入<br/>（但推荐接着 Kafka 使用 streaming de-duplication 来去重） |
+| **ForeachSink** (自定操作不幂等) |      ×       |    已支持    |                                          不推荐使用不幂等的自定操作                                          |
 
 这里我们特别强调一下，虽然 Structured Streaming 也内置了 `console` 这个 Source，但其实它的主要用途只是在技术会议/讲座上做 demo，不应用于线上生产系统。
 

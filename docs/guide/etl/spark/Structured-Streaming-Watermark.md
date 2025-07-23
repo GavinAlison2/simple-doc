@@ -1,33 +1,30 @@
-# 4.2 Structured Streaming 之 Watermark 解析 #
+# 4.2 Structured Streaming 之 Watermark 解析
 
-***[酷玩 Spark] Structured Streaming 源码解析系列*** 
-
+**_[酷玩 Spark] Structured Streaming 源码解析系列_**
 
 ```
 本文内容适用范围：
 * 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
 ```
 
-
-
-阅读本文前，请一定先阅读  [Structured Streaming 之 Event Time 解析](./Structured%20Streaming%20之%20Event%20Time%20解析.md)，其中解析了 Structured Streaming 的 Event Time 及为什么需要 Watermark。
+阅读本文前，请一定先阅读   [Structured Streaming 之 Event Time 解析](./Structured-Streaming-EventTime.md)，其中解析了 Structured Streaming 的 Event Time 及为什么需要 Watermark。
 
 ## 引言
 
  <p align="center"><img src="./structstream/220.png"></p>
 
-我们在前文 [Structured Streaming 之 Event Time 解析](./Structured%20Streaming%20之%20Event%20Time%20解析.md) 中的例子，在：
+我们在前文 [Structured Streaming 之 Event Time 解析](./Structured-Streaming-EventTime.md) 中的例子，在：
 
-- (a) 对 event time 做 *window()* + *groupBy().count()* 即利用状态做跨执行批次的聚合，并且
+- (a) 对 event time 做 _window()_ + _groupBy().count()_ 即利用状态做跨执行批次的聚合，并且
 - (b) 输出模式为 Append 模式
 
 时，需要知道在 `12:30` 结束后不会再有对 `window 12:00-12:10` 的更新，因而可以在 `12:30` 这个批次结束时，输出 `window 12:00-12:10` 的 1 条结果。
- 
+
 ## Watermark 机制
 
 对上面这个例子泛化一点，是：
 
-- (a+) 在对 event time 做 *window()* + *groupBy().aggregation()* 即利用状态做跨执行批次的聚合，并且
+- (a+) 在对 event time 做 _window()_ + _groupBy().aggregation()_ 即利用状态做跨执行批次的聚合，并且
 - (b+) 输出模式为 Append 模式或 Update 模式
 
 时，Structured Streaming 将依靠 watermark 机制来限制状态存储的无限增长、并（对 Append 模式）尽早输出不再变更的结果。
@@ -170,7 +167,7 @@ lastExecution.executedPlan.collect {
 
 关于 Structured Streaming 的目前 watermark 机制，我们有几点说明：
 
-1. 再次强调，(a+) 在对 event time 做 *window()* + *groupBy().aggregation()* 即利用状态做跨执行批次的聚合，并且 (b+) 输出模式为 Append 模式或 Update 模式时，才需要 watermark，其它时候不需要；
+1. 再次强调，(a+) 在对 event time 做 _window()_ + _groupBy().aggregation()_ 即利用状态做跨执行批次的聚合，并且 (b+) 输出模式为 Append 模式或 Update 模式时，才需要 watermark，其它时候不需要；
 2. watermark 的本质是要帮助 StateStore 清理状态、不至于使 StateStore 无限增长；同时，维护 Append 正确的语义（即判断在何时某条结果不再改变、从而将其输出）；
 3. 目前版本（Spark 2.2）的 watermark 实现，是依靠最大 event time 减去一定 late threshold 得到的，尚未支持 Source 端提供的 watermark；
    - 未来可能的改进是，从 Source 端即开始提供关于 watermark 的特殊信息，传递到 StreamExecution 中使用 [2]，这样可以加快 watermark 的进展，从而能更早的得到输出数据

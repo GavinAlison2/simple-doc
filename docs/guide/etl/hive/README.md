@@ -2,7 +2,6 @@
 
 > 收集网络上 hive 的相关教程，自己也整理一些实践笔记。
 
-
 ## 内容
 
 - [Hive 入门](./01.Hive-quickstart.md)
@@ -14,8 +13,6 @@
 - [Hive 查询](07.Hive-query.md)
 - [Hive 安装](../install/hive-install.md)
 
-
 ## 面试题
 
 - [hive-面试题](./chapter5-hive.md)
-

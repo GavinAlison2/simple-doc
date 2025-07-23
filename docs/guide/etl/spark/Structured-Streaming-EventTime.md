@@ -1,16 +1,14 @@
-# Structured Streaming 之 Event Time 解析 #
+# Structured Streaming 之 Event Time 解析
 
-***[酷玩 Spark] Structured Streaming 源码解析系列***  
+**_[酷玩 Spark] Structured Streaming 源码解析系列_**
 
-
-```
+```md
 本文内容适用范围：
-* 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
+
+- 2018.11.02 update, Spark 2.4 全系列 √ (已发布：2.4.0)
 ```
 
-
-
-阅读本文前，请一定先阅读 [Structured Streaming 实现思路与实现概述](./Structured%20Streaming%20实现思路与实现概述%20.md) 一文，其中概述了 Structured Streaming 的实现思路，有了全局概念后再看本文的细节解释。
+阅读本文前，请一定先阅读  [Structured Streaming 实现思路与实现概述](./Structured-Streaming-Implementation-and-Overview.md)  一文，其中概述了 Structured Streaming 的实现思路，有了全局概念后再看本文的细节解释。
 
 ## Event Time !
 
@@ -36,16 +34,16 @@ val windowedCounts = words.groupBy(
 <p align="center"><img src="./structstream/20250420013.png"></p>
 
 - 我们有一系列 arriving 的 records
-- 首先是一个对着时间列 `timestamp` 做长度为`10m`，滑动为`5m` 的 *window()* 操作
+- 首先是一个对着时间列 `timestamp` 做长度为`10m`，滑动为`5m` 的 _window()_ 操作
   - 例如上图右上角的虚框部分，当达到一条记录 `12:22|dog` 时，会将 `12:22` 归入两个窗口 `12:15-12:25`、`12:20-12:30`，所以产生两条记录：`12:15-12:25|dog`、`12:20-12:30|dog`，对于记录 `12:24|dog owl` 同理产生两条记录：`12:15-12:25|dog owl`、`12:20-12:30|dog owl`
-  - 所以这里 *window()* 操作的本质是 *explode()*，可由一条数据产生多条数据
-- 然后对 *window()* 操作的结果，以 `window` 列和 `word` 列为 key，做 *groupBy().count()* 操作
+  - 所以这里 _window()_ 操作的本质是 _explode()_，可由一条数据产生多条数据
+- 然后对 _window()_ 操作的结果，以 `window` 列和 `word` 列为 key，做 _groupBy().count()_ 操作
   - 这个操作的聚合过程是增量的（借助 StateStore）
 - 最后得到一个有 `window`, `word`, `count` 三列的状态集
 
 ## 处理 Late Data
 
-还是沿用前面 *window()* + *groupBy().count()* 的例子，但注意有一条迟到的数据 `12:06|cat` ：
+还是沿用前面 _window()_ + _groupBy().count()_ 的例子，但注意有一条迟到的数据 `12:06|cat` ：
 
 <p align="center"><img src="./structstream/20250420014.png"></p>
 
@@ -53,7 +51,7 @@ val windowedCounts = words.groupBy(
 
 ## OutputModes
 
-我们继续来看前面 *window()* + *groupBy().count()* 的例子，现在我们考虑将结果输出，即考虑 OutputModes：
+我们继续来看前面 _window()_ + _groupBy().count()_ 的例子，现在我们考虑将结果输出，即考虑 OutputModes：
 
 #### (a) Complete
 
@@ -77,7 +75,7 @@ Append 的语义将保证，一旦输出了某条 key，未来就不会再输出
 
 #### (c) Update
 
-Update 模式已在 Spark 2.1.1 及以后版本获得正式支持。 
+Update 模式已在 Spark 2.1.1 及以后版本获得正式支持。
 
 <p align="center"><img src="./structstream/20250420018.png"></p>
 
@@ -85,7 +83,7 @@ Update 模式已在 Spark 2.1.1 及以后版本获得正式支持。
 
 - 在 12:10 这个执行批次，State 中全部 2 条都是新增的（因而也都是被更新了的），所以输出全部 2 条；
 - 在 12:20 这个执行批次，State 中 2 条是被更新了的、 4 条都是新增的（因而也都是被更新了的），所以输出全部 6 条；
-- 在 12:30 这个执行批次，State 中 4 条是被更新了的，所以输出 4 条。这些需要特别注意的一点是，如 Append 模式一样，本执行批次中由于（通过  watermark 机制）确认 `12:00-12:10` 这个 window 不会再被更新，因而将其从 State 中去除，但没有因此产生输出。
+- 在 12:30 这个执行批次，State 中 4 条是被更新了的，所以输出 4 条。这些需要特别注意的一点是，如 Append 模式一样，本执行批次中由于（通过 watermark 机制）确认 `12:00-12:10` 这个 window 不会再被更新，因而将其从 State 中去除，但没有因此产生输出。
 
 ## 总结
 
