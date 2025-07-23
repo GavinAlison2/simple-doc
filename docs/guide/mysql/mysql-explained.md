@@ -269,7 +269,7 @@ SELECT * FROM
 
 ```
 
-上面我们观察，最外层的主查询的表是<derived2>,而S和SC表的select_type都是DERIVED,这说明S和SC都被用来做衍生查询，而这两张表查询的结果组成了名为<derived2>的衍生表，而衍生表的命名就是<select_type + id>。
+上面我们观察，最外层的主查询的表是`derived2`,而`S`和`SC`表的`select_type`都是`DERIVED`,这说明S和SC都被用来做衍生查询，而这两张表查询的结果组成了名为`derived2`的衍生表，而衍生表的命名就是`select_type + id`。
 
 - partitions字段
 该列显示的为分区表命中的分区情况。非分区表该字段为空（null）。

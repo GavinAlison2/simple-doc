@@ -26,7 +26,7 @@ uniapp
 - 外部文件引用方式变化
   - 以前通过script src、link href引入外部的js和css, 现在是es6的写法， import 引入外部的js模块(注意不是文件)或css；
 - 组件/标签的变化
-  - 以前是html标签，比如 <div> ，现在是小程序组件，比如 <view>
+  - 以前是html标签，比如 `<div>` ，现在是小程序组件，比如 `<view>`
 - js的变化
   - 以前script里随便写js变量和function
   - 现在script里默认有export default，在里面写data、事件和method.

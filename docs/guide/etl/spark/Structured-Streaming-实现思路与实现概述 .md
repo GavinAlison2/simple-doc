@@ -10,7 +10,7 @@
 
 本文目录
 
-<p>
+<div>
 <a href="#一引言spark-2-时代">一、引言：Spark 2 时代!</a><br/>
 <a href="#二从-structured-data-到-structured-streaming">二、从 Structured Data 到 Structured Streaming</a><br/>
 <a href="#三structured-streaming无限增长的表格">三、Structured Streaming：无限增长的表格</a><br/>
@@ -24,7 +24,7 @@
 <a href="#五全文总结">五、全文总结</a><br/>
 <a href="#六扩展阅读">六、扩展阅读</a><br/>
 <a href="#参考资料">参考资料</a>
-</p>
+</div>
 
 ## 一、引言：Spark 2 时代!
 

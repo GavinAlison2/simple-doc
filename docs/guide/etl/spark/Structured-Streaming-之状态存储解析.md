@@ -53,7 +53,7 @@ StateStore 模块的总体思路：
 
 ## StateStore：(a)迁移、(b)更新和查询、(c)维护、(d)故障恢复
 
-<p align="center"><img src="./structstream/20250420011.png">
+<p align="center"><img src="./structstream/20250420011.png"></p>
 
 ### (a) StateStore 在不同的节点之间如何迁移
 
