@@ -1,5 +1,11 @@
 # VuePress 安装
 
+## 注意
+
+该项目需要在 node-v2.18.0 以上版本运行，否则会报错。
+
+`nvm use 20.18.0`
+
 ```bash
 npm init vuepress vuepress-starter
 
@@ -17,10 +23,10 @@ EOF
 
 ```
 
-
 ## 使用
 
 查看脚本
+
 ```node
 {
   "scripts": {
@@ -29,22 +35,20 @@ EOF
   }
 }
 ```
+
 运行 `docs:dev` 脚本可以启动开发服务器:
 VuePress 会在 http://localhost:8080 启动一个热重载的开发服务器。当你修改你的 Markdown 文件时，浏览器中的内容也会自动更新
-
 
 ## 构建你的网站
 
 运行 `npm run docs:build`, 在 docs/.vuepress/dist 目录中可以找到构建生成的静态文件。你可以查看 部署 来了解如何部署你的网站
 
+## 部署 github pages
 
-## 部署 github pages 
-
-### 1. 添加源码到 github 仓库 
+### 1. 添加源码到 github 仓库
 
 在 `vuepress-starter/docs/config.js` 添加一个 base 路径配置
 `base: '/simple-doc',`
-
 
 ```bash
 cat > deploy_source.sh << EOF
@@ -70,7 +74,7 @@ git push -f git@github.com:GavinAlison2/simple-doc.git master
 EOF
 ```
 
-### 2. 部署网站文件到 github 仓库simple-doc的gh-pages分支
+### 2. 部署网站文件到 github 仓库 simple-doc 的 gh-pages 分支
 
 ```bash
 #!/usr/bin/env sh
@@ -126,11 +130,11 @@ jobs:
           git push -f git@github.com/GavinAlison2/simple-doc.git master:gh-pages
 ```
 
-其中 `${GITHUB_TOKEN}` 是 github 仓库的 `secrets` 设置，用于自动部署。          
+其中 `${GITHUB_TOKEN}` 是 github 仓库的 `secrets` 设置，用于自动部署。
 
 提交代码到 master 分支，github actions 会自动部署网站到 gh-pages 分支。
 
-在github pages 设置中，将 `source` 选择 `gh-pages` 分支，然后点击 `save` 保存设置。
+在 github pages 设置中，将 `source` 选择 `gh-pages` 分支，然后点击 `save` 保存设置。
 ![pages](pics/github-pages.png)
 
 github actions 相当于 CI/CD 工具，可以自动化部署网站。

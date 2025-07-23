@@ -221,7 +221,7 @@ WHERE SC.`sid` =
 )
 ```
 
-```sql
+```md
     id  select_type  table   partitions  type    possible_keys  key      key_len  ref      
 ------  -----------  ------  ----------  ------  -------------  -------  -------  ------ 
      1  PRIMARY      SC      (NULL)      ref     PRIMARY        PRIMARY  4        const  
