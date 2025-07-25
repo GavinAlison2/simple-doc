@@ -9,9 +9,9 @@
 - [第五章 文本](chapter5.md)
 - [第六章 表格](chapter6.md)
 - [第七章 背景和边框](chapter7.md)
-- [第八章 多列布局](chapter8.md)
-- [第九章 媒体查询](chapter9.md)
-- [第十章 高级技巧](chapter10.md)
+- [第八章 多列布局](#/)
+- [第九章 媒体查询](#/)
+- [第十章 高级技巧](#/)
 - [布局和定位](css-layout.md)
 - [CSS 实战技巧](css-in-action.md)
 
