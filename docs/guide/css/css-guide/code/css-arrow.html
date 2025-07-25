@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    　
+    <div class="triangle"></div>
+
+    <style>
+      .triangle {
+        content: '';
+        /* border-color: top right bottom left 三角形 */
+        /* border-color: transparent transparent #808080 transparent; */
+        /* down */
+        border-color: #808080 transparent transparent  transparent; 
+        /* up */
+        border-color: transparent transparent #808080 transparent;
+        /* left */
+        border-color: transparent #808080 transparent transparent;
+        /* right */
+        border-color: transparent transparent transparent #808080;
+        border-style: solid;
+        border-width: 30px 30px 30px 30px;
+        height: 0px;
+        width: 0px;
+      }
+    </style>
+  </body>
+</html>

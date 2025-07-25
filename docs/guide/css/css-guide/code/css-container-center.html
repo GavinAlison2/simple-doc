@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="inner">
+        <p>this is the inner content</p>
+      </div>
+    </div>
+    <div style="height: 20px;"></div>
+    <div class="container2">
+      <div class="inner2">
+        <p>this is the inner content 2</p>
+      </div>
+    </div>
+    <style>
+      .container {
+        position: relative;
+        height: 400px;
+        width: 400px;
+        background-color: #808080;
+        margin: 0 auto;
+        /* center the container */
+      }
+
+      .inner {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        background-color: #ff0000;
+        /* top: 50%; */
+        /* margin-top: -100px; */
+        /* left: 50%; */
+        /* margin-left: -100px; */
+        /* center the inner div vertically */
+        /* center the inner div horizontally */
+        top: 25%;
+        left: 25%;
+      }
+      .container2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        width: 400px;
+        background-color: #808080;
+        margin: 0 auto;
+      }
+      .inner2 {
+        height: auto;
+        width: auto;
+      }
+    </style>
+  </body>
+</html>
