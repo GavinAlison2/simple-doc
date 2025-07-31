@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-class">文字</div>
+      <div class="float-class">
+        <p>浮动元素</p>
+      </div>
+      <div class="text-class">文字</div>
+      <div class="float-right-class">
+        <p>右浮动元素</p>
+      </div>
+    </div>
+    <div class="container_eg2">
+      <div class="absoult-class">
+        <p>绝对定位元素</p>
+      </div>
+      <div class="text-class text-white">文字</div>
+    </div>
+    <style>
+      .container {
+        width: 500px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      .float-class {
+        float: left;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+      .text-class {
+        background-color: green;
+      }
+      .container_eg2 {
+        position: relative;
+        width: 500px;
+        height: 200px;
+        border: 1px solid black;
+      }
+      .absoult-class {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        opacity: 0.8;
+      }
+      .text-white {
+        color: white;
+      }
+      .float-right-class {
+        float: right;
+        width: 100px;
+        height: 100px;
+        background-color: yellow;
+      }
+    </style>
+  </body>
+</html>

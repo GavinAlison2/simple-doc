@@ -5,10 +5,10 @@ CSS 布局
 - 文档流
 - float,浮动布局
 - position: absolute/relative/fixed, 定位布局
-- flexbox,弹性布局
-- grid,网格布局
+- flexbox,弹性布局,适合一维布局
+- grid,网格布局,适合二维布局
 - table,网格布局
-- 多列布局
+- 多列布局,column-count,适合文本分栏
 - 媒体查询
 
 ## 1. 文档流
