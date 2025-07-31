@@ -1,0 +1,53 @@
+# 关键点
+
+- 页面还原
+- js
+  - 闭包
+  - 作用域
+  - 原型链
+  - 事件循环
+  - 异步编程
+  - 异步加载
+  - 跨域
+  - 缓存
+  - 垃圾回收
+  - 宏任务,微任务
+  - 事件绑定
+  - 事件冒泡
+  - 事件代理
+  - 存储
+  - 安全
+  - 性能优化
+  - 兼容性
+  - 调试
+  - 代码风格
+  - 模块化
+  - 打包工具
+  - 代码压缩
+  - 代码检查
+- 防抖节流
+- dom
+- 14 特效
+
+  - 侧滑菜单
+  - 点击轮播
+  - 切换
+
+- 框架类
+  - Vue2/3
+    - 知识点, data,components,computed,methods, mounted, ready, watch
+    - v-if, v-show, v-for, v-model, v-bind, v-on
+    - 自定义指令,自定义过滤器,自定义组件
+    - 生命周期
+    - slot, `<component :is="currentComponent"/>`
+    - 组件传值, 父传子,子传父,兄弟传值, `:prop="value"`, `$emit('event', data)`
+    - watch, `$nextTick()`
+    - ref, `$refs`
+    - 代理跨域,反向代理
+    - 状态管理, Vuex/Pinia
+    - 路由, vue-router
+    - 动画, transition, animation
+    - 单元测试, e2e 测试
+  - ElemetPlus, vant
+  - uniapp + uview, 条件编译,多端打包
+  - 打包/优化/安全

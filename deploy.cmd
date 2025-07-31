@@ -2,7 +2,7 @@ CHCP 65001
 
 git add .
 
-git commit -m "deploy css3"
+git commit -m "deploy ui tools"
 
 git pull origin master
 @REM git pull origin master --allow-unrelated-histories
