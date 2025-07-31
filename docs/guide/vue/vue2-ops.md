@@ -1,5 +1,7 @@
 # vue2 slot
 
+内容分发,就是传递html标签等动态字符串
+
 `template scope-slot="scope"` , `scope.row` 获取当前行的数据.
 
 在 table 中, 需要 scoped slot 来自定义显示整行的数据内容, 如下:
