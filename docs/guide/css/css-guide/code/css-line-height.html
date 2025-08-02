@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="test1">
+      <div class="div div1">
+        我是一行文字大小为16px,但是line-height为0的文字
+      </div>
+      <div class="div div2">
+        我是一行文字大小为0,但是line-height为100px的文字
+      </div>
+      <div class="div div3">
+        我是一行文字大小16px和line-height都为100px的文字
+      </div>
+    </div>
+    <div class="phead" style="height: 0; border: 2px solid red"></div>
+    <div class="test2" style="width: 400px">
+      <div class="div" style="font-size: 16px; line-height: 150%">
+        我是父级元素,font-size=16px, line-height=150%
+        <div
+          class="subdiv1"
+          style="font-size: 40px; line-height: 150%; border: 1px solid green"
+        >
+          我是子级元素,font-size=40px, line-height=150%
+        </div>
+        <div class="subdiv1" style="font-size: 40px; border: 1px solid green">
+          我是子级元素,font-size=40px, 继承 line-height=150%,
+          此时line-height=16px*150%=24px,比font-size小,出现字体重叠
+        </div>
+      </div>
+      <div class="phead" style="height: 0; border: 2px solid #174dc4"></div>
+
+      <div class="div" style="font-size: 16p; line-height: 1.5">
+        我是父级元素,font-size=16px, line-height=1.5
+        <div
+          class="subdiv1"
+          style="font-size: 40px; line-height: 1.5; border: 1px solid green"
+        >
+          我是子级元素,font-size=40px, line-height=1.5
+        </div>
+        <div class="subdiv1" style="font-size: 40px; border: 1px solid green">
+          我是子级元素,font-size=40px, 继承line-height=1.5,
+          此时line-height=40px*1.5=60px,比font-size大,没有字体重叠
+        </div>
+      </div>
+      <div class="phead" style="height: 0; border: 2px solid #174dc4"></div>
+
+      <div class="div" style="font-size: 16px; line-height: 1.5em">
+        我是父级元素,font-size=16px, line-height=1.5em
+        <div
+          class="subdiv1"
+          style="font-size: 40px; line-height: 1.5em; border: 1px solid green"
+        >
+          我是子级元素,font-size=40px, line-height=1.5em
+        </div>
+        <div class="subdiv1" style="font-size: 40px; border: 1px solid green">
+          我是子级元素,font-size=40px, 继承line-height=1.5em,
+          此时line-height=16px*1.5em=24px,比font-size小,出现字体重叠
+        </div>
+      </div>
+      <div class="phead" style="height: 0; border: 2px solid #174dc4"></div>
+    </div>
+    <style>
+      .div {
+        background-color: #f0f0f0;
+        border: 1px solid #e0e0e0;
+        margin: 10px;
+      }
+      .div1 {
+        font-size: 16px;
+        line-height: 0;
+      }
+      .div2 {
+        font-size: 0;
+        line-height: 100px;
+      }
+      .div3 {
+        font-size: 16px;
+        line-height: 100px;
+      }
+    </style>
+  </body>
+</html>
