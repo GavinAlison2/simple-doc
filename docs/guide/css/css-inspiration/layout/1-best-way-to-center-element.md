@@ -2,8 +2,9 @@
 
 ```css
 dispaly: flex;
-//子容器
-margin: auto; // 在垂直方向上居中元素
+/* //子容器 */
+margin: auto;
+/* 在垂直方向上居中元素 */
 ```
 
 ```html
@@ -21,7 +22,7 @@ margin: auto; // 在垂直方向上居中元素
   width: 40vmin;
   height: 40vmin;
   background: #000;
-  margin: auto; // 在垂直方向上居中元素
+  margin: auto;
+  /* 在垂直方向上居中元素 */
 }
-
 ```
