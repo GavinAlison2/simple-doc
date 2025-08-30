@@ -25,6 +25,3 @@
 23. 模版字面量 - `${expression}`
 24. replace - string.replace(searchValue, replaceValue)
 25. replaceAll - string.replaceAll(searchValue, replaceValue)
-
-
-

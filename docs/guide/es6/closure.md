@@ -2,24 +2,23 @@
 
 ```javascript
 function a() {
-    let msg = "hi";
-    function b() {
-        console.log(msg);
-    }
-    return b;
-};
+  let msg = "hi";
+  function b() {
+    console.log(msg);
+  }
+  return b;
+}
 
 // a()();
 
 function greeting(arg1) {
-    function sayHi(arg2) {
-        console.log(arg1 + " " + arg2);
-    }
-    return sayHi;
-};
+  function sayHi(arg2) {
+    console.log(arg1 + " " + arg2);
+  }
+  return sayHi;
+}
 // greeting("h1")("world");
 // greeting("h2")("world");
-
 
 // for (let index = 1; index <= 3; index++) {
 //     setTimeout(function () {
@@ -28,13 +27,12 @@ function greeting(arg1) {
 // }
 
 for (var index = 1; index <= 3; index++) {
-    (function (index) {
-        setTimeout(function () {
-            console.log('after ' + index + ' second(s):' + index);
-        }, index * 1000)
-    })(index);
+  (function (index) {
+    setTimeout(function () {
+      console.log("after " + index + " second(s):" + index);
+    }, index * 1000);
+  })(index);
 }
-
 
 /*
 # 假设我们想要创建一个计数器函数，每次调用它时，它都会返回一个比上一次调用时更大的数字。 
