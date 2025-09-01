@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>文字被压缩变形</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="bro1"></div>
+        <div class="text-view">天气不错</div>
+      </div>
+      <div class="box">
+        <div class="bro1"></div>
+        <div class="text-view2">天气不错</div>
+      </div>
+      <div class="box">
+        <div class="bro2"></div>
+        <div class="text-view3">天气不错</div>
+      </div>
+      <div style="height: 16px; width: 100%; color: #000; text-align: center">
+        正确的demo
+      </div>
+      <div class="box box1">
+        <div class="bro2 bro3"></div>
+        <div class="fix-text">天气不错</div>
+      </div>
+    </div>
+
+    <style>
+      .container {
+        width: 300px;
+        height: 400px;
+        /* background-color: #999999; */
+        color: #fff;
+        border: 5px solid #000;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .box {
+        width: 80px;
+        height: 35px;
+        background-color: #999;
+        display: flex;
+        gap: 10px;
+      }
+      .bro1,
+      .bro2 {
+        width: 30px;
+        height: 30px;
+        background-color: aqua;
+      }
+      .text-view {
+        height: 35px;
+        font-size: 16px;
+        background-color: #65bee788;
+        /* width:  16*2=32px; */
+        /* 
+          box.width=80px;
+          box.gap=10px;
+          bro1.width=30px;
+          text-view.width=32px;
+        */
+      }
+      .text-view2 {
+        height: 35px;
+        background-color: #65bee788;
+        font-size: 16px;
+        padding: 2px 14px;
+        /* 
+         width:  16*2 + 14*2 = 60px;
+          box.width=80px;
+          box.gap=10px;
+          bro1.width=30px;
+          text-view2.width= 60px;
+          80 < 30+10+60 = 100px;
+          导致box的宽度被压缩变形,结果是, 
+          bro1.width=13.41px;
+          text-view2.width=28.594px;
+          box.gap=10px;
+        */
+      }
+      .bro2 {
+        /* 解决被压缩变形问题,bro2的宽度不受box.width影响 */
+        flex-shrink: 0;
+      }
+      .text-view3 {
+        height: 35px;
+        background-color: #65bee788;
+        font-size: 16px;
+        padding: 2px 14px;
+        /* 解决被压缩变形问题,text-view3的宽度不受box.width影响, 会导致box的宽度被撑开,
+        .text-view3的宽度根据width或者box-sizing的值来决定 */
+        flex-shrink: 0;
+        /* 添加了会限制文字的宽度,会导致字体换行, 所以不建议使用 */
+        width: 40px;
+        /* 添加了会限制文字的宽度,会导致字体换行, 所以不建议使用,
+        区别在于会不会撑开父组件规定的宽度, 此时不会撑开,上面会撑开 */
+        /* box-sizing: border-box; */
+        /* 
+        expected: 
+          width:  14*2 + 16*4 = 92px; 
+          height: 35 + 2*2 = 39px;
+        actual:
+          width: 92px;
+          height: 39px;
+        */
+      }
+      .box1 {
+        width: 140px;
+      }
+      .fix-text {
+        height: 35px;
+        background-color: #65bee788;
+        font-size: 16px;
+        padding: 2px 14px;
+        flex-shrink: 0;
+        box-sizing: content-box;
+      }
+    </style>
+  </body>
+</html>
