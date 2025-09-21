@@ -1,4 +1,5 @@
 {
-    "sqltools.connections": [],
-    "liveServer.settings.port": 5501
+  "sqltools.connections": [],
+  "liveServer.settings.port": 5501,
+  "livePreview.defaultPreviewPath": "/docs/guide/es6/0003/2-this.html"
 }

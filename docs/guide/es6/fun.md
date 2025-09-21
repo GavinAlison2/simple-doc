@@ -2,19 +2,19 @@
 
 ```javascript
 let person = {
-    name: 'John Doe',
-    getName: function () {
-        console.log(this);//Timeout
-        console.log(this.name);
-    },
-    getName2() {
-        console.log(this);//Timeout
-        console.log(this.name);
-    },
-    getName3: () => {
-        console.log(this);//{}
-        console.log(this.name);
-    }
+  name: "John Doe",
+  getName: function () {
+    console.log(this); //Timeout
+    console.log(this.name);
+  },
+  getName2() {
+    console.log(this); //Timeout
+    console.log(this.name);
+  },
+  getName3: () => {
+    console.log(this); //{}
+    console.log(this.name);
+  },
 };
 
 // setTimeout(person.getName, 1000);

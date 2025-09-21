@@ -2,7 +2,7 @@
 
 1. length - array.length
 2. push - array.push 在数组的末尾添加一个或多个元素
-3. pop - array.pop  删除数组的最后一个元素
+3. pop - array.pop 删除数组的最后一个元素
 4. shift - array.shift 删除数组的第一个元素
 5. unshift - array.unshift 在数组的开头添加一个或多个元素
 6. slice - array.slice() 复制数组中的元素
@@ -32,4 +32,3 @@
 30. reverse - array.reverse() 反转数组
 31. toReversed - array.toReversed() 反转数组
 32. 多维数组 - 多维数组
-
