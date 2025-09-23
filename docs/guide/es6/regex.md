@@ -1,5 +1,7 @@
 # regex api
 
+## 常用方法
+
 1. test -> 测试是否匹配
 2. exec -> 匹配
 3. match -> 匹配

@@ -1,5 +1,12 @@
 # Promise
 
+- [Promise](#promise)
+  - [介绍](#介绍)
+  - [基本用法](#基本用法)
+  - [练习](#练习)
+
+## 介绍
+
 Promise 是异步编程的一种解决方案，它代表了一个异步操作的最终结果。Promise 提供统一的 API，使得异步操作可以像同步操作一样使用，避免了回调地狱。
 
 Promise 是一个构造函数，用来生成 Promise 实例。Promise 实例有三种状态：
@@ -8,11 +15,13 @@ Promise 是一个构造函数，用来生成 Promise 实例。Promise 实例有�
 - Fulfilled（已完成）：操作成功完成。
 - Rejected（已拒绝）：操作失败。
 
+## 基本用法
+
 Promise 实例具有以下方法：
 
 - `Promise.prototype.then()`：注册成功和失败的回调函数。
 - `Promise.prototype.catch()`：注册失败的回调函数。
-- `Promise.prototype.finally()`：注册最终的回调函数，无论 Promise 实例是fulfilled还是rejected。
+- `Promise.prototype.finally()`：注册最终的回调函数，无论 Promise 实例是 fulfilled 还是 rejected。
 
 ## 练习
 

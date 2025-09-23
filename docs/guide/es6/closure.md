@@ -1,5 +1,10 @@
 # Closure in ES6
 
+- [Closure in ES6](#closure-in-es6)
+  - [定义](#定义)
+
+## 定义
+
 ```javascript
 function a() {
   let msg = "hi";

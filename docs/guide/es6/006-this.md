@@ -1,5 +1,19 @@
 # This
 
+- [This](#this)
+  - [1. 指向 JavaScript 运行时环境的对象](#1-指向-javascript-运行时环境的对象)
+  - [2. 不同函数调用方式，`this` 指向不同对象](#2-不同函数调用方式this-指向不同对象)
+  - [3. 全局环境中，`this` 指向 `window` 对象/global 对象](#3-全局环境中this-指向-window-对象global-对象)
+  - [4. strict 模式下，`this` 指向 `undefined`](#4-strict-模式下this-指向-undefined)
+  - [5. 箭头函数中, `this` 指向定义它的对象](#5-箭头函数中-this-指向定义它的对象)
+  - [6. ES5 引入了 bind 方法来设置函数的 this 指向](#6-es5-引入了-bind-方法来设置函数的-this-指向)
+  - [7. ES6 引入了箭头函数，`this` 指向定义它的对象](#7-es6-引入了箭头函数this-指向定义它的对象)
+  - [8. getter/setter 函数中, `this` 指向调用它的对象](#8-gettersetter-函数中-this-指向调用它的对象)
+  - [9. DOM 事件处理器中的 this](#9-dom-事件处理器中的-this)
+  - [10. 内联事件处理器中的 this 指向 DOM 元素 和 IIFF 函数中的 this 指向全局对象](#10-内联事件处理器中的-this-指向-dom-元素-和-iiff-函数中的-this-指向全局对象)
+  - [11. 类中绑定的方法](#11-类中绑定的方法)
+
+```md
 - 指向 JavaScript 运行时环境的对象
 - 不同函数调用方式，`this` 指向不同对象
 - 全局环境中，`this` 指向 `window` 对象/global 对象
@@ -12,6 +26,7 @@
 - getter/setter 函数中, `this` 指向调用它的对象
 - DOM 事件处理器中的 `this` 指向 DOM 元素
 - 内联事件处理器中的 `this` 指向 DOM 元素 和 IIFF 函数中的 `this` 指向全局对象
+```
 
 ## 1. 指向 JavaScript 运行时环境的对象
 

@@ -15,4 +15,6 @@
 - [ES6 练习笔记11-async-await](async-await.md)
 - [ES6 练习笔记12-promise](promise.md)
 - [ES6 练习笔记13-高阶函数-call-apply-bind](高阶函数.md)
+- [ES6 练习笔记14-this](./006-this.md)
+- 
 

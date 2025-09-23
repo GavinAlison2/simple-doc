@@ -1,6 +1,13 @@
 # JavaScript rest 参数介绍
 
+- [JavaScript rest 参数介绍](#javascript-rest-参数介绍)
+  - [ES6 提供了一种新的参数类型，称为 rest 参数，其前缀为三个点 (...)。](#es6-提供了一种新的参数类型称为-rest-参数其前缀为三个点-)
+  - [在 ES5 中，您必须使用 Array.prototype.filter.call()](#在-es5-中您必须使用-arrayprototypefiltercall)
+  - [JavaScript rest 参数和箭头函数](#javascript-rest-参数和箭头函数)
+  - [JavaScript rest 参数在动态函数中](#javascript-rest-参数在动态函数中)
+
 ## ES6 提供了一种新的参数类型，称为 rest 参数，其前缀为三个点 (...)。
+
 rest 参数允许您将无限数量的参数表示为一个数组。请参见以下语法
 
 ```javascript
@@ -31,23 +38,22 @@ return args
     .reduce((acc, cur) => acc + cur);
 }
 
-let result = sum(10,'Hi',null,undefined,20); 
+let result = sum(10,'Hi',null,undefined,20);
 console.log(result);// 30
 ```
 
-## 在 ES5 中，您必须使用Array.prototype.filter.call()
+## 在 ES5 中，您必须使用 Array.prototype.filter.call()
 
 ```javascript
 function sum() {
   return Array.prototype.filter
     .call(arguments, function (e) {
-      return typeof e === 'number';
+      return typeof e === "number";
     })
     .reduce(function (prev, curr) {
       return prev + curr;
     });
 }
-
 
 function filterBy(type, ...args) {
   return args.filter(function (e) {
@@ -82,11 +88,10 @@ function dynamicFn(...args) {
   };
 }
 
-let fn = dynamicFn('Hello', 'World');
+let fn = dynamicFn("Hello", "World");
 console.log(fn()); // ['Hello', 'World']
-console.log(fn('!', 'How')); // ['Hello', 'World', '!', 'How']
+console.log(fn("!", "How")); // ['Hello', 'World', '!', 'How']
 
-
-var showNumbers = new Function('...numbers', 'console.log(numbers)');
+var showNumbers = new Function("...numbers", "console.log(numbers)");
 showNumbers(1, 2, 3); // [1, 2, 3]
 ```

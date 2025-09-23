@@ -1,5 +1,10 @@
 # string api
 
+- [string api](#string-api)
+  - [functions](#functions)
+
+## functions
+
 1. length - string.length
 2. charAt - string.charAt(index)
 3. charCodeAt - string.charCodeAt(index)
