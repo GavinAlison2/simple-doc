@@ -13,6 +13,9 @@
 - [object-create](./Object/0081-object-create.md)
 - [object-static-prototype](./Object/0082-object-static-prototype.md)
 - [object-defineproperty](./Object/0083-object-defineproperty.md)
+- [object-entries](object/0084-object-entries.md)
+- [object-freeze](./Object/0085-object-freeze.md)
+- [object-isPrototypeOf](./Object/0086-isPrototypeOf.md)
 
 ## 1. 对象简介
 
@@ -37,10 +40,40 @@ Object.prototype;
 - setPrototypeOf(proto)：设置对象的原型
 - hasOwnProperty(prop)：判断对象是否包含指定属性
 - hasOwnProperty(prop)：判断对象是否包含指定属性
-- isPrototypeOf(obj)：判断对象是否为指定对象的原型
 - instanceof()：判断对象是否为指定类型实例
 - delete xx : 删除对象属性
 - Object.create(null): 创建一个没有原型的对象
+- Object.assign()：用于将所有可枚举自有属性的值从一个或多个源对象复制到目标对象。
+- Object.defineProperties()：定义多个属性
+- Object.defineProperty()：定义或修改单个属性
+- Object.freeze()：冻结对象，使其不可修改
+- Object.entries()：返回一个数组，其元素是对象自身的[key, value]键值对
+- Object.fromEntries()：将一个键值对数组转换为对象
+- Object.getOwnPropertyDescriptor()：返回指定属性的描述符
+- Object.getOwnPropertyDescriptors()：返回一个对象，其属性是指定对象所有自身属性（非原型属性）的描述符
+- Object.getOwnPropertyNames()：返回一个数组，其元素是指定对象所有自身属性（非原型属性）的键名
+- Object.getOwnPropertySymbols()：返回一个数组，其元素是指定对象所有 Symbol 属性的键名
+- Object.getPrototypeOf()：返回指定对象的原型
+- Object.groupBy(obj, cb)：将对象数组根据某个属性分组
+- Object.hasOwn(): 判断对象是否有指定自有属性
+- Object.hasOwnProperty()：判断对象是否包含指定自有属性,不包括继承的属性，原型链上的属性
+- xx in obj：判断对象是否包含指定属性, 包括继承的属性，原型链上的属性，自有属性
+- Object.is()：判断两个值是否相同, == 运算符的强制类型转换版本, === 运算符的严格类型转换版本
+- Object.preventExtensions()：防止对象扩展
+- Object.isExtensible()：判断对象是否可扩展
+- Object.seal()：密封对象，使其不可配置
+- Object.isSealed()：判断对象是否密封
+- Object.isFrozen()：判断对象是否冻结
+- `Object.prototype.__defineGetter__(prop, getter)`: 为对象添加一个只读属性, o.prop 的值是 getter() 的返回值
+- `Object.prototype.__defineSetter__(prop, setter)`: 为对象添加一个只写属性, o.prop = value 会调用 setter(value)
+- `Object.prototype.__lookupGetter__(prop)`: 获取指定属性的 getter 函数, 如果没有 getter 函数, 返回 undefined
+- `Object.prototype.__lookupSetter__(prop)`: 获取指定属性的 setter 函数, 如果没有 setter 函数, 返回 undefined
+- Object.isPrototypeOf(obj)：判断对象是否为指定对象的原型
+- Object.prototype.propertyIsEnumerable(): 判断对象属性是否可枚举
+- Object.prototype.toLocaleString(): 返回对象的本地化字符串表示
+- Object.prototype.toString(): 返回对象的字符串表示
+- Object.prototype.valueOf(): 返回对象的原始值
+- `Object.prototype.__proto__`: 获取或设置对象的原型
 
 ### 1. Object()
 
