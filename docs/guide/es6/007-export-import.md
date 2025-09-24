@@ -93,6 +93,7 @@ const p = new Person();
 // 导出
 const name = "Tom";
 module.exports = { name };
+exports = module.exports = { name }; // 同时赋值确保导出的是一个对象
 // 导入
 const user = require("./user");
 console.log(user.name);
