@@ -1,0 +1,125 @@
+<svg width="800" height="650" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f9f9f9" />
+  
+  <!-- 标题 -->
+  <text x="400" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#2c3e50">JavaScript 原型链关系图</text>
+  
+  <!-- 1. 顶层节点：null -->
+  <circle cx="600" cy="400" r="40" fill="#34495e" />
+  <text x="600" y="395" font-size="16" text-anchor="middle" fill="white">null</text>
+  <text x="600" y="450" font-size="12" text-anchor="middle" fill="#7f8c8d">原型链终点</text>
+  
+  <!-- 2. Object.prototype 节点 -->
+  <circle cx="400" cy="400" r="40" fill="#9b59b6" />
+  <text x="400" y="395" font-size="16" text-anchor="middle" fill="white">Object</text>
+  <text x="400" y="415" font-size="16" text-anchor="middle" fill="white">.prototype</text>
+  <text x="400" y="450" font-size="12" text-anchor="middle" fill="#7f8c8d">所有对象的顶层原型</text>
+  
+  <!-- 3. Function.prototype 节点 -->
+  <circle cx="400" cy="280" r="40" fill="#e74c3c" />
+  <text x="400" y="275" font-size="16" text-anchor="middle" fill="white">Function</text>
+  <text x="400" y="295" font-size="16" text-anchor="middle" fill="white">.prototype</text>
+  <text x="400" y="330" font-size="12" text-anchor="middle" fill="#7f8c8d">所有函数的原型</text>
+  
+  <!-- 4. 构造函数节点（Object/Array/Person/Function） -->
+  <!-- Object 构造函数 -->
+  <rect x="150" y="180" width="120" height="50" rx="8" fill="#3498db" />
+  <text x="210" y="200" font-size="16" text-anchor="middle" fill="white">Object</text>
+  <text x="210" y="225" font-size="12" text-anchor="middle" fill="#ecf0f1">构造函数</text>
+  
+  <!-- Array 构造函数 -->
+  <rect x="320" y="180" width="120" height="50" rx="8" fill="#3498db" />
+  <text x="380" y="200" font-size="16" text-anchor="middle" fill="white">Array</text>
+  <text x="380" y="225" font-size="12" text-anchor="middle" fill="#ecf0f1">构造函数</text>
+  
+  <!-- Person 自定义构造函数 -->
+  <rect x="490" y="180" width="120" height="50" rx="8" fill="#3498db" />
+  <text x="550" y="200" font-size="16" text-anchor="middle" fill="white">Person</text>
+  <text x="550" y="225" font-size="12" text-anchor="middle" fill="#ecf0f1">自定义构造函数</text>
+  
+  <!-- Function 构造函数 -->
+  <rect x="660" y="180" width="120" height="50" rx="8" fill="#3498db" />
+  <text x="720" y="200" font-size="16" text-anchor="middle" fill="white">Function</text>
+  <text x="720" y="225" font-size="12" text-anchor="middle" fill="#ecf0f1">构造函数</text>
+  
+  <!-- 5. 实例节点（obj/arr/p） -->
+  <!-- obj 实例 -->
+  <rect x="150" y="560" width="100" height="40" rx="8" fill="#f39c12" />
+  <text x="200" y="575" font-size="16" text-anchor="middle" fill="white">obj</text>
+  <text x="200" y="595" font-size="12" text-anchor="middle" fill="#ecf0f1">new Object()</text>
+
+  <!-- arr 实例 -->
+  <rect x="350" y="560" width="100" height="40" rx="8" fill="#f39c12" />
+  <text x="400" y="575" font-size="16" text-anchor="middle" fill="white">arr</text>
+  <text x="400" y="595" font-size="12" text-anchor="middle" fill="#ecf0f1">new Array()</text>
+  
+  <!-- p 实例 -->
+  <rect x="550" y="560" width="100" height="40" rx="8" fill="#f39c12" />
+  <text x="600" y="575" font-size="16" text-anchor="middle" fill="white">p</text>
+  <text x="600" y="595" font-size="12" text-anchor="middle" fill="#ecf0f1">new Person()</text>
+  
+  <!-- 箭头：连接原型链关系 -->
+  <!-- 1. 实例 → 构造函数.prototype -->
+  <line x1="200" y1="560" x2="200" y2="480" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="195,480 200,470 205,480" fill="#7f8c8d" />
+  <text x="205" y="500" font-size="12" fill="#7f8c8d">.__proto__</text>
+  <line x1="200" y1="470" x2="400" y2="470" stroke="#7f8c8d" stroke-width="2" />
+
+  <line x1="400" y1="560" x2="400" y2="470" stroke="#7f8c8d" stroke-width="2" />
+  <text x="405" y="500" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <line x1="600" y1="560" x2="600" y2="480" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="595,480 600,470 605,480" fill="#7f8c8d" />
+  <text x="605" y="500" font-size="12" fill="#7f8c8d">.__proto__</text>
+  <line x1="600" y1="470" x2="400" y2="470" stroke="#7f8c8d" stroke-width="2" />
+
+  <line x1="400" y1="470" x2="400" y2="450" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="400,450 395,460 405,460" fill="#7f8c8d" />
+
+  <!-- 2. 构造函数.prototype → Object.prototype -->
+  <line x1="400" y1="320" x2="400" y2="360" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="395,355 400,360 405,355" fill="#7f8c8d" />
+  <text x="370" y="340" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <!-- 3. Object.prototype → null -->
+  <line x1="440" y1="400" x2="560" y2="400" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="560,400 550,395 550,405" fill="#7f8c8d" />
+  <text x="470" y="390" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <!-- 4. 构造函数 → Function.prototype -->
+  <line x1="210" y1="230" x2="355" y2="275" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="355,275 350,265 345,280" fill="#7f8c8d" />
+  <text x="210" y="260" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <line x1="360" y1="230" x2="385" y2="240" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="375,240 380,230 385,240" fill="#7f8c8d" />
+  <text x="390" y="240" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <line x1="550" y1="230" x2="450" y2="275" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="450,275 455,265 455,280" fill="#7f8c8d" />
+  <text x="500" y="260" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <line x1="720" y1="230" x2="450" y2="275" stroke="#7f8c8d" stroke-width="2" />
+  <text x="650" y="260" font-size="12" fill="#7f8c8d">.__proto__</text>
+  
+  <!-- 图例 -->
+  <rect x="600" y="30" width="180" height="130" rx="8" fill="white" stroke="#ddd" stroke-width="1" />
+  <text x="610" y="50" font-size="14" font-weight="bold" fill="#2c3e50">图例</text>
+  
+  <circle cx="610" cy="65" r="8" fill="#34495e" />
+  <text x="630" y="70" font-size="12" fill="#7f8c8d">null（终点）</text>
+  
+  <circle cx="610" cy="85" r="8" fill="#9b59b6" />
+  <text x="630" y="90" font-size="12" fill="#7f8c8d">XXX.prototype（原型对象）</text>
+  
+  <rect x="602" y="105" width="16" height="10" rx="2" fill="#3498db" />
+  <text x="630" y="110" font-size="12" fill="#7f8c8d">构造函数（如 Object/Array）</text>
+  
+  <rect x="602" y="125" width="16" height="10" rx="2" fill="#f39c12" />
+  <text x="630" y="130" font-size="12" fill="#7f8c8d">实例（如 obj/arr/p）</text>
+  
+  <line x1="602" y1="145" x2="618" y2="145" stroke="#7f8c8d" stroke-width="2" />
+  <polygon points="618,145 612,140 612,150" fill="#7f8c8d" />
+  <text x="630" y="145" font-size="12" fill="#7f8c8d">.__proto__ 指向</text>
+</svg>
